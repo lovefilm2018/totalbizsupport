@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import HowWeWork from "./pages/HowWeWork";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function Router() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
