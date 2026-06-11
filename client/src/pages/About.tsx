@@ -29,7 +29,7 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6">The Story</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by management positions at eBay, Gumtree, and AXA—I decided to take a different path.
+                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by management positions at eBay, Gumtree, and extensive retail management experience (including Boots PLC and Topman / Topshop)—I decided to take a different path.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 The corporate environment, with its rigid hierarchies and slow processes, wasn't serving me well. I needed something more flexible, more human, and more direct. So I stepped back to focus on my health and rediscover what I actually enjoy doing.
@@ -143,7 +143,7 @@ export default function About() {
                   { company: "HSBC", role: "20 years in business and IT project management" },
                   { company: "eBay", role: "Leadership role in operations and technology" },
                   { company: "Gumtree", role: "Senior management position" },
-                  { company: "AXA", role: "Leadership in business operations" },
+                  { company: "Retail Management", role: "Management roles at Boots PLC and Topman / Topshop" },
                 ].map((item, index) => (
                   <li key={index} className="flex gap-4">
                     <div className="w-3 h-3 bg-accent rounded-full mt-2 flex-shrink-0" />
