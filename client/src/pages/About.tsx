@@ -29,13 +29,13 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6">The Story</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by leadership positions at eBay, Gumtree, and AXA—I decided to take a different path.
+                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by management positions at eBay, Gumtree, and AXA—I decided to take a different path.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 The corporate environment, with its rigid hierarchies and slow processes, wasn't serving me well. I needed something more flexible, more human, and more direct. So I stepped back to focus on my health and rediscover what I actually enjoy doing.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                That's when I realized: small business owners and sole traders are drowning. They're wearing too many hats, juggling tech, marketing, invoicing, and a hundred other things. They need someone they can trust—someone with real experience who can actually fix things, not just talk about them.
+                That's when I realised: small business owners and sole traders are drowning. They're wearing too many hats, juggling tech, marketing, invoicing, and a hundred other things. They need someone they can trust—someone with real experience who can actually fix things, not just talk about them.
               </p>
             </div>
             
@@ -65,7 +65,7 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6">Why TotalBiz Support?</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I started helping a friend who owns an Airbnb property. She needed everything: a website, WiFi optimization, security cameras, invoicing setup, social media, and general business advice. I realized I could do all of it—and do it well.
+                I started helping friends who own local businesses or investment properties. They needed everything: a website, WiFi optimization, security cameras, invoicing setup, social media, and general business advice. I realized I could do all of it—and do it well.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 That's the essence of TotalBiz Support. We're not a one-trick pony. We're a one-stop shop for small businesses that need reliable, experienced support across multiple areas.
