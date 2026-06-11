@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 
 function Router() {
   return (
-    <WouterRouter base="/totalbizsupport">
+    <WouterRouter>
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/services"} component={Services} />
