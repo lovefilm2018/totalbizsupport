@@ -7,8 +7,8 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
 
+  // Removed "Services" from this list since we have the dedicated button!
   const navLinks = [
-    { label: "Services", href: "/services" },
     { label: "How We Work", href: "/how-we-work" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -16,10 +16,9 @@ export default function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border transition-all duration-300 shadow-sm">
-      {/* Removed the max-w-7xl constraint so it aligns perfectly with the text below */}
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         
-        {/* Logo - Increased height significantly for tagline readability */}
+        {/* Logo - Using your exact image file with increased size */}
         <Link href="/">
           <a className="block hover:opacity-80 transition-opacity cursor-pointer">
             <img 
