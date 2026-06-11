@@ -69,6 +69,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Founder's Story Section */}
+      <section className="bg-slate-50 py-16 dark:bg-slate-900/50">
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+            <p>
+              After 20 years driving IT projects and business strategy for global giants like HSBC, eBay, and AXA, I realised something important: sole traders and small businesses can be completely overwhelmed by the operational chaos.
+            </p>
+            <p>
+              You don't need a separate IT guy, an accountant, a web developer, and a business coach. You need a single, reliable partner who understands how it all connects.
+            </p>
+            <p className="font-medium text-slate-900 dark:text-white">
+              Whether you run a guest house and are struggling with WiFi networks for your guests, or a local tradesperson who needs an invoicing system, or a sole trader looking to get online, TotalBiz Support exists to handle the chaos, so you can get back to running your business.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Section */}
       <section className="bg-secondary/50 py-12">
         <div className="container mx-auto px-4">
@@ -86,121 +103,4 @@ export default function Home() {
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2">EXPERTISE</p>
               <p className="text-2xl font-bold text-primary">Multi-Disciplinary</p>
-              <p className="text-muted-foreground">tech, business, property</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              How We Can Help
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We've simplified our services into four core areas. Whatever you need, we've got you covered.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-card p-8 rounded-lg border border-border hover:border-accent/50 transition-all hover:shadow-lg group"
-              >
-                <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-accent/10 transition-colors">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/services">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5" asChild>
-                <a>
-                  View All Services <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Engagement Models Section */}
-      <section className="bg-secondary/50 py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              How We Work
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Flexible engagement models to fit your needs and budget.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Hourly Support",
-                description: "Perfect for one-off fixes, troubleshooting, and quick advice.",
-                icon: "⏱️",
-              },
-              {
-                title: "Project-Based",
-                description: "Ideal for websites, installations, and defined deliverables.",
-                icon: "🎯",
-              },
-              {
-                title: "Monthly Retainer",
-                description: "Ongoing support hours as your fractional tech/admin partner.",
-                icon: "🤝",
-              },
-            ].map((model, index) => (
-              <div key={index} className="bg-background p-8 rounded-lg border border-border text-center">
-                <p className="text-4xl mb-4">{model.icon}</p>
-                <h3 className="text-xl font-bold text-primary mb-3">{model.title}</h3>
-                <p className="text-muted-foreground">{model.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/how-we-work">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
-                <a>
-                  Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Get Things Sorted?
-          </h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Whether you need a quick fix or ongoing support, we're here to help. Get in touch today.
-          </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
-              <a>
-                Start a Conversation <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-}
+              <p
