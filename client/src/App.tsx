@@ -10,6 +10,7 @@ import HowWeWork from "./pages/HowWeWork";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Router() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <ScrollToTop />
           <WhatsAppButton />
         </TooltipProvider>
       </ThemeProvider>
