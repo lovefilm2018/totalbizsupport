@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import alexPhoto from "@/assets/ap.jpg";
 
 export default function About() {
   return (
@@ -37,11 +38,18 @@ export default function About() {
                 That's when I realized: small business owners and sole traders are drowning. They're wearing too many hats, juggling tech, marketing, invoicing, and a hundred other things. They need someone they can trust—someone with real experience who can actually fix things, not just talk about them.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-secondary to-secondary/50 rounded-lg h-96 flex items-center justify-center border border-border">
-              <div className="text-center">
-                <p className="text-6xl mb-4">👤</p>
-                <p className="text-primary font-semibold">Alex Poxon</p>
-                <p className="text-muted-foreground text-sm">Founder & Principal Consultant</p>
+            
+            {/* Alex Poxon Profile Box */}
+            <div className="bg-card p-8 rounded-lg border border-border shadow-sm flex flex-col items-center text-center space-y-6">
+              <img 
+                src={alexPhoto} 
+                alt="Alex Poxon, Founder of TotalBiz Support"
+                className="w-56 h-56 rounded-full border-4 border-accent shadow-md object-cover" 
+              />
+              <div>
+                <h3 className="text-3xl font-bold text-primary mb-1">Alex Poxon</h3>
+                <p className="text-xl text-accent font-medium">Founder & Principal Consultant</p>
+                <p className="text-muted-foreground mt-2">Heathfield, East Sussex</p>
               </div>
             </div>
           </div>
@@ -186,41 +194,4 @@ export default function About() {
             <div className="bg-background p-8 rounded-lg border border-border">
               <p className="text-3xl mb-4">📍</p>
               <h3 className="text-xl font-bold text-primary mb-3">Local On-Site Support</h3>
-              <p className="text-muted-foreground">
-                Heathfield, East Sussex and surrounding areas. Perfect for WiFi setup, camera installation, and hands-on tech support.
-              </p>
-            </div>
-            <div className="bg-background p-8 rounded-lg border border-border">
-              <p className="text-3xl mb-4">🌐</p>
-              <h3 className="text-xl font-bold text-primary mb-3">UK-Wide Remote Support</h3>
-              <p className="text-muted-foreground">
-                Website design, bookkeeping, strategy, and consultancy via Google Meet. Available anywhere in the UK.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's Work Together
-          </h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Whether you're local or across the UK, we're here to help your business thrive.
-          </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
-              <a>
-                Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-}
+              <p
