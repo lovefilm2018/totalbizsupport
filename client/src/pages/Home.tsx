@@ -74,7 +74,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             <p>
-              After 20 years driving IT projects and business strategy for corporate giants like HSBC, eBay, and retail management at Boots and Topshop, I realised something important: sole traders and small businesses can be completely overwhelmed by the operational chaos.
+              After 20 years driving IT projects and business strategy for corporate giants like HSBC, eBay, and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders and small businesses can be completely overwhelmed by the operational chaos.
             </p>
             <p>
               You don't need a separate IT guy, an accountant, a web developer, and a business coach. You need a single, reliable partner who understands how it all connects.
@@ -97,8 +97,8 @@ export default function Home() {
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">BACKGROUND</p>
-              <p className="text-2xl font-bold text-primary">HSBC, eBay, Boots</p>
-              <p className="text-muted-foreground">and Topshop</p>
+              <p className="text-2xl font-bold text-primary">HSBC, eBay, Gumtree</p>
+              <p className="text-muted-foreground">Boots & Topshop</p>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
