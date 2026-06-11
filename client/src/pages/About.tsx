@@ -194,4 +194,41 @@ export default function About() {
             <div className="bg-background p-8 rounded-lg border border-border">
               <p className="text-3xl mb-4">📍</p>
               <h3 className="text-xl font-bold text-primary mb-3">Local On-Site Support</h3>
-              <p
+              <p className="text-muted-foreground">
+                Heathfield, East Sussex and surrounding areas. Perfect for WiFi setup, camera installation, and hands-on tech support.
+              </p>
+            </div>
+            <div className="bg-background p-8 rounded-lg border border-border">
+              <p className="text-3xl mb-4">🌐</p>
+              <h3 className="text-xl font-bold text-primary mb-3">UK-Wide Remote Support</h3>
+              <p className="text-muted-foreground">
+                Website design, bookkeeping, strategy, and consultancy via Google Meet. Available anywhere in the UK.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 md:py-32 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Let's Work Together
+          </h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+            Whether you're local or across the UK, we're here to help your business thrive.
+          </p>
+          <Link href="/contact">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
+              <a>
+                Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
