@@ -7,22 +7,22 @@ import Footer from "@/components/Footer";
 export default function Home() {
   const services = [
     {
-      icon: <Zap className="w-8 h-8 text-accent" />,
+      icon: <Zap className="w-8 h-8 text-primary" />,
       title: "Getting You Online",
       description: "Websites, local search visibility, and digital storefronts that bring in customers.",
     },
     {
-      icon: <BarChart3 className="w-8 h-8 text-accent" />,
+      icon: <BarChart3 className="w-8 h-8 text-primary" />,
       title: "Tech & Equipment Fixes",
       description: "WiFi networks, security cameras, device setup, and all your tech troubleshooting.",
     },
     {
-      icon: <Users className="w-8 h-8 text-accent" />,
+      icon: <Users className="w-8 h-8 text-primary" />,
       title: "Admin & Bookkeeping",
       description: "Invoicing systems, paperwork organization, and Google Workspace setup.",
     },
     {
-      icon: <Lightbulb className="w-8 h-8 text-accent" />,
+      icon: <Lightbulb className="w-8 h-8 text-primary" />,
       title: "Strategy & Advice",
       description: "Business guidance, project planning, and practical consultancy.",
     },
@@ -51,14 +51,14 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
                   <a>
                     Get Support Today <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
                 </Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5" asChild>
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
                   <a>
                     Explore Services
                   </a>
@@ -74,7 +74,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             <p>
-              After 20 years driving IT projects and business strategy for global giants like HSBC, eBay, and AXA, I realised something important: sole traders and small businesses can be completely overwhelmed by the operational chaos.
+              After 20 years driving IT projects and business strategy for corporate giants like HSBC, eBay, and retail management at Boots and Topshop, I realised something important: sole traders and small businesses can be completely overwhelmed by the operational chaos.
             </p>
             <p>
               You don't need a separate IT guy, an accountant, a web developer, and a business coach. You need a single, reliable partner who understands how it all connects.
@@ -91,17 +91,17 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <p className="text-sm font-semibold text-accent mb-2">TRUSTED BY</p>
+              <p className="text-sm font-semibold text-accent mb-2 tracking-wider">TRUSTED BY</p>
               <p className="text-2xl font-bold text-primary">20+ Years</p>
               <p className="text-muted-foreground">of corporate experience</p>
             </div>
             <div className="text-center">
-              <p className="text-sm font-semibold text-accent mb-2">BACKGROUND</p>
-              <p className="text-2xl font-bold text-primary">HSBC, eBay, AXA</p>
-              <p className="text-muted-foreground">and more</p>
+              <p className="text-sm font-semibold text-accent mb-2 tracking-wider">BACKGROUND</p>
+              <p className="text-2xl font-bold text-primary">HSBC, eBay, Boots</p>
+              <p className="text-muted-foreground">and Topshop</p>
             </div>
             <div className="text-center">
-              <p className="text-sm font-semibold text-accent mb-2">EXPERTISE</p>
+              <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
               <p className="text-2xl font-bold text-primary">Multi-Disciplinary</p>
               <p className="text-muted-foreground">tech, business, property</p>
             </div>
@@ -125,9 +125,9 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-lg border border-border hover:border-accent/50 transition-all hover:shadow-lg group"
+                className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg group"
               >
-                <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-accent/10 transition-colors">
+                <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
@@ -138,7 +138,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5" asChild>
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
                 <a>
                   View All Services <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
@@ -178,7 +178,7 @@ export default function Home() {
                 icon: "🤝",
               },
             ].map((model, index) => (
-              <div key={index} className="bg-background p-8 rounded-lg border border-border text-center">
+              <div key={index} className="bg-background p-8 rounded-lg border border-border text-center shadow-sm">
                 <p className="text-4xl mb-4">{model.icon}</p>
                 <h3 className="text-xl font-bold text-primary mb-3">{model.title}</h3>
                 <p className="text-muted-foreground">{model.description}</p>
@@ -188,7 +188,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/how-we-work">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
                 <a>
                   Learn More <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
@@ -199,8 +199,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Things Sorted?
           </h2>
@@ -208,7 +209,7 @@ export default function Home() {
             Whether you need a quick fix or ongoing support, we're here to help. Get in touch today.
           </p>
           <Link href="/contact">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
               <a>
                 Start a Conversation <ArrowRight className="ml-2 w-5 h-5" />
               </a>
