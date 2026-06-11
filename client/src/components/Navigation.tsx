@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Settings } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -16,18 +16,17 @@ export default function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border transition-all duration-300 shadow-sm">
-      {/* Container is standard width to keep menu tight and logo aligned left */}
-      <div className="container mx-auto px-4 flex h-24 items-center justify-between">
+      {/* Removed the max-w-7xl constraint so it aligns perfectly with the text below */}
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         
-        {/* Sleek Code-Based Secondary Logo - Solves legibility issues permanently */}
+        {/* Logo - Increased height significantly for tagline readability */}
         <Link href="/">
-          <a className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-            {/* Blue gear graphic to match logo style */}
-            <Settings className="w-9 h-9 text-[#004f9f]" strokeWidth={2.5} />
-            <span className="text-3xl md:text-4xl font-black tracking-tight flex items-baseline">
-              <span className="text-[#004f9f]">TotalBiz</span>
-              <span className="text-[#2c3439] font-medium text-[0.95em] ml-1"> Support</span>
-            </span>
+          <a className="block hover:opacity-80 transition-opacity cursor-pointer">
+            <img 
+              src="/logo.png" 
+              alt="TotalBiz Support" 
+              className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            />
           </a>
         </Link>
 
@@ -41,7 +40,7 @@ export default function Navigation() {
             </Link>
           ))}
           <Link href="/services">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm transition-transform hover:scale-105 font-bold" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm transition-transform hover:scale-105" asChild>
               <a>
                 Explore Services
               </a>
@@ -59,9 +58,9 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Navigation Dropdown */}
+      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden border-t border-border bg-background shadow-xl absolute w-full left-0 right-0">
+        <div className="md:hidden border-t border-border bg-background shadow-xl absolute w-full">
           <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
