@@ -43,49 +43,49 @@
 }
 
 :root {
-  /* TotalBiz Support - Modern Corporate Minimalism Design System */
-  /* Primary: Deep Slate Blue | Secondary: Soft Grey | Accent: Vibrant Teal */
+  /* TotalBiz Support - Logo Exact Colors */
+  /* Primary: TotalBiz Blue | Accent: TotalBiz Slate Grey */
   
-  --primary: #1a3a52;
-  --primary-foreground: #f5f7fa;
-  --sidebar-primary: #1a3a52;
-  --sidebar-primary-foreground: #f5f7fa;
-  --accent: #0ea5a5;
+  --primary: #004f9f;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #004f9f;
+  --sidebar-primary-foreground: #ffffff;
+  --accent: #2c3439;
   --accent-foreground: #ffffff;
-  --chart-1: #0ea5a5;
-  --chart-2: #1a3a52;
+  --chart-1: #004f9f;
+  --chart-2: #2c3439;
   --chart-3: #2d5a7b;
-  --chart-4: #3d6a8f;
-  --chart-5: #4d7aa3;
+  --chart-4: #4d7aa3;
+  --chart-5: #6b9ac2;
   --radius: 0.65rem;
   --background: #ffffff;
-  --foreground: #1a3a52;
+  --foreground: #2c3439;
   --card: #f5f7fa;
-  --card-foreground: #1a3a52;
+  --card-foreground: #2c3439;
   --popover: #ffffff;
-  --popover-foreground: #1a3a52;
+  --popover-foreground: #2c3439;
   --secondary: #e8ecf1;
-  --secondary-foreground: #1a3a52;
-  --muted: #d1d9e0;
-  --muted-foreground: #5a6f7f;
+  --secondary-foreground: #004f9f;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: #e8ecf1;
   --input: #f5f7fa;
-  --ring: #0ea5a5;
+  --ring: #004f9f;
   --sidebar: #ffffff;
-  --sidebar-foreground: #1a3a52;
-  --sidebar-accent: #0ea5a5;
+  --sidebar-foreground: #2c3439;
+  --sidebar-accent: #2c3439;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #e8ecf1;
-  --sidebar-ring: #0ea5a5;
+  --sidebar-ring: #004f9f;
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
+  --primary: #3b82f6; /* Lighter blue for visibility on dark mode */
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.85 0.005 65);
   --card: oklch(0.21 0.006 285.885);
@@ -93,16 +93,16 @@
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.85 0.005 65);
   --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
+  --secondary-foreground: #3b82f6;
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
+  --accent: #475569;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
+  --ring: #3b82f6;
   --chart-1: var(--color-blue-300);
   --chart-2: var(--color-blue-500);
   --chart-3: var(--color-blue-600);
@@ -110,10 +110,10 @@
   --chart-5: var(--color-blue-800);
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-accent: #475569;
+  --sidebar-accent-foreground: #ffffff;
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --sidebar-ring: #3b82f6;
 }
 
 @layer base {
@@ -153,22 +153,12 @@
 @layer components {
   /**
    * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
    */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -179,16 +169,16 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
 }
