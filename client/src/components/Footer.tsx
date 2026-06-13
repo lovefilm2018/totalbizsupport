@@ -18,7 +18,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-base opacity-90">
-              Enterprise-grade support for small businesses, sole traders, and property owners.
+              Corporate-grade support for small businesses, sole traders, and property owners.
             </p>
           </div>
 
