@@ -43,7 +43,7 @@ export default function Home() {
         <div className="relative container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
-              Enterprise-Grade Support.
+              Corporate-Grade Support.
               <span className="text-accent"> Small Business Prices.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
