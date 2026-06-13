@@ -105,7 +105,7 @@ export default function About() {
               {
                 icon: "💰",
                 title: "Fair Pricing",
-                description: "You get enterprise-grade expertise at small business prices. No hidden fees, no surprises.",
+                description: "You get corporate-grade expertise at small business prices. No hidden fees, no surprises.",
               },
               {
                 icon: "🔒",
