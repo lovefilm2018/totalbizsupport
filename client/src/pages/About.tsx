@@ -29,7 +29,7 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6">The Story</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by delivering complex programmes for large corporates such as eBay and Gumtree, and extensive retail management experience (including Boots PLC and Topman / Topshop)—I decided to take a different path.
+                After 20 years in the corporate world—including two decades at HSBC in both business and IT project management roles, followed by delivering complex programmes for large corporates such as eBay, Gumtree, Schroders and Benchmark Capital, and extensive retail management experience (including Boots PLC and Topman / Topshop)—I decided to take a different path.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 The corporate environment, with its rigid hierarchies and slow processes, wasn't serving me well. I needed something more flexible, more human, and more direct. So I stepped back to focus on my health and rediscover what I actually enjoy doing.
@@ -141,7 +141,8 @@ export default function About() {
               <ul className="space-y-4">
                 {[
                   { company: "HSBC", role: "20 years in business and IT project management" },
-                  { company: "eBay", role: "Leadership role in operations and technology" },
+                  { company: "eBay", role: "Supporting eBay through a complex divestment programme" },
+                  { company: "Schroders & Benchmark Capital", role: "Managing Operational Readiness and Target Operating Models (TOM)" }
                   { company: "Gumtree", role: "Senior management position" },
                   { company: "Retail Management", role: "Management roles at Boots PLC and Topman / Topshop" },
                 ].map((item, index) => (
@@ -165,6 +166,8 @@ export default function About() {
                   "Website design and development",
                   "Digital marketing and SEO",
                   "Bookkeeping and financial administration",
+                  "Operational Efficiency",
+                  "Target Operating Model (TOM)",
                   "Property management and optimization",
                   "Network setup and security",
                   "Google Workspace and business tools",
