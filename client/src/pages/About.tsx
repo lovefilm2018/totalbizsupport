@@ -142,7 +142,7 @@ export default function About() {
                 {[
                   { company: "HSBC", role: "20 years in business and IT project management" },
                   { company: "eBay", role: "Supporting eBay through a complex divestment programme" },
-                  { company: "Schroders & Benchmark Capital", role: "Managing Operational Readiness and Target Operating Models (TOM)" }
+                  { company: "Schroders & Benchmark Capital", role: "Managing Operational Readiness and Target Operating Models (TOM)" },
                   { company: "Gumtree", role: "Senior management position" },
                   { company: "Retail Management", role: "Management roles at Boots PLC and Topman / Topshop" },
                 ].map((item, index) => (
