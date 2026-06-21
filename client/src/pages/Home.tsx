@@ -174,7 +174,7 @@ export default function Home() {
               },
               {
                 title: "Monthly Retainer",
-                description: "Ongoing support hours as your fractional tech/admin partner.",
+                description: "Ongoing support hours as your business support and tech partner.",
                 icon: "🤝",
               },
             ].map((model, index) => (
