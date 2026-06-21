@@ -71,7 +71,7 @@ export default function About() {
                 That's the essence of TotalBiz Support. We're not a one-trick pony. We're a one-stop shop for small businesses that need reliable, experienced support across multiple areas.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Think of us as your fractional COO and CTO rolled into one. We bring corporate-grade thinking, security awareness, and process discipline to small business problems. But we also get our hands dirty and actually fix things.
+                Think of us as your all-in-one business support and tech partner. We bring corporate-grade thinking, security awareness, and process discipline to small business problems. But we also get our hands dirty and actually fix things.
               </p>
             </div>
           </div>
