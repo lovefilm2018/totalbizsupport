@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,9 +17,30 @@ export default function Footer() {
                 className="h-32 w-auto"
               />
             </div>
-            <p className="text-base opacity-90">
+            <p className="text-base opacity-90 mb-6">
               Corporate-grade support for small businesses, sole traders, and property owners.
             </p>
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/company/totalbiz-support" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary-foreground hover:text-accent transition-colors"
+                aria-label="Follow us on LinkedIn"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=61590808467866" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary-foreground hover:text-accent transition-colors"
+                aria-label="Follow us on Facebook"
+              >
+                <Facebook size={24} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
