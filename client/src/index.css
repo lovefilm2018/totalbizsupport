@@ -182,3 +182,6 @@
     }
   }
 }
+html, body {
+  touch-action: auto !important;
+}
