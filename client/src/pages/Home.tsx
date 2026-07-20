@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, BarChart3, Users, Lightbulb } from "lucide-react";
@@ -5,6 +6,23 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "TotalBiz Support",
+    "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/hero-background-8y8Pu8nxZFBPuCxpEDWsLX.webp",
+    "description": "Corporate-grade business, technology, and administration support for small businesses, sole traders, and property owners.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Heathfield",
+      "addressRegion": "East Sussex",
+      "addressCountry": "UK"
+    },
+    "telephone": "+447799538311",
+    "priceRange": "££",
+    "url": "https://totalbizsupport.co.uk"
+  };
+
   const services = [
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
@@ -30,6 +48,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>TotalBiz Support | Small Business Tech & Business Support East Sussex</title>
+        <meta name="description" content="Corporate-grade tech, website, bookkeeping and business support for small businesses and sole traders in Heathfield, East Sussex and across the UK." />
+      </Helmet>
+
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </script>
+
       <Navigation />
 
       {/* Hero Section */}

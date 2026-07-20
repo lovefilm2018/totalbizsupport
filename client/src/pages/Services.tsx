@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb } from "lucide-react";
@@ -7,7 +8,7 @@ import Footer from "@/components/Footer";
 export default function Services() {
   const serviceCategories = [
     {
-      title: "Getting You Online",
+      title: "Getting You Online — Custom Web Design & Local SEO",
       icon: <Globe className="w-8 h-8 text-primary" />,
       description: "We help you build and maintain your digital presence, ensuring you're discoverable and professional online.",
       features: [
@@ -21,7 +22,7 @@ export default function Services() {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Tech & Equipment Fixes",
+      title: "Tech & Equipment Fixes — WiFi Networks & Security Systems",
       icon: <Wrench className="w-8 h-8 text-primary" />,
       description: "From WiFi networks to security cameras, we handle all your technology needs so you can focus on your business.",
       features: [
@@ -36,7 +37,7 @@ export default function Services() {
       image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Admin & Bookkeeping",
+      title: "Admin & Bookkeeping — Invoicing & Business Process Setup",
       icon: <FileText className="w-8 h-8 text-primary" />,
       description: "We organize your business operations, from invoicing to bookkeeping, so you're always in control of your finances.",
       features: [
@@ -51,7 +52,7 @@ export default function Services() {
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Strategy & Advice",
+      title: "Strategy & Advice — Practical Business Consultancy",
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
       description: "We provide practical business guidance and strategic advice to help you make informed decisions and grow.",
       features: [
@@ -69,6 +70,11 @@ export default function Services() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>Small Business Tech, Web Design & Bookkeeping Services | TotalBiz</title>
+        <meta name="description" content="Explore TotalBiz Support services: website design, local search optimization, WiFi setup, security camera installation, bookkeeping, and business strategy consultancy." />
+      </Helmet>
+
       <Navigation />
 
       {/* Hero Section */}

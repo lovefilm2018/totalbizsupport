@@ -1,4 +1,5 @@
-import { Mail, MessageCircle, MapPin, Send } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { Mail, MessageCircle, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -10,7 +11,6 @@ export default function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
 
-    // TODO: Paste your Formspree URL right here!
     const FORMSPREE_URL = "https://formspree.io/f/xjgdezbz";
 
     try {
@@ -33,6 +33,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>Contact TotalBiz Support | Heathfield, East Sussex & Remote UK</title>
+        <meta name="description" content="Contact TotalBiz Support for small business technology, web development, bookkeeping and administrative support in Heathfield, East Sussex and across the UK." />
+      </Helmet>
+
       <Navigation />
 
       <main className="flex-grow container mx-auto px-4 py-20 max-w-6xl">
@@ -64,11 +69,16 @@ export default function Contact() {
                 <MessageCircle className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-primary mb-1">WhatsApp</h3>
-                <p className="text-muted-foreground mb-2">The fastest way to reach us for quick questions.</p>
-                <a href="https://wa.me/447799538311" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-medium">
-                  +44 7799 538311
-                </a>
+                <h3 className="text-xl font-bold text-primary mb-1">Phone & WhatsApp</h3>
+                <p className="text-muted-foreground mb-2">Reach out directly via phone or WhatsApp.</p>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+447799538311" className="text-accent hover:underline font-medium flex items-center gap-1">
+                    <Phone className="w-4 h-4 inline" /> +44 7799 538311 (Direct Call)
+                  </a>
+                  <a href="https://wa.me/447799538311" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-medium">
+                    +44 7799 538311 (WhatsApp)
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -79,8 +89,8 @@ export default function Contact() {
               <div>
                 <h3 className="text-xl font-bold text-primary mb-1">Location</h3>
                 <p className="text-muted-foreground">
-                  Based in East Sussex, UK.<br />
-                  Supporting businesses locally and remotely.
+                  Based in Heathfield, East Sussex, UK.<br />
+                  Supporting businesses locally and remotely across the UK.
                 </p>
               </div>
             </div>

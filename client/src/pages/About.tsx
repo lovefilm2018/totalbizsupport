@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -8,6 +9,11 @@ import alexPhoto from "@/assets/ap.jpg";
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>About Alex Poxon & TotalBiz Support | 20+ Years Corporate Experience</title>
+        <meta name="description" content="Learn about TotalBiz Support founder Alex Poxon. 20+ years corporate experience bringing enterprise-grade IT, strategy, and business support to small businesses." />
+      </Helmet>
+
       <Navigation />
 
       {/* Hero Section */}

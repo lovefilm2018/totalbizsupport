@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
@@ -54,8 +55,57 @@ export default function HowWeWork() {
     },
   ];
 
+  const faqList = [
+    {
+      q: "Can I mix and match engagement models?",
+      a: "Absolutely! Many clients start with hourly support to test the waters, then move to a retainer or project-based work as needs evolve.",
+    },
+    {
+      q: "What if I'm not sure what I need?",
+      a: "That's fine! We offer a free initial consultation to discuss your situation and recommend the best approach.",
+    },
+    {
+      q: "Are there any long-term contracts?",
+      a: "No. Retainer clients can pause or cancel anytime. We believe in earning your business every month.",
+    },
+    {
+      q: "How quickly can you respond?",
+      a: "Hourly support typically within 24 hours. Retainer clients get priority and faster response times.",
+    },
+    {
+      q: "Do you offer support outside Heathfield?",
+      a: "Yes! We serve Heathfield and East Sussex for on-site work, but offer remote support UK-wide via Google Meet.",
+    },
+    {
+      q: "What if I need emergency support?",
+      a: "Contact us immediately. We do our best to accommodate urgent requests, especially for retainer clients.",
+    },
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqList.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>How We Work | Hourly, Project & Retainer Support | TotalBiz</title>
+        <meta name="description" content="Flexible pricing models for small businesses and sole traders. Choose hourly support, project-based rates, or monthly support retainers." />
+      </Helmet>
+
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+
       <Navigation />
 
       {/* Hero Section */}
@@ -184,32 +234,7 @@ export default function HowWeWork() {
           </h2>
 
           <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                q: "Can I mix and match engagement models?",
-                a: "Absolutely! Many clients start with hourly support to test the waters, then move to a retainer or project-based work as needs evolve.",
-              },
-              {
-                q: "What if I'm not sure what I need?",
-                a: "That's fine! We offer a free initial consultation to discuss your situation and recommend the best approach.",
-              },
-              {
-                q: "Are there any long-term contracts?",
-                a: "No. Retainer clients can pause or cancel anytime. We believe in earning your business every month.",
-              },
-              {
-                q: "How quickly can you respond?",
-                a: "Hourly support typically within 24 hours. Retainer clients get priority and faster response times.",
-              },
-              {
-                q: "Do you offer support outside Heathfield?",
-                a: "Yes! We serve Heathfield and East Sussex for on-site work, but offer remote support UK-wide via Google Meet.",
-              },
-              {
-                q: "What if I need emergency support?",
-                a: "Contact us immediately. We do our best to accommodate urgent requests, especially for retainer clients.",
-              },
-            ].map((item, index) => (
+            {faqList.map((item, index) => (
               <div key={index} className="bg-card p-6 rounded-lg border border-border">
                 <h3 className="font-bold text-primary mb-3">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
