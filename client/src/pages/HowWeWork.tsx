@@ -10,13 +10,13 @@ export default function HowWeWork() {
     {
       title: "Hourly Support",
       icon: "⏱️",
-      description: "Pay for what you use. Perfect for quick fixes and ad-hoc help.",
+      description: "Pay for what you use. Perfect for quick fixes, personal admin, and ad-hoc help.",
       price: "£50-75/hour",
-      ideal: "One-off troubleshooting, quick advice, emergency fixes",
+      ideal: "One-off troubleshooting, Self-Assessments, device setup, emergency fixes",
       features: [
         "Flexible scheduling",
         "No long-term commitment",
-        "Perfect for emergencies",
+        "Perfect for emergencies & ad-hoc needs",
         "Quick turnaround",
         "Ideal for testing services",
       ],
@@ -27,7 +27,7 @@ export default function HowWeWork() {
       icon: "🎯",
       description: "Fixed scope, fixed price. Great for specific deliverables.",
       price: "Varies by project",
-      ideal: "Website builds, installations, system setup, defined projects",
+      ideal: "Website builds, Wi-Fi installations, system setup, defined projects",
       features: [
         "Clear scope and timeline",
         "Fixed pricing",
@@ -43,7 +43,7 @@ export default function HowWeWork() {
       icon: "🤝",
       description: "Ongoing support with guaranteed hours each month.",
       price: "£300-1000+/month",
-      ideal: "Ongoing tech support, admin help, regular consultancy",
+      ideal: "Ongoing business tech, admin management, regular consultancy",
       features: [
         "Guaranteed support hours",
         "Priority response times",
@@ -57,28 +57,28 @@ export default function HowWeWork() {
 
   const faqList = [
     {
+      q: "Do you help individuals as well as businesses?",
+      a: "Yes, absolutely! Many of our clients are busy professionals, property owners, or home-office workers who need help sorting out home Wi-Fi networks, device setups, personal paperwork, or Self-Assessment tax filings.",
+    },
+    {
       q: "Can I mix and match engagement models?",
-      a: "Absolutely! Many clients start with hourly support to test the waters, then move to a retainer or project-based work as needs evolve.",
+      a: "Of course! Many clients start with hourly support for a specific fix or tax return, then transition to project work or a ongoing retainer as needs evolve.",
     },
     {
       q: "What if I'm not sure what I need?",
-      a: "That's fine! We offer a free initial consultation to discuss your situation and recommend the best approach.",
+      a: "That's completely fine! We offer a free initial consultation to discuss your situation and recommend the simplest, most cost-effective approach.",
     },
     {
       q: "Are there any long-term contracts?",
-      a: "No. Retainer clients can pause or cancel anytime. We believe in earning your business every month.",
+      a: "No. Retainer clients can pause or cancel anytime. We believe in earning your trust and business every month.",
     },
     {
       q: "How quickly can you respond?",
-      a: "Hourly support typically within 24 hours. Retainer clients get priority and faster response times.",
+      a: "Hourly support is typically delivered within 24 hours. Retainer clients receive priority scheduling and faster response times.",
     },
     {
       q: "Do you offer support outside Heathfield?",
-      a: "Yes! We serve Heathfield and East Sussex for on-site work, but offer remote support UK-wide via Google Meet.",
-    },
-    {
-      q: "What if I need emergency support?",
-      a: "Contact us immediately. We do our best to accommodate urgent requests, especially for retainer clients.",
+      a: "Yes! We serve Heathfield and East Sussex for on-site work (like Wi-Fi setup or camera installs), but provide remote support UK-wide via Google Meet.",
     },
   ];
 
@@ -99,7 +99,7 @@ export default function HowWeWork() {
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>How We Work | Hourly, Project & Retainer Support | TotalBiz</title>
-        <meta name="description" content="Flexible pricing models for small businesses and sole traders. Choose hourly support, project-based rates, or monthly support retainers." />
+        <meta name="description" content="Transparent, flexible pricing for businesses and individuals. Hourly support, project-based rates, and monthly retainers for tech, web, and admin assistance." />
       </Helmet>
 
       <script type="application/ld+json">
@@ -115,7 +115,7 @@ export default function HowWeWork() {
             How We Work
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            Flexible engagement models designed to fit your business needs and budget.
+            Flexible engagement models designed to fit your business or personal budget.
           </p>
         </div>
       </section>
