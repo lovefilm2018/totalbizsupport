@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
+import PersonalSupport from "@/pages/PersonalSupport";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path={"/about"} component={About} />
         <Route path={"/contact"} component={Contact} />
         <Route path={"/404"} component={NotFound} />
+        <Route path="/personal-support" component={PersonalSupport} />
         {/* Final fallback route */}
         <Route component={NotFound} />
       </Switch>
