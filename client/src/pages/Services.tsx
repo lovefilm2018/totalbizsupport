@@ -8,62 +8,59 @@ import Footer from "@/components/Footer";
 export default function Services() {
   const serviceCategories = [
     {
-      title: "Getting You Online — Custom Web Design & Local SEO",
+      title: "Getting You Online — Websites & Local Visibility",
       icon: <Globe className="w-8 h-8 text-primary" />,
-      description: "We help you build and maintain your digital presence, ensuring you're discoverable and professional online.",
+      description: "We help you build and maintain a professional digital presence, ensuring you're discoverable and stand out online.",
       features: [
         "Custom website design and development",
-        "Local search optimization (SEO)",
-        "Google Business Profile setup",
-        "Social media profile creation",
-        "E-commerce and digital storefronts",
+        "Local search optimization (SEO) & Google Business setup",
+        "Social media profile creation & management",
+        "E-commerce storefronts & direct booking systems",
+        "Domain, email & web hosting management",
       ],
-      ideal: "Tradespeople, local businesses, property owners, sole traders",
+      ideal: "Tradespeople, local businesses, property owners, sole traders, & entrepreneurs",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Tech & Equipment Fixes — WiFi Networks & Security Systems",
+      title: "Tech & Equipment Fixes — Wi-Fi, Hardware & CCTV",
       icon: <Wrench className="w-8 h-8 text-primary" />,
-      description: "From WiFi networks to security cameras, we handle all your technology needs so you can focus on your business.",
+      description: "From commercial networks to home office tech, we handle all your equipment and troubleshooting needs so everything works seamlessly.",
       features: [
-        "WiFi mesh network installation and optimization",
-        "Security camera systems setup",
-        "Laptop and device repairs",
-        "Network setup and configuration",
-        "Device troubleshooting and support",
-        "Software installation and updates",
+        "Mesh Wi-Fi installation, dead-spot fixing & optimization for offices, guest houses & homes",
+        "Security camera (CCTV) systems & smart tech setup",
+        "Laptop, desktop, printer & device troubleshooting & repairs",
+        "Network setup, router configuration & cabling",
+        "Software installation, updates & cloud backups",
       ],
-      ideal: "Property owners, Airbnb hosts, small offices, busy individuals",
+      ideal: "Commercial offices, property managers, Airbnb hosts, home workers & individuals",
       image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Admin & Bookkeeping — Invoicing & Business Process Setup",
+      title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
       icon: <FileText className="w-8 h-8 text-primary" />,
-      description: "We organize your business operations, from invoicing to bookkeeping, so you're always in control of your finances.",
+      description: "We organize your day-to-day operations and paperwork—from commercial bookkeeping to personal Self-Assessments—so you stay in total control.",
       features: [
-        "Invoicing system setup",
-        "Bookkeeping support and organization",
-        "Paperwork and file organization",
-        "Google Workspace configuration",
-        "Business process automation",
-        "Document management systems",
+        "Self-Assessment tax return filing assistance & digital account setup",
+        "Invoicing system setup & bookkeeping organization",
+        "Paperwork, digital file & document management systems",
+        "Google Workspace configuration for business & personal use",
+        "Process automation & event operational support",
       ],
-      ideal: "Small businesses, sole traders, property managers, service providers",
+      ideal: "Small businesses, sole traders, busy professionals & individuals needing admin help",
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Strategy & Advice — Practical Business Consultancy",
+      title: "Strategy & Advice — Practical Consultancy & Coaching",
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      description: "We provide practical business guidance and strategic advice to help you make informed decisions and grow.",
+      description: "We provide practical, jargon-free business guidance and technology coaching to help you make informed decisions and achieve your goals.",
       features: [
-        "Business strategy consultancy",
-        "Project planning and management",
-        "Operational efficiency reviews",
-        "Technology recommendations",
-        "Problem-solving and troubleshooting",
-        "One-on-one business guidance",
+        "Business strategy & operational efficiency reviews",
+        "Project planning & programme management",
+        "Technology recommendations & vendor selection",
+        "One-on-one tech coaching & guidance for all skill levels",
+        "Problem-solving & general operational troubleshooting",
       ],
-      ideal: "Entrepreneurs, business owners, property investors, growing companies",
+      ideal: "Business owners, entrepreneurs, property investors & individuals navigating complex tech",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
     },
   ];
@@ -71,8 +68,8 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Small Business Tech, Web Design & Bookkeeping Services | TotalBiz</title>
-        <meta name="description" content="Explore TotalBiz Support services: website design, local search optimization, WiFi setup, security camera installation, bookkeeping, and business strategy consultancy." />
+        <title>Tech Support, Web Design, Wi-Fi & Admin Services | TotalBiz</title>
+        <meta name="description" content="Explore TotalBiz Support services: custom web design, Wi-Fi setup, CCTV, bookkeeping, Self-Assessment filing, and tech support for businesses & individuals in East Sussex." />
       </Helmet>
 
       <Navigation />
@@ -84,7 +81,7 @@ export default function Services() {
             Our Services
           </h1>
           <p className="text-xl text-foreground/80 max-w-3xl leading-relaxed">
-            We've organized our expertise into four core service areas. Whatever your business needs, we can help.
+            Corporate-grade expertise tailored for commercial businesses, home offices, and individuals alike. Whatever you need sorting, we can help.
           </p>
         </div>
       </section>
