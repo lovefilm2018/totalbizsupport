@@ -4,13 +4,13 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-  "dev": "vite --host",
-  "build": "vite build && node -e \"const fs=require('fs'); ['personal-support', 'services', 'how-we-work', 'contact'].forEach(dir => { fs.mkdirSync(`dist/public/\\${dir}`, {recursive: true}); fs.copyFileSync('dist/public/index.html', `dist/public/\\${dir}/index.html`); });\"",
-  "start": "NODE_ENV=production node dist/index.js",
-  "preview": "vite preview --host",
-  "check": "tsc --noEmit",
-  "format": "prettier --write ."
-},
+    "dev": "vite --host",
+    "build": "vite build && node -e \"const fs=require('fs'); ['personal-support', 'services', 'how-we-work', 'contact'].forEach(d => { fs.mkdirSync('dist/public/' + d, {recursive: true}); fs.copyFileSync('dist/public/index.html', 'dist/public/' + d + '/index.html'); });\"",
+    "start": "NODE_ENV=production node dist/index.js",
+    "preview": "vite preview --host",
+    "check": "tsc --noEmit",
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
