@@ -5,12 +5,16 @@ import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu } from 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+// Local asset imports
+import heroBg from "@/assets/hero-bg.avif";
+import ctaBg from "@/assets/cta-bg.avif";
+
 export default function Home() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "TotalBiz Support",
-    "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/hero-background-8y8Pu8nxZFBPuCxpEDWsLX.webp",
+    "image": heroBg,
     "description": "Corporate-grade business, technology, smart home, project management, and administration support for small businesses, sole traders, property owners, and individuals.",
     "address": {
       "@type": "PostalAddress",
@@ -74,7 +78,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/hero-background-8y8Pu8nxZFBPuCxpEDWsLX.webp')`,
+            backgroundImage: `url('${heroBg}')`,
           }}
         />
         <div className="relative container mx-auto px-4 py-20 md:py-32">
@@ -244,7 +248,10 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay" />
+        <div 
+          className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay" 
+          style={{ backgroundImage: `url('${ctaBg}')` }}
+        />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Things Sorted?
