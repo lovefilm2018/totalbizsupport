@@ -8,6 +8,34 @@ import Footer from "@/components/Footer";
 export default function Services() {
   const serviceCategories = [
     {
+      title: "Strategy & Operating Models — Practical Consultancy & Advice",
+      icon: <Lightbulb className="w-8 h-8 text-primary" />,
+      description: "We provide high-level business guidance, Target Operating Model (TOM) design, and workflow optimization to help you make informed decisions.",
+      features: [
+        "Target Operating Model (TOM) design & process mapping",
+        "Business strategy & operational efficiency reviews",
+        "Technology recommendations & vendor selection",
+        "One-on-one tech coaching & guidance for all skill levels",
+        "Fractional COO & operational advisory for growing businesses",
+      ],
+      ideal: "Business owners, entrepreneurs, property investors & individuals navigating complex tech",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Project Management & Transformation — Delivery & Migrations",
+      icon: <FolderKanban className="w-8 h-8 text-primary" />,
+      description: "Planning a software migration, premises move, or operational change? We bring 20+ years of corporate project experience to keep your project on time and within budget.",
+      features: [
+        "End-to-end project planning, timelines & budget management",
+        "System migrations, platform upgrades & data transfers",
+        "Third-party vendor, contractor & supplier management",
+        "Risk, issue & dependency management (RAID logs)",
+        "Operational readiness & change implementation",
+      ],
+      ideal: "Businesses launching new systems, undergoing relocations, or executing complex operational projects",
+      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800"
+    },
+    {
       title: "Getting You Online — Websites & Local Visibility",
       icon: <Globe className="w-8 h-8 text-primary" />,
       description: "We help you build and maintain a professional digital presence, ensuring you're discoverable and stand out online.",
@@ -20,6 +48,20 @@ export default function Services() {
       ],
       ideal: "Tradespeople, local businesses, property owners, sole traders, & entrepreneurs",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
+      icon: <FileText className="w-8 h-8 text-primary" />,
+      description: "We organize your day-to-day operations and paperwork—from commercial bookkeeping to personal Self-Assessments—so you stay in total control.",
+      features: [
+        "Self-Assessment tax return filing assistance & digital account setup",
+        "Invoicing system setup & bookkeeping organization",
+        "Paperwork, digital file & document management systems",
+        "Google Workspace configuration for business & personal use",
+        "Process automation & event operational support",
+      ],
+      ideal: "Small businesses, sole traders, busy professionals & individuals needing admin help",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Tech & Equipment Fixes — Wi-Fi, Hardware & CCTV",
@@ -48,48 +90,6 @@ export default function Services() {
       ],
       ideal: "Homeowners, Airbnb hosts, landlords, busy professionals & tech enthusiasts",
       image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
-      icon: <FileText className="w-8 h-8 text-primary" />,
-      description: "We organize your day-to-day operations and paperwork—from commercial bookkeeping to personal Self-Assessments—so you stay in total control.",
-      features: [
-        "Self-Assessment tax return filing assistance & digital account setup",
-        "Invoicing system setup & bookkeeping organization",
-        "Paperwork, digital file & document management systems",
-        "Google Workspace configuration for business & personal use",
-        "Process automation & event operational support",
-      ],
-      ideal: "Small businesses, sole traders, busy professionals & individuals needing admin help",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Project Management & Transformation — Delivery & Migrations",
-      icon: <FolderKanban className="w-8 h-8 text-primary" />,
-      description: "Planning a software migration, premises move, or operational change? We bring 20+ years of corporate project experience to keep your project on time and within budget[cite: 1].",
-      features: [
-        "End-to-end project planning, timelines & budget management[cite: 1]",
-        "System migrations, platform upgrades & data transfers[cite: 1]",
-        "Third-party vendor, contractor & supplier management[cite: 1]",
-        "Risk, issue & dependency management (RAID logs)[cite: 1]",
-        "Operational readiness & change implementation[cite: 1]",
-      ],
-      ideal: "Businesses launching new systems, undergoing relocations, or executing complex operational projects[cite: 1]",
-      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Strategy & Operating Models — Practical Consultancy & Advice",
-      icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      description: "We provide high-level business guidance, Target Operating Model (TOM) design, and workflow optimization to help you make informed decisions[cite: 1].",
-      features: [
-        "Target Operating Model (TOM) design & process mapping[cite: 1]",
-        "Business strategy & operational efficiency reviews[cite: 1]",
-        "Technology recommendations & vendor selection[cite: 1]",
-        "One-on-one tech coaching & guidance for all skill levels",
-        "Fractional COO & operational advisory for growing businesses",
-      ],
-      ideal: "Business owners, entrepreneurs, property investors & individuals navigating complex tech",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
     },
   ];
 
