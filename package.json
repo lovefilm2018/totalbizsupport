@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && node -e \"const fs=require('fs'); ['personal-support', 'services', 'how-we-work', 'contact'].forEach(d => { fs.mkdirSync('dist/public/' + d, {recursive: true}); fs.copyFileSync('dist/public/index.html', 'dist/public/' + d + '/index.html'); });\"",
+    "build": "vite build && node -e \"const fs=require('fs'); ['personal-support', 'services', 'how-we-work', 'about', 'contact'].forEach(d => { fs.mkdirSync('dist/public/' + d, {recursive: true}); fs.copyFileSync('dist/public/index.html', 'dist/public/' + d + '/index.html'); });\"",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
