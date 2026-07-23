@@ -5,13 +5,14 @@ import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanb
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-// Local high-performance AVIF image imports from src/assets/
+// Local asset imports
 import strategyImg from "@/assets/1.avif";
 import projectImg from "@/assets/2.avif";
 import websitesImg from "@/assets/3.avif";
 import adminImg from "@/assets/4.avif";
 import techFixesImg from "@/assets/5.avif";
 import smartHomeImg from "@/assets/6.avif";
+import ctaBg from "@/assets/cta-bg.avif";
 
 export default function Services() {
   const serviceCategories = [
@@ -199,7 +200,10 @@ export default function Services() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay" />
+        <div 
+          className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay" 
+          style={{ backgroundImage: `url('${ctaBg}')` }}
+        />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Not Sure Which Service You Need?
