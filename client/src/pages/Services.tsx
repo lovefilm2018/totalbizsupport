@@ -1,176 +1,167 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb } from "lucide-react";
+import { 
+  Zap, 
+  BarChart3, 
+  Users, 
+  FolderKanban, 
+  Lightbulb, 
+  ArrowRight, 
+  CheckCircle2 
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export default function Services() {
-  const serviceCategories = [
+  const services = [
     {
-      title: "Getting You Online — Websites & Local Visibility",
-      icon: <Globe className="w-8 h-8 text-primary" />,
-      description: "We help you build and maintain a professional digital presence, ensuring you're discoverable and stand out online.",
+      id: "getting-online",
+      icon: <Zap className="w-10 h-10 text-primary" />,
+      title: "Getting You Online & Visible",
+      tagline: "Websites, local SEO, and digital storefronts that attract real local customers.",
+      description: "Whether you need a brand-new website or want to dominate local search results in Heathfield and East Sussex, we get your business noticed online.",
       features: [
-        "Custom website design and development",
-        "Local search optimization (SEO) & Google Business setup",
-        "Social media profile creation & management",
-        "E-commerce storefronts & direct booking systems",
-        "Domain, email & web hosting management",
-      ],
-      ideal: "Tradespeople, local businesses, property owners, sole traders, & entrepreneurs",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+        "Custom, fast-loading business websites",
+        "Google Business Profile setup & local SEO optimization",
+        "E-commerce & online booking system integration",
+        "Domain, professional email & hosting management"
+      ]
     },
     {
-      title: "Tech & Equipment Fixes — Wi-Fi, Hardware & CCTV",
-      icon: <Wrench className="w-8 h-8 text-primary" />,
-      description: "From commercial networks to home office tech, we handle all your equipment and troubleshooting needs so everything works seamlessly.",
+      id: "tech-fixes",
+      icon: <BarChart3 className="w-10 h-10 text-primary" />,
+      title: "Tech, Equipment & Network Fixes",
+      tagline: "Reliable WiFi, security hardware, and practical tech troubleshooting.",
+      description: "From fixing dead-zone guest WiFi in a guest house to setting up smart security cameras or office hardware, we solve the tech issues holding you back.",
       features: [
-        "Mesh Wi-Fi installation, dead-spot fixing & optimization for offices, guest houses & homes",
-        "Security camera (CCTV) systems & smart tech setup",
-        "Laptop, desktop, printer & device troubleshooting & repairs",
-        "Network setup, router configuration & cabling",
-        "Software installation, updates & cloud backups",
-      ],
-      ideal: "Commercial offices, property managers, Airbnb hosts, home workers & individuals",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
+        "Whole-property WiFi & mesh network installation",
+        "CCTV & smart security camera setups",
+        "Printer, scanner & network device configuration",
+        "Hardware troubleshooting & workspace setups"
+      ]
     },
     {
-      title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
-      icon: <FileText className="w-8 h-8 text-primary" />,
-      description: "We organize your day-to-day operations and paperwork—from commercial bookkeeping to personal Self-Assessments—so you stay in total control.",
+      id: "admin-bookkeeping",
+      icon: <Users className="w-10 h-10 text-primary" />,
+      title: "Admin Systems & Operational Setup",
+      tagline: "Streamlined paperwork, digital invoicing, and Google Workspace.",
+      description: "Stop drowning in operational chaos. We set up simple, automated digital tools so you can send invoices faster and keep paperwork organized.",
       features: [
-        "Self-Assessment tax return filing assistance & digital account setup",
-        "Invoicing system setup & bookkeeping organization",
-        "Paperwork, digital file & document management systems",
-        "Google Workspace configuration for business & personal use",
-        "Process automation & event operational support",
-      ],
-      ideal: "Small businesses, sole traders, busy professionals & individuals needing admin help",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
+        "Digital invoicing & quoting system implementation",
+        "Google Workspace & cloud file setup",
+        "Paperwork digitization & document management",
+        "Standard Operating Procedures (SOPs) for small teams"
+      ]
     },
     {
-      title: "Strategy & Advice — Practical Consultancy & Coaching",
-      icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      description: "We provide practical, jargon-free business guidance and technology coaching to help you make informed decisions and achieve your goals.",
+      id: "project-management",
+      icon: <FolderKanban className="w-10 h-10 text-primary" />,
+      title: "Project Management & Transformation",
+      tagline: "20+ years of corporate project delivery scaled for small business.",
+      description: "Planning a business move, changing software platforms, or launching a new service? We manage timelines, budgets, risk, and third-party vendors so your project is delivered on time, stress-free.",
       features: [
-        "Business strategy & operational efficiency reviews",
-        "Project planning & programme management",
-        "Technology recommendations & vendor selection",
-        "One-on-one tech coaching & guidance for all skill levels",
-        "Problem-solving & general operational troubleshooting",
-      ],
-      ideal: "Business owners, entrepreneurs, property investors & individuals navigating complex tech",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+        "End-to-end project planning, timelines & budget management",
+        "System migrations, software upgrades & data transfers",
+        "Third-party vendor, contractor & supplier coordination",
+        "Risk, issue & dependency management (RAID logs)"
+      ]
     },
+    {
+      id: "strategy-operating-models",
+      icon: <Lightbulb className="w-10 h-10 text-primary" />,
+      title: "Business Strategy & Operating Models",
+      tagline: "High-level strategic guidance and operational efficiency reviews.",
+      description: "Get practical advice on how to structure your business operations, design efficient Target Operating Models (TOMs), and scale your operations without burnout.",
+      features: [
+        "Target Operating Model (TOM) design & process mapping",
+        "Operational efficiency & workflow bottleneck reviews",
+        "Growth readiness & scaling strategy",
+        "Fractional COO / Operations Partner advisory"
+      ]
+    }
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Helmet>
-        <title>Tech Support, Web Design, Wi-Fi & Admin Services | TotalBiz</title>
-        <meta name="description" content="Explore TotalBiz Support services: custom web design, Wi-Fi setup, CCTV, bookkeeping, Self-Assessment filing, and tech support for businesses & individuals in East Sussex." />
-      </Helmet>
-
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="bg-secondary/50 py-16 md:py-24 border-b border-border/40">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 tracking-tight">
-            Our Services
+      {/* Header Banner */}
+      <section className="bg-primary text-primary-foreground py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Our Core Services
           </h1>
-          <p className="text-xl text-foreground/80 max-w-3xl leading-relaxed">
-            Corporate-grade expertise tailored for commercial businesses, home offices, and individuals alike. Whatever you need sorting, we can help.
+          <p className="text-xl opacity-90 leading-relaxed">
+            From hands-on technical fixes and website launches to high-level business strategy and complex project delivery.
           </p>
         </div>
       </section>
 
-      {/* Services Detail Loop */}
-      <main className="flex-grow">
-        {serviceCategories.map((service, index) => {
-          const isImageRight = index % 2 === 0;
-
-          return (
-            <section key={index} className={`py-20 md:py-32 ${index % 2 !== 0 ? 'bg-secondary/20' : 'bg-background'}`}>
-              <div className="container mx-auto px-4 max-w-6xl">
-                <div className={`flex flex-col gap-12 lg:gap-20 items-center ${isImageRight ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  
-                  {/* Text Content */}
-                  <div className="w-full lg:w-1/2 space-y-8">
-                    <div className="space-y-4">
-                      <div className="p-3 bg-secondary rounded-xl w-fit mb-6 shadow-sm border border-border/50">
-                        {service.icon}
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-bold text-primary">
-                        {service.title}
-                      </h2>
-                      <p className="text-lg text-foreground/80 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-semibold text-primary">What's Included:</h3>
-                      <ul className="space-y-3">
-                        {service.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-3 text-foreground/80">
-                            <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-secondary/50 p-6 rounded-lg border border-border/50 shadow-sm">
-                      <p className="text-sm font-bold text-primary tracking-wider uppercase mb-1">Ideal For</p>
-                      <p className="text-foreground/80 font-medium">{service.ideal}</p>
-                    </div>
-
-                    <div className="pt-4">
-                      <Link href="/contact">
-                        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm transition-transform hover:scale-105" asChild>
-                          <a>
-                            Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                          </a>
-                        </Button>
-                      </Link>
-                    </div>
+      {/* Services List */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="space-y-12">
+            {services.map((service, index) => (
+              <div 
+                key={service.id}
+                id={service.id}
+                className="bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="p-4 bg-secondary rounded-lg shrink-0">
+                    {service.icon}
                   </div>
+                  <div className="flex-1">
+                    <span className="text-xs font-bold text-accent tracking-wider uppercase mb-1 block">
+                      Pillar 0{index + 1}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                      {service.title}
+                    </h2>
+                    <p className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-4">
+                      {service.tagline}
+                    </p>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
 
-                  {/* Image Content */}
-                  <div className="w-full lg:w-1/2">
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group border border-border/50">
-                      <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                      {service.features.map((feature, fIndex) => (
+                        <div key={fIndex} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">{feature}</span>
+                        </div>
+                      ))}
                     </div>
-                  </div>
 
+                    <Link href="/contact">
+                      <Button className="bg-primary hover:bg-primary/90 text-white" asChild>
+                        <a>
+                          Discuss This Service <ArrowRight className="ml-2 w-4 h-4" />
+                        </a>
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </section>
-          );
-        })}
-      </main>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Not Sure Which Service You Need?
+      <section className="bg-secondary/50 py-16 text-center">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="text-3xl font-bold text-primary mb-4">
+            Not sure exactly what support you need?
           </h2>
-          <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Get in touch and we'll discuss your specific needs to find the perfect solution.
+          <p className="text-muted-foreground mb-8">
+            Let's have a friendly, no-obligation chat about your current challenges, and we'll help you find the most cost-effective solution.
           </p>
           <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
               <a>
-                Contact Us <ArrowRight className="ml-2 w-5 h-5" />
+                Book a Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
           </Link>
