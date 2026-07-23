@@ -5,6 +5,14 @@ import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanb
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+// Local high-performance AVIF image imports from src/assets/
+import strategyImg from "@/assets/1.avif";
+import projectImg from "@/assets/2.avif";
+import websitesImg from "@/assets/3.avif";
+import adminImg from "@/assets/4.avif";
+import techFixesImg from "@/assets/5.avif";
+import smartHomeImg from "@/assets/6.avif";
+
 export default function Services() {
   const serviceCategories = [
     {
@@ -19,7 +27,7 @@ export default function Services() {
         "Fractional COO & operational advisory for growing businesses",
       ],
       ideal: "Business owners, entrepreneurs, property investors & individuals navigating complex tech",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+      image: strategyImg
     },
     {
       title: "Project Management & Transformation — Delivery & Migrations",
@@ -33,7 +41,7 @@ export default function Services() {
         "Operational readiness & change implementation",
       ],
       ideal: "Businesses launching new systems, undergoing relocations, or executing complex operational projects",
-      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800"
+      image: projectImg
     },
     {
       title: "Getting You Online — Websites & Local Visibility",
@@ -47,7 +55,7 @@ export default function Services() {
         "Domain, email & web hosting management",
       ],
       ideal: "Tradespeople, local businesses, property owners, sole traders, & entrepreneurs",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+      image: websitesImg
     },
     {
       title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
@@ -61,7 +69,7 @@ export default function Services() {
         "Process automation & event operational support",
       ],
       ideal: "Small businesses, sole traders, busy professionals & individuals needing admin help",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
+      image: adminImg
     },
     {
       title: "Tech & Equipment Fixes — Wi-Fi, Hardware & CCTV",
@@ -75,7 +83,7 @@ export default function Services() {
         "Software installation, updates & cloud backups",
       ],
       ideal: "Commercial offices, property managers, Airbnb hosts, home workers & individuals",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
+      image: techFixesImg
     },
     {
       title: "Smart Home & Automation — Google Home, Nest & AV",
@@ -89,7 +97,7 @@ export default function Services() {
         "Multi-room audio, smart TVs & seamless streaming setup",
       ],
       ideal: "Homeowners, Airbnb hosts, landlords, busy professionals & tech enthusiasts",
-      image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800"
+      image: smartHomeImg
     },
   ];
 
@@ -173,6 +181,10 @@ export default function Services() {
                       <img 
                         src={service.image} 
                         alt={service.title}
+                        loading="lazy"
+                        decoding="async"
+                        width="1200"
+                        height="800"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
