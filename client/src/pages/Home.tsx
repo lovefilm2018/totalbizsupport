@@ -25,9 +25,24 @@ export default function Home() {
 
   const services = [
     {
+      icon: <Lightbulb className="w-8 h-8 text-primary" />,
+      title: "Strategy & Operating Models",
+      description: "Business guidance, Target Operating Model (TOM) design, and practical technology coaching.",
+    },
+    {
+      icon: <FolderKanban className="w-8 h-8 text-primary" />,
+      title: "Project Management & Delivery",
+      description: "Planning software migrations, premises moves, or service launches with strict timeline, budget, and vendor oversight.",
+    },
+    {
       icon: <Zap className="w-8 h-8 text-primary" />,
       title: "Getting You Online",
       description: "Websites, local search visibility, and digital storefronts that bring in real customers.",
+    },
+    {
+      icon: <Users className="w-8 h-8 text-primary" />,
+      title: "Admin & Bookkeeping",
+      description: "Invoicing, paperwork organization, Self-Assessments, and Google Workspace setup.",
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-primary" />,
@@ -38,21 +53,6 @@ export default function Home() {
       icon: <Cpu className="w-8 h-8 text-primary" />,
       title: "Smart Home & Automation",
       description: "Google Home & Nest ecosystem, multi-room audio, smart doorbells, heating & automated lighting.",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-primary" />,
-      title: "Admin & Bookkeeping",
-      description: "Invoicing, paperwork organization, Self-Assessments, and Google Workspace setup.",
-    },
-    {
-      icon: <FolderKanban className="w-8 h-8 text-primary" />,
-      title: "Project Management & Delivery",
-      description: "Planning software migrations, premises moves, or service launches with strict timeline, budget, and vendor oversight.",
-    },
-    {
-      icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      title: "Strategy & Operating Models",
-      description: "Business guidance, Target Operating Model (TOM) design, and practical technology coaching.",
     },
   ];
 
@@ -111,7 +111,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             <p>
-              After 20 years driving IT projects, business strategy, and complex change delivery for corporate giants like HSBC, eBay, Schroders and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders, small business owners, and busy individuals can be completely overwhelmed by operational chaos[cite: 1].
+              After 20 years driving IT projects, business strategy, and complex change delivery for corporate giants like HSBC, eBay, Schroders and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders, small business owners, and busy individuals can be completely overwhelmed by operational chaos.
             </p>
             <p>
               You don't need a separate IT guy, an accountant, a web developer, a project manager, and a smart home technician. You need a single, reliable partner who understands how it all connects.
@@ -130,12 +130,12 @@ export default function Home() {
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">TRUSTED BY</p>
               <p className="text-2xl font-bold text-primary">20+ Years</p>
-              <p className="text-muted-foreground">of corporate project & change experience[cite: 1]</p>
+              <p className="text-muted-foreground">of corporate project & change experience</p>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">BACKGROUND</p>
               <p className="text-2xl font-bold text-primary">HSBC, eBay, Schroders, Gumtree</p>
-              <p className="text-muted-foreground">Boots & Topshop[cite: 1]</p>
+              <p className="text-muted-foreground">Boots & Topshop</p>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
@@ -146,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section (Balanced 2x3 Grid) */}
+      {/* Services Section */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -250,7 +250,7 @@ export default function Home() {
             Ready to Get Things Sorted?
           </h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Whether you need a quick fix, Google Home setup, personal admin help, or an experienced project manager, we're here for you[cite: 1].
+            Whether you need a quick fix, Google Home setup, personal admin help, or an experienced project manager, we're here for you.
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
