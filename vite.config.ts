@@ -203,7 +203,14 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const plugins = [
+  react(), 
+  tailwindcss(), 
+  jsxLocPlugin(), 
+  vitePluginManusRuntime(), 
+  vitePluginManusDebugCollector(), 
+  vitePluginStorageProxy()
+];
 
 export default defineConfig({
   base: '/',
@@ -220,6 +227,14 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "wouter"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
   },
   server: {
     port: 3000,
