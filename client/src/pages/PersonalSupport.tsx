@@ -114,7 +114,7 @@ export default function PersonalSupport() {
                   </p>
                   <ul className="space-y-3 mb-8">
                     {service.bullets.map((bullet, bIndex) => (
-                      <li key={bIndex} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+                      <li key={bIndex} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
                         <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
