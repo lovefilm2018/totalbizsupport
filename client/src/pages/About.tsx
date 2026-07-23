@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import alexPhoto from "@/assets/ap.jpg";
+import alexPhoto from "@/assets/ap.avif";
 
 export default function About() {
   return (
@@ -50,6 +50,10 @@ export default function About() {
               <img 
                 src={alexPhoto} 
                 alt="Alex Poxon, Founder of TotalBiz Support"
+                loading="eager"
+                decoding="async"
+                width="224"
+                height="224"
                 className="w-56 h-56 rounded-full border-4 border-accent shadow-md object-cover" 
               />
               <div>
@@ -65,6 +69,8 @@ export default function About() {
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/about-illustration-YrBQnV4AkzXnEXQRds9uvA.webp"
                 alt="Partnership and trust"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
