@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanban } from "lucide-react";
+import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanban, Cpu } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -27,13 +27,27 @@ export default function Services() {
       description: "From commercial networks to home office tech, we handle all your equipment and troubleshooting needs so everything works seamlessly.",
       features: [
         "Mesh Wi-Fi installation, dead-spot fixing & optimization for offices, guest houses & homes",
-        "Security camera (CCTV) systems & smart tech setup",
+        "Security camera (CCTV) systems & network storage setups",
         "Laptop, desktop, printer & device troubleshooting & repairs",
         "Network setup, router configuration & cabling",
         "Software installation, updates & cloud backups",
       ],
       ideal: "Commercial offices, property managers, Airbnb hosts, home workers & individuals",
       image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Smart Home & Automation — Google Home, Nest & AV",
+      icon: <Cpu className="w-8 h-8 text-primary" />,
+      description: "Transform your living space or property with seamlessly connected smart devices, multi-room audio, security hardware, and automated routines.",
+      features: [
+        "Google Home & Nest ecosystem installation (Hubs, Displays & Speakers)",
+        "Smart climate control & Nest thermostat configuration",
+        "Smart doorbells, security cameras & electronic keyless locks",
+        "Automated smart lighting, plugs, sensors & custom voice routines",
+        "Multi-room audio, smart TVs & seamless streaming setup",
+      ],
+      ideal: "Homeowners, Airbnb hosts, landlords, busy professionals & tech enthusiasts",
+      image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
@@ -52,25 +66,25 @@ export default function Services() {
     {
       title: "Project Management & Transformation — Delivery & Migrations",
       icon: <FolderKanban className="w-8 h-8 text-primary" />,
-      description: "Planning a software migration, premises move, or operational change? We bring 20+ years of corporate project experience to keep your project on time and within budget.",
+      description: "Planning a software migration, premises move, or operational change? We bring 20+ years of corporate project experience to keep your project on time and within budget[cite: 1].",
       features: [
-        "End-to-end project planning, timelines & budget management",
-        "System migrations, platform upgrades & data transfers",
-        "Third-party vendor, contractor & supplier management",
-        "Risk, issue & dependency management (RAID logs)",
-        "Operational readiness & change implementation",
+        "End-to-end project planning, timelines & budget management[cite: 1]",
+        "System migrations, platform upgrades & data transfers[cite: 1]",
+        "Third-party vendor, contractor & supplier management[cite: 1]",
+        "Risk, issue & dependency management (RAID logs)[cite: 1]",
+        "Operational readiness & change implementation[cite: 1]",
       ],
-      ideal: "Businesses launching new systems, undergoing relocations, or executing complex operational projects",
+      ideal: "Businesses launching new systems, undergoing relocations, or executing complex operational projects[cite: 1]",
       image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Strategy & Operating Models — Practical Consultancy & Advice",
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      description: "We provide high-level business guidance, Target Operating Model (TOM) design, and workflow optimization to help you make informed decisions.",
+      description: "We provide high-level business guidance, Target Operating Model (TOM) design, and workflow optimization to help you make informed decisions[cite: 1].",
       features: [
-        "Target Operating Model (TOM) design & process mapping",
-        "Business strategy & operational efficiency reviews",
-        "Technology recommendations & vendor selection",
+        "Target Operating Model (TOM) design & process mapping[cite: 1]",
+        "Business strategy & operational efficiency reviews[cite: 1]",
+        "Technology recommendations & vendor selection[cite: 1]",
         "One-on-one tech coaching & guidance for all skill levels",
         "Fractional COO & operational advisory for growing businesses",
       ],
@@ -82,8 +96,8 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Tech Support, Web Design, Project Management & Admin Services | TotalBiz</title>
-        <meta name="description" content="Explore TotalBiz Support services: custom web design, Wi-Fi setup, CCTV, project management, bookkeeping, Self-Assessment filing, and tech support in East Sussex." />
+        <title>Tech Support, Smart Home, Web Design, Projects & Admin | TotalBiz</title>
+        <meta name="description" content="Explore TotalBiz Support services: Google Home & Nest setup, custom web design, Wi-Fi setup, project management, bookkeeping, Self-Assessment filing, and tech support in East Sussex." />
       </Helmet>
 
       <Navigation />
@@ -95,7 +109,7 @@ export default function Services() {
             Our Services
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl leading-relaxed">
-            Corporate-grade expertise tailored for commercial businesses, home offices, and individuals alike. Whatever you need sorting, we can help.
+            Corporate-grade expertise tailored for commercial businesses, home offices, smart properties, and individuals alike. Whatever you need sorting, we can help.
           </p>
         </div>
       </section>
