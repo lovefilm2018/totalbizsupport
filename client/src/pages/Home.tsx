@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Users, Lightbulb } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -11,7 +11,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     "name": "TotalBiz Support",
     "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/hero-background-8y8Pu8nxZFBPuCxpEDWsLX.webp",
-    "description": "Corporate-grade business, technology, and administration support for small businesses, sole traders, property owners, and individuals.",
+    "description": "Corporate-grade business, technology, project management, and administration support for small businesses, sole traders, property owners, and individuals.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Heathfield",
@@ -27,7 +27,7 @@ export default function Home() {
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
       title: "Getting You Online",
-      description: "Websites, local search visibility, and digital storefronts that bring in customers.",
+      description: "Websites, local search visibility, and digital storefronts that bring in real customers.",
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-primary" />,
@@ -40,17 +40,22 @@ export default function Home() {
       description: "Invoicing, paperwork organization, Self-Assessments, and Google Workspace setup.",
     },
     {
+      icon: <FolderKanban className="w-8 h-8 text-primary" />,
+      title: "Project Management & Delivery",
+      description: "Planning software migrations, premises moves, or service launches with strict timeline, budget, and vendor oversight.",
+    },
+    {
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      title: "Strategy & Advice",
-      description: "Business guidance, project planning, and practical one-on-one technology coaching.",
+      title: "Strategy & Operating Models",
+      description: "Business guidance, Target Operating Model (TOM) design, and practical technology coaching.",
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>TotalBiz Support | Business & Home Tech Support East Sussex</title>
-        <meta name="description" content="Corporate-grade tech, web design, Wi-Fi, bookkeeping, and Self-Assessment admin support for small businesses, sole traders, and individuals across East Sussex." />
+        <title>TotalBiz Support | Business, Project & Home Tech Support East Sussex</title>
+        <meta name="description" content="Corporate-grade tech, web design, Wi-Fi, project management, bookkeeping, and Self-Assessment admin support for small businesses, sole traders, and individuals across East Sussex." />
       </Helmet>
 
       <script type="application/ld+json">
@@ -74,7 +79,7 @@ export default function Home() {
               <span className="text-accent"> Small Business Prices.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              From high-level business strategy to fixing Wi-Fi and filing Self-Assessments, TotalBiz Support helps small businesses, property owners, sole traders, and busy individuals get things sorted without jargon, stress, or unnecessary cost.
+              From high-level business strategy and project management to fixing Wi-Fi and filing Self-Assessments, TotalBiz Support helps small businesses, property owners, sole traders, and busy individuals get things sorted without jargon, stress, or unnecessary cost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -101,13 +106,13 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
             <p>
-              After 20 years driving IT projects and business strategy for corporate giants like HSBC, eBay, Schroders and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders, small business owners, and busy individuals can be completely overwhelmed by operational chaos.
+              After 20 years driving IT projects, business strategy, and complex change delivery for corporate giants like HSBC, eBay, Schroders and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders, small business owners, and busy individuals can be completely overwhelmed by operational chaos[cite: 1].
             </p>
             <p>
-              You don't need a separate IT guy, an accountant, a web developer, and a business coach. You need a single, reliable partner who understands how it all connects.
+              You don't need a separate IT guy, an accountant, a web developer, a project manager, and a business coach. You need a single, reliable partner who understands how it all connects.
             </p>
             <p className="font-medium text-slate-900 dark:text-white">
-              Whether you run a guest house and are struggling with Wi-Fi networks for your guests, a local tradesperson needing an invoicing system, or an individual looking for help with home tech or Self-Assessments, TotalBiz Support exists to handle the chaos so you can focus on what matters.
+              Whether you run a guest house and are struggling with Wi-Fi networks, a local business needing a software or process migration managed, a tradesperson needing an invoicing system, or an individual looking for help with home tech or Self-Assessments, TotalBiz Support exists to handle the chaos so you can focus on what matters.
             </p>
           </div>
         </div>
@@ -120,17 +125,17 @@ export default function Home() {
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">TRUSTED BY</p>
               <p className="text-2xl font-bold text-primary">20+ Years</p>
-              <p className="text-muted-foreground">of corporate experience</p>
+              <p className="text-muted-foreground">of corporate project & change experience[cite: 1]</p>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">BACKGROUND</p>
               <p className="text-2xl font-bold text-primary">HSBC, eBay, Schroders, Gumtree</p>
-              <p className="text-muted-foreground">Boots & Topshop</p>
+              <p className="text-muted-foreground">Boots & Topshop[cite: 1]</p>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
               <p className="text-2xl font-bold text-primary">Multi-Disciplinary</p>
-              <p className="text-muted-foreground">tech, business, personal admin</p>
+              <p className="text-muted-foreground">tech, projects, business, personal admin</p>
             </div>
           </div>
         </div>
@@ -144,11 +149,11 @@ export default function Home() {
               How We Can Help
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We've simplified our services into four core areas. Whatever you need, we've got you covered.
+              We've structured our services into five core pillars. Whatever you need, we've got you covered.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -196,12 +201,12 @@ export default function Home() {
               },
               {
                 title: "Project-Based",
-                description: "Ideal for websites, Wi-Fi installations, and defined deliverables.",
+                description: "Ideal for websites, Wi-Fi installations, system migrations, and defined deliverables.",
                 icon: "🎯",
               },
               {
                 title: "Monthly Retainer",
-                description: "Ongoing support hours as your dedicated business or tech partner.",
+                description: "Ongoing support hours as your dedicated business, tech, or operations partner.",
                 icon: "🤝",
               },
             ].map((model, index) => (
@@ -233,7 +238,7 @@ export default function Home() {
             Ready to Get Things Sorted?
           </h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Whether you need a quick fix, personal admin help, or ongoing support, we're here for you.
+            Whether you need a quick fix, personal admin help, or an experienced project manager, we're here for you[cite: 1].
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
