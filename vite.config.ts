@@ -230,8 +230,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom", "wouter"],
-          icons: ["lucide-react"],
+          vendor: ["react", "react-dom", "wouter", "lucide-react"],
         },
       },
     },
