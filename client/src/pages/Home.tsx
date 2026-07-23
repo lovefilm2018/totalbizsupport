@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -11,7 +11,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     "name": "TotalBiz Support",
     "image": "https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/hero-background-8y8Pu8nxZFBPuCxpEDWsLX.webp",
-    "description": "Corporate-grade business, technology, project management, and administration support for small businesses, sole traders, property owners, and individuals.",
+    "description": "Corporate-grade business, technology, smart home, project management, and administration support for small businesses, sole traders, property owners, and individuals.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Heathfield",
@@ -35,6 +35,11 @@ export default function Home() {
       description: "Office & home Wi-Fi networks, security cameras, device repairs, and troubleshooting.",
     },
     {
+      icon: <Cpu className="w-8 h-8 text-primary" />,
+      title: "Smart Home & Automation",
+      description: "Google Home & Nest ecosystem, multi-room audio, smart doorbells, heating & automated lighting.",
+    },
+    {
       icon: <Users className="w-8 h-8 text-primary" />,
       title: "Admin & Bookkeeping",
       description: "Invoicing, paperwork organization, Self-Assessments, and Google Workspace setup.",
@@ -54,8 +59,8 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>TotalBiz Support | Business, Project & Home Tech Support East Sussex</title>
-        <meta name="description" content="Corporate-grade tech, web design, Wi-Fi, project management, bookkeeping, and Self-Assessment admin support for small businesses, sole traders, and individuals across East Sussex." />
+        <title>TotalBiz Support | Business, Smart Home & Project Support East Sussex</title>
+        <meta name="description" content="Corporate-grade tech, Google Home & Nest setup, web design, Wi-Fi, project management, bookkeeping, and Self-Assessment admin support across East Sussex." />
       </Helmet>
 
       <script type="application/ld+json">
@@ -79,7 +84,7 @@ export default function Home() {
               <span className="text-accent"> Small Business Prices.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              From high-level business strategy and project management to fixing Wi-Fi and filing Self-Assessments, TotalBiz Support helps small businesses, property owners, sole traders, and busy individuals get things sorted without jargon, stress, or unnecessary cost.
+              From high-level business strategy and project management to Google Home setups, Wi-Fi fixes, and filing Self-Assessments, TotalBiz Support helps small businesses, property owners, sole traders, and busy individuals get things sorted without jargon, stress, or unnecessary cost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -109,10 +114,10 @@ export default function Home() {
               After 20 years driving IT projects, business strategy, and complex change delivery for corporate giants like HSBC, eBay, Schroders and Gumtree, alongside extensive retail management at Boots and Topshop, I realised something important: sole traders, small business owners, and busy individuals can be completely overwhelmed by operational chaos[cite: 1].
             </p>
             <p>
-              You don't need a separate IT guy, an accountant, a web developer, a project manager, and a business coach. You need a single, reliable partner who understands how it all connects.
+              You don't need a separate IT guy, an accountant, a web developer, a project manager, and a smart home technician. You need a single, reliable partner who understands how it all connects.
             </p>
             <p className="font-medium text-slate-900 dark:text-white">
-              Whether you run a guest house and are struggling with Wi-Fi networks, a local business needing a software or process migration managed, a tradesperson needing an invoicing system, or an individual looking for help with home tech or Self-Assessments, TotalBiz Support exists to handle the chaos so you can focus on what matters.
+              Whether you run a guest house and are struggling with Wi-Fi networks, a local business needing a software or process migration managed, a homeowner setting up Google Home & Nest systems, or an individual looking for help with home tech or Self-Assessments, TotalBiz Support exists to handle the chaos so you can focus on what matters.
             </p>
           </div>
         </div>
@@ -135,13 +140,13 @@ export default function Home() {
             <div className="text-center">
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
               <p className="text-2xl font-bold text-primary">Multi-Disciplinary</p>
-              <p className="text-muted-foreground">tech, projects, business, personal admin</p>
+              <p className="text-muted-foreground">tech, smart home, projects, personal admin</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section (Balanced 2x3 Grid) */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -149,7 +154,7 @@ export default function Home() {
               How We Can Help
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We've structured our services into five core pillars. Whatever you need, we've got you covered.
+              We've structured our services into six core pillars. Whatever you need, we've got you covered.
             </p>
           </div>
 
@@ -157,13 +162,20 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg group"
+                className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg group flex flex-col justify-between"
               >
-                <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
-                  {service.icon}
+                <div>
+                  <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{service.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+                <Link href="/services">
+                  <span className="inline-flex items-center text-sm font-semibold text-accent hover:underline cursor-pointer">
+                    Learn more <ArrowRight className="ml-1 w-4 h-4" />
+                  </span>
+                </Link>
               </div>
             ))}
           </div>
@@ -196,12 +208,12 @@ export default function Home() {
             {[
               {
                 title: "Hourly Support",
-                description: "Perfect for one-off fixes, troubleshooting, personal admin, and quick advice.",
+                description: "Perfect for one-off fixes, smart home setups, personal admin, and quick advice.",
                 icon: "⏱️",
               },
               {
                 title: "Project-Based",
-                description: "Ideal for websites, Wi-Fi installations, system migrations, and defined deliverables.",
+                description: "Ideal for websites, Wi-Fi installations, smart home builds, and defined deliverables.",
                 icon: "🎯",
               },
               {
@@ -238,7 +250,7 @@ export default function Home() {
             Ready to Get Things Sorted?
           </h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Whether you need a quick fix, personal admin help, or an experienced project manager, we're here for you[cite: 1].
+            Whether you need a quick fix, Google Home setup, personal admin help, or an experienced project manager, we're here for you[cite: 1].
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
