@@ -105,8 +105,8 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Tech Support, Smart Home, Web Design, Projects & Admin | TotalBiz</title>
-        <meta name="description" content="Explore TotalBiz Support services: Google Home & Nest setup, custom web design, Wi-Fi setup, project management, bookkeeping, Self-Assessment filing, and tech support in East Sussex." />
+        <title>Websites, Mobile Apps, Tech Support, Smart Home & Admin | TotalBiz</title>
+        <meta name="description" content="Explore TotalBiz Support services: custom web design, iOS & Android mobile app development, Wi-Fi setup, smart home automation, project management, bookkeeping, and tech support in East Sussex." />
       </Helmet>
 
       <Navigation />
