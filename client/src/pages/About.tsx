@@ -75,85 +75,11 @@ export default function About() {
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="bg-gradient-to-br from-secondary to-secondary/50 rounded-lg h-96 flex items-center justify-center border border-border">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663750581504/BdzQBzcMiXv6q6V29RfF3C/about-illustration-YrBQnV4AkzXnEXQRds9uvA.webp"
-                alt="Partnership and trust"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-primary mb-6">Why TotalBiz Support?</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I started helping friends who own local businesses or investment properties. They needed everything: a website, WiFi optimization, security cameras, invoicing setup, social media, and general business advice. I realized I could do all of it—and do it well.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                That's the essence of TotalBiz Support. We're not a one-trick pony. We're a one-stop shop for small businesses that need reliable, experienced support across multiple areas.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Think of us as your all-in-one business support and tech partner. We bring corporate-grade thinking, security awareness, and process discipline to small business problems. But we also get our hands dirty and actually fix things.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="bg-secondary/50 py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-primary mb-12 text-center">
-            Our Philosophy
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🎯",
-                title: "Results Over Jargon",
-                description: "We speak your language, not tech-speak. You should always understand what we're doing and why.",
-              },
-              {
-                icon: "🤝",
-                title: "Partnership, Not Transactions",
-                description: "We're invested in your success. We're not here to sell you things you don't need.",
-              },
-              {
-                icon: "⚡",
-                title: "Practical & Hands-On",
-                description: "We don't just advise. We roll up our sleeves and actually do the work.",
-              },
-              {
-                icon: "💰",
-                title: "Fair Pricing",
-                description: "You get corporate-grade expertise at small business prices. No hidden fees, no surprises.",
-              },
-              {
-                icon: "🔒",
-                title: "Security & Reliability",
-                description: "Your data and business are important. We treat them with the same care as a bank would.",
-              },
-              {
-                icon: "📈",
-                title: "Growth Mindset",
-                description: "We help you not just survive, but thrive. Your success is our success.",
-              },
-            ].map((item, index) => (
-              <div key={index} className="bg-background p-8 rounded-lg border border-border">
-                <p className="text-4xl mb-4">{item.icon}</p>
-                <h3 className="font-bold text-primary mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Background Section & Corporate Timeline */}
-      <section className="py-20 md:py-32">
+      {/* Corporate Career Timeline Section */}
+      <section className="py-16 md:py-24 bg-secondary/30 border-y border-border/40">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-accent mb-3 tracking-wider uppercase">Proven Track Record</p>
@@ -166,7 +92,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Vertical Timeline (8 Cols) */}
+            {/* Vertical Timeline (7 Cols) */}
             <div className="lg:col-span-7 space-y-8 relative before:absolute before:inset-0 before:left-4 before:md:left-6 before:w-0.5 before:bg-border">
               {[
                 {
@@ -226,7 +152,7 @@ export default function About() {
             </div>
 
             {/* Core Capabilities Sidebar (5 Cols) */}
-            <div className="lg:col-span-5 bg-secondary/40 p-8 rounded-2xl border border-border/80 space-y-6 sticky top-28">
+            <div className="lg:col-span-5 bg-background p-8 rounded-2xl border border-border shadow-sm space-y-6 sticky top-28">
               <h3 className="text-2xl font-bold text-primary">Core Expertise</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 We combine deep technical capabilities with practical business sense to deliver enterprise quality at small business prices.
