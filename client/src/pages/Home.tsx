@@ -40,8 +40,8 @@ export default function Home() {
     },
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Getting You Online",
-      description: "Websites, local search visibility, and digital storefronts that bring in real customers.",
+      title: "Getting You Online & Mobile Apps",
+      description: "Custom websites, iOS & Android mobile apps, and local search visibility that bring in real customers.",
     },
     {
       icon: <Users className="w-8 h-8 text-primary" />,

@@ -58,8 +58,8 @@ export default function Contact() {
               <div>
                 <h3 className="text-xl font-bold text-primary mb-1">Email Us</h3>
                 <p className="text-muted-foreground mb-2">For general enquiries and support requests.</p>
-                <a href="mailto:totalbizsupport@gmail.com" className="text-accent hover:underline font-medium">
-                  totalbizsupport@gmail.com
+                <a href="mailto:support@totalbiz.co.uk" className="text-accent hover:underline font-medium">
+                  support@totalbiz.co.uk
                 </a>
               </div>
             </div>

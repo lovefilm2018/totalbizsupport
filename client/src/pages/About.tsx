@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import alexPhoto from "@/assets/ap.avif";
@@ -60,6 +60,16 @@ export default function About() {
                 <h3 className="text-3xl font-bold text-primary mb-1">Alex Poxon</h3>
                 <p className="text-xl text-accent font-medium">Founder & Principal Consultant</p>
                 <p className="text-muted-foreground mt-2">Heathfield, East Sussex</p>
+              </div>
+
+              <div className="pt-4 border-t border-border/80 w-full">
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Contact Me Directly</p>
+                <a 
+                  href="mailto:alex@totalbiz.co.uk" 
+                  className="inline-flex items-center gap-2 text-accent font-semibold hover:underline text-lg transition-colors"
+                >
+                  <Mail className="w-4 h-4" /> alex@totalbiz.co.uk
+                </a>
               </div>
             </div>
           </div>

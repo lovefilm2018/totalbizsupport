@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanban, Cpu } from "lucide-react";
+import { ArrowRight, CheckCircle, Globe, Wrench, FileText, Lightbulb, FolderKanban, Cpu, Smartphone } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 // Local asset imports
 import strategyImg from "@/assets/1.avif";
 import projectImg from "@/assets/2.avif";
-import websitesImg from "@/assets/3.avif";
+import websitesAppsImg from "@/assets/websites-apps.jpg";
 import adminImg from "@/assets/4.avif";
 import techFixesImg from "@/assets/5.avif";
 import smartHomeImg from "@/assets/6.avif";
@@ -45,18 +45,18 @@ export default function Services() {
       image: projectImg
     },
     {
-      title: "Getting You Online — Websites & Local Visibility",
+      title: "Getting You Online & Mobile Apps — Websites, iOS & Android",
       icon: <Globe className="w-8 h-8 text-primary" />,
-      description: "We help you build and maintain a professional digital presence, ensuring you're discoverable and stand out online.",
+      description: "We help you build and maintain a high-impact digital presence—from responsive custom websites to native & cross-platform iOS and Android mobile applications.",
       features: [
-        "Custom website design and development",
+        "Custom website design & responsive web development",
+        "Custom iOS & Android mobile phone & tablet app development",
         "Local search optimization (SEO) & Google Business setup",
-        "Social media profile creation & management",
         "E-commerce storefronts & direct booking systems",
-        "Domain, email & web hosting management",
+        "Domain, business email & web hosting management",
       ],
       ideal: "Tradespeople, local businesses, property owners, sole traders, & entrepreneurs",
-      image: websitesImg
+      image: websitesAppsImg
     },
     {
       title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",

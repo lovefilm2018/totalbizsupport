@@ -74,7 +74,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Services</h4>
             <ul className="space-y-2 text-base">
-              <li className="hover:text-accent transition-colors cursor-pointer">Getting You Online</li>
+              <li className="hover:text-accent transition-colors cursor-pointer">Getting You Online & Mobile Apps</li>
               <li className="hover:text-accent transition-colors cursor-pointer">Tech & Equipment Fixes</li>
               <li className="hover:text-accent transition-colors cursor-pointer">Admin & Bookkeeping</li>
               <li className="hover:text-accent transition-colors cursor-pointer">Strategy & Advice</li>
@@ -87,8 +87,8 @@ export default function Footer() {
             <ul className="space-y-3 text-base">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-accent" />
-                <a href="mailto:totalbizsupport@gmail.com" className="hover:text-accent transition-colors">
-                  totalbizsupport@gmail.com
+                <a href="mailto:support@totalbiz.co.uk" className="hover:text-accent transition-colors">
+                  support@totalbiz.co.uk
                 </a>
               </li>
               <li className="flex items-center gap-2">
