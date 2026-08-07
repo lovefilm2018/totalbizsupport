@@ -7,8 +7,8 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
 
-  // Removed "Services" from this list since we have the dedicated button!
   const navLinks = [
+    { label: "Services", href: "/services" },
     { label: "How We Work", href: "/how-we-work" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },

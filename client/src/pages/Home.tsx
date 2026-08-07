@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu, Clock, Target, Handshake, Star, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -88,7 +88,7 @@ export default function Home() {
               <span className="text-accent"> Small Business Prices.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              From high-level business strategy and project management to Google Home setups, Wi-Fi fixes, and filing Self-Assessments, TotalBiz Support helps small businesses, property owners, sole traders, and busy individuals get things sorted without jargon, stress, or unnecessary cost.
+              One reliable partner. Every problem sorted. Tech, strategy, admin, and smart home support — without jargon, stress, or hidden costs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -145,6 +145,72 @@ export default function Home() {
               <p className="text-sm font-semibold text-accent mb-2 tracking-wider">EXPERTISE</p>
               <p className="text-2xl font-bold text-primary">Multi-Disciplinary</p>
               <p className="text-muted-foreground">tech, smart home, projects, personal admin</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-accent mb-3 tracking-wider uppercase">Client Reviews</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">What Clients Say</h2>
+            <div className="flex items-center justify-center gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <p className="text-muted-foreground text-lg">Rated 5 stars on Google Business Profile</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Testimonial 1 — Bijou Coastal Stays */}
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all">
+              <div>
+                <Quote className="w-8 h-8 text-primary/20 mb-4" />
+                <p className="text-foreground/80 leading-relaxed mb-6">
+                  Alex has been an absolute lifesaver with my hospitality business. He managed everything seamlessly — from building a custom website with direct booking capabilities to setting up guest Wi-Fi networks, installing CCTV, and producing dynamic guest information guides. Beyond the technology, Alex was invaluable for general business strategy, offering brilliant advice on pricing and marketing direction.
+                </p>
+                <p className="text-foreground/80 leading-relaxed font-medium">
+                  What sets Alex apart is his incredible patience, calm communication, and trustworthiness. He explains complex IT details in plain, easy-to-understand terms. You can hand him the keys to your business technology and know it's in expert hands.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
+                <div>
+                  <p className="font-bold text-primary">Bijou Coastal Stays</p>
+                  <p className="text-sm text-muted-foreground">Hospitality & Short-Term Lettings</p>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 — HS Garden Maintenance */}
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all">
+              <div>
+                <Quote className="w-8 h-8 text-primary/20 mb-4" />
+                <p className="text-foreground/80 leading-relaxed mb-6">
+                  Alex at TotalBiz Support has been helping with my garden and estate maintenance business for a few years now. Beyond general business advice, he built and manages my website, which regularly generates new leads while saving me over £250 a year compared to what I was paying GoDaddy.
+                </p>
+                <p className="text-foreground/80 leading-relaxed font-medium">
+                  Alex always goes above and beyond — recently, when my business phone was hacked, he not only helped me secure and recover my account quickly, but even printed flyers so local clients knew how to reach me in the meantime. I can't recommend TotalBiz Support enough to any sole trader looking for honest, reliable tech and admin support.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
+                <div>
+                  <p className="font-bold text-primary">HS Garden Maintenance</p>
+                  <p className="text-sm text-muted-foreground">Garden & Estate Maintenance</p>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -213,21 +279,21 @@ export default function Home() {
               {
                 title: "Hourly Support",
                 description: "Perfect for one-off fixes, smart home setups, personal admin, and quick advice.",
-                icon: "⏱️",
+                icon: <Clock className="w-8 h-8 text-primary" />,
               },
               {
                 title: "Project-Based",
                 description: "Ideal for websites, Wi-Fi installations, smart home builds, and defined deliverables.",
-                icon: "🎯",
+                icon: <Target className="w-8 h-8 text-primary" />,
               },
               {
                 title: "Monthly Retainer",
                 description: "Ongoing support hours as your dedicated business, tech, or operations partner.",
-                icon: "🤝",
+                icon: <Handshake className="w-8 h-8 text-primary" />,
               },
             ].map((model, index) => (
-              <div key={index} className="bg-background p-8 rounded-lg border border-border text-center shadow-sm">
-                <p className="text-4xl mb-4">{model.icon}</p>
+              <div key={index} className="bg-background p-8 rounded-lg border border-border text-center shadow-sm hover:border-primary/40 hover:shadow-md transition-all">
+                <div className="flex justify-center mb-4 p-3 bg-secondary rounded-xl w-fit mx-auto">{model.icon}</div>
                 <h3 className="text-xl font-bold text-primary mb-3">{model.title}</h3>
                 <p className="text-muted-foreground">{model.description}</p>
               </div>

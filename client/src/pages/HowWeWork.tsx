@@ -129,11 +129,16 @@ export default function HowWeWork() {
                 key={index}
                 className={`rounded-lg border transition-all ${
                   model.featured
-                    ? "bg-primary text-primary-foreground border-accent shadow-lg scale-105"
-                    : "bg-card text-foreground border-border hover:border-accent/50"
+                    ? "bg-primary text-primary-foreground border-accent border-2 shadow-2xl relative"
+                    : "bg-card text-foreground border-border hover:border-accent/50 hover:shadow-md"
                 }`}
               >
                 <div className="p-8">
+                  {model.featured && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="bg-accent text-primary-foreground text-xs font-bold px-4 py-1 rounded-full shadow-md uppercase tracking-wider">Most Popular</span>
+                    </div>
+                  )}
                   <p className="text-5xl mb-4">{model.icon}</p>
                   <h3 className={`text-2xl font-bold mb-2 ${model.featured ? "text-primary-foreground" : "text-primary"}`}>
                     {model.title}
