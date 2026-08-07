@@ -86,11 +86,11 @@ TotalBizSupport/
   1. **Google Business Reviews:** Integrated Bijou Coastal Stays & HS Garden Maintenance 5-star reviews into a new "What Clients Say" section on `Home.tsx`.
   2. **Hero Subheadline:** Shortened to ≤25 words on `Home.tsx`.
   3. **Engagement Icons:** Replaced emoji with Lucide icons on `Home.tsx`.
-  4. **Navigation:** Added `Services` text link to desktop and mobile navs in `Navigation.tsx`.
+  4. **Navigation & Hydration Fix:** Added `Services` text link to desktop and mobile navs; eliminated all nested `<a>` inside `wouter` `<Link>` tags across `Navigation.tsx`, `Footer.tsx`, `About.tsx`, `Home.tsx`, `Services.tsx`, `HowWeWork.tsx`, and `PersonalSupport.tsx` (fixes React hydration errors).
   5. **Form Touch Targets:** Added `text-base` to inputs in `Contact.tsx` (fixes iOS auto-zoom).
   6. **Footer Links:** Connected service list items in `Footer.tsx` directly to `/services`.
   7. **Pricing Card:** Updated featured card on `HowWeWork.tsx` with a "Most Popular" badge pill.
-  8. **Career Timeline:** Added visual Vertical Corporate Career Timeline & Core Capabilities section to `About.tsx`.
+  8. **About Page Roster Ready:** Preserved founder profile card with handwriting badge (*"Contact me directly..."*) and clean corporate background lists; ready for multi-team bio grid addition.
 - **Next Planned Upgrades (When Resuming):**
   - Interactive FAQ Accordion (`HowWeWork.tsx`)
   - Smooth scroll entrance micro-animations via `framer-motion`
