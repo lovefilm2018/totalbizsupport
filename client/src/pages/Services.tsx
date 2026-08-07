@@ -165,13 +165,11 @@ export default function Services() {
                     </div>
 
                     <div className="pt-2">
-                      <Link href="/contact">
-                        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm transition-transform hover:scale-105" asChild>
-                          <a>
-                            Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                          </a>
-                        </Button>
-                      </Link>
+                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm transition-transform hover:scale-105" asChild>
+                        <Link href="/contact">
+                          Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
+                      </Button>
                     </div>
                   </div>
 
@@ -211,13 +209,11 @@ export default function Services() {
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Get in touch and we'll discuss your specific needs to find the perfect solution.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
-              <a>
-                Contact Us <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
+            <Link href="/contact">
+              Contact Us <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
 

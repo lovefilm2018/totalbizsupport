@@ -91,20 +91,16 @@ export default function Home() {
               One reliable partner. Every problem sorted. Tech, strategy, admin, and smart home support — without jargon, stress, or hidden costs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
-                  <a>
-                    Get Support Today <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
-                  <a>
-                    Explore Services
-                  </a>
-                </Button>
-              </Link>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
+                <Link href="/contact">
+                  Get Support Today <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
+                <Link href="/services">
+                  Explore Services
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -251,13 +247,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/services">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
-                <a>
-                  View All Services <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-            </Link>
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 transition-transform hover:scale-105" asChild>
+              <Link href="/services">
+                View All Services <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -301,13 +295,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/how-we-work">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
-                <a>
-                  Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-            </Link>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
+              <Link href="/how-we-work">
+                Learn More <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -325,13 +317,11 @@ export default function Home() {
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Whether you need a quick fix, Google Home setup, personal admin help, or an experienced project manager, we're here for you.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
-              <a>
-                Start a Conversation <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-xl transition-transform hover:scale-105" asChild>
+            <Link href="/contact">
+              Start a Conversation <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
 

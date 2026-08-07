@@ -83,13 +83,11 @@ export default function PersonalSupport() {
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
             Whether you need a Google Home system configured, home Wi-Fi fixed, or a complex home office setup managed, get enterprise-grade expertise brought directly to your doorstep.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
-              <a>
-                Get Support Today <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
+            <Link href="/contact">
+              Get Support Today <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
 
@@ -121,11 +119,9 @@ export default function PersonalSupport() {
                     ))}
                   </ul>
                 </div>
-                <Link href="/contact">
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5" asChild>
-                    <a>Enquire About This</a>
-                  </Button>
-                </Link>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5" asChild>
+                  <Link href="/contact">Enquire About This</Link>
+                </Button>
               </div>
             ))}
           </div>
@@ -141,13 +137,11 @@ export default function PersonalSupport() {
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
             We provide remote support across the UK and friendly in-person home visits for residents across Heathfield, Horam, Hailsham, Crowborough, Uckfield, and surrounding local areas.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
-              <a>
-                Contact Alex Directly <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
+            <Link href="/contact">
+              Contact Alex Directly <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
 

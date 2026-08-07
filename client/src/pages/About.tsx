@@ -251,13 +251,11 @@ export default function About() {
               </ul>
 
               <div className="pt-4 border-t border-border">
-                <Link href="/services">
-                  <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" asChild>
-                    <a>
-                      Explore Our Services <ArrowRight className="ml-2 w-4 h-4" />
-                    </a>
-                  </Button>
-                </Link>
+                <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" asChild>
+                  <Link href="/services">
+                    Explore Our Services <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -302,13 +300,11 @@ export default function About() {
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Whether you're local or across the UK, we're here to help your business thrive.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
-              <a>
-                Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
+            <Link href="/contact">
+              Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
 

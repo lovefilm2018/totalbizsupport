@@ -171,17 +171,15 @@ export default function HowWeWork() {
                     ))}
                   </ul>
 
-                  <Link href="/contact">
-                    <Button
-                      className="w-full"
-                      variant={model.featured ? "default" : "outline"}
-                      asChild
-                    >
-                      <a>
-                        {model.cta} <ArrowRight className="ml-2 w-4 h-4" />
-                      </a>
-                    </Button>
-                  </Link>
+                  <Button
+                    className="w-full"
+                    variant={model.featured ? "default" : "outline"}
+                    asChild
+                  >
+                    <Link href="/contact">
+                      {model.cta} <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             ))}
@@ -258,13 +256,11 @@ export default function HowWeWork() {
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Let's discuss which engagement model works best for you.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
-              <a>
-                Schedule a Consultation <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold" asChild>
+            <Link href="/contact">
+              Schedule a Consultation <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
         </div>
       </section>
 

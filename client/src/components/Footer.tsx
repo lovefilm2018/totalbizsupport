@@ -48,24 +48,16 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
             <ul className="space-y-2 text-base">
               <li>
-                <Link href="/services">
-                  <a className="hover:text-accent transition-colors">Services</a>
-                </Link>
+                <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
               </li>
               <li>
-                <Link href="/how-we-work">
-                  <a className="hover:text-accent transition-colors">How We Work</a>
-                </Link>
+                <Link href="/how-we-work" className="hover:text-accent transition-colors">How We Work</Link>
               </li>
               <li>
-                <Link href="/about">
-                  <a className="hover:text-accent transition-colors">About</a>
-                </Link>
+                <Link href="/about" className="hover:text-accent transition-colors">About</Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="hover:text-accent transition-colors">Contact</a>
-                </Link>
+                <Link href="/contact" className="hover:text-accent transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
@@ -74,10 +66,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Services</h4>
             <ul className="space-y-2 text-base">
-              <li><Link href="/services"><a className="hover:text-accent transition-colors cursor-pointer">Getting You Online &amp; Mobile Apps</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-accent transition-colors cursor-pointer">Tech &amp; Equipment Fixes</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-accent transition-colors cursor-pointer">Admin &amp; Bookkeeping</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-accent transition-colors cursor-pointer">Strategy &amp; Advice</a></Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors cursor-pointer">Getting You Online &amp; Mobile Apps</Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors cursor-pointer">Tech &amp; Equipment Fixes</Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors cursor-pointer">Admin &amp; Bookkeeping</Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors cursor-pointer">Strategy &amp; Advice</Link></li>
             </ul>
           </div>
 
