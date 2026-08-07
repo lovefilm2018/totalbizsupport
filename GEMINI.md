@@ -71,8 +71,8 @@ TotalBizSupport/
 ---
 
 ## 6. Endpoints, Contact & External Integrations
-- **Primary Email:** `totalbizsupport@gmail.com`
-- **Mailto Trigger:** `<a href="mailto:totalbizsupport@gmail.com">`
+- **Primary Email:** `contact@totalbiz.co.uk`
+- **Mailto Trigger:** `<a href="mailto:contact@totalbiz.co.uk">`
 - **WhatsApp Direct Chat:** `https://wa.me/447799538311` (`+44 7799 538311`)
 - **WhatsApp Floating CTA:** Fixed floating button at `bottom: 30px; right: 30px;` with brand green (`#25D366`) and hover scaling.
 - **Google Tag Manager / Analytics:** `G-DXSNWTFQQ3`

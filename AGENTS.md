@@ -23,7 +23,7 @@ This project operates on a structured **Human-AI Partnership**:
 
 ### 4. Database Schema & Form/Contact Routing Integrity
 - **Rule:** Ensure all lead-generation paths (email buttons, WhatsApp floating CTA, contact forms) maintain strict schema and formatting accuracy.
-- **Requirement:** Never hardcode dummy contact details. Always use canonical business credentials (`totalbizsupport@gmail.com`, `+447799538311`, Heathfield / East Sussex).
+- **Requirement:** Never hardcode dummy contact details. Always use canonical business credentials (`contact@totalbiz.co.uk`, `+447799538311`, Heathfield / East Sussex).
 
 ### 5. Core Domain & Business Logic Rules
 - **Rule:** All copy and technical solutions must align with the "Rolls Royce mechanic for small business" brand persona.

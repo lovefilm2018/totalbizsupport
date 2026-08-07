@@ -87,8 +87,8 @@ export default function Footer() {
             <ul className="space-y-3 text-base">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-accent" />
-                <a href="mailto:support@totalbiz.co.uk" className="hover:text-accent transition-colors">
-                  support@totalbiz.co.uk
+                <a href="mailto:contact@totalbiz.co.uk" className="hover:text-accent transition-colors">
+                  contact@totalbiz.co.uk
                 </a>
               </li>
               <li className="flex items-center gap-2">
