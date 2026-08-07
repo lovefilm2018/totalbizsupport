@@ -76,3 +76,22 @@ TotalBizSupport/
 - **WhatsApp Direct Chat:** `https://wa.me/447799538311` (`+44 7799 538311`)
 - **WhatsApp Floating CTA:** Fixed floating button at `bottom: 30px; right: 30px;` with brand green (`#25D366`) and hover scaling.
 - **Google Tag Manager / Analytics:** `G-DXSNWTFQQ3`
+
+---
+
+## 7. Current Audit & Active Preview Status (August 2026)
+- **Active Audit Report:** [`WEBSITE_AUDIT_RECOMMENDATIONS.md`](WEBSITE_AUDIT_RECOMMENDATIONS.md)
+- **Canonical Preview Branch:** `preview-updates`
+- **Completed Preview Enhancements:**
+  1. **Google Business Reviews:** Integrated Bijou Coastal Stays & HS Garden Maintenance 5-star reviews into a new "What Clients Say" section on `Home.tsx`.
+  2. **Hero Subheadline:** Shortened to ≤25 words on `Home.tsx`.
+  3. **Engagement Icons:** Replaced emoji with Lucide icons on `Home.tsx`.
+  4. **Navigation:** Added `Services` text link to desktop and mobile navs in `Navigation.tsx`.
+  5. **Form Touch Targets:** Added `text-base` to inputs in `Contact.tsx` (fixes iOS auto-zoom).
+  6. **Footer Links:** Connected service list items in `Footer.tsx` directly to `/services`.
+  7. **Pricing Card:** Updated featured card on `HowWeWork.tsx` with a "Most Popular" badge pill.
+  8. **Career Timeline:** Added visual Vertical Corporate Career Timeline & Core Capabilities section to `About.tsx`.
+- **Next Planned Upgrades (When Resuming):**
+  - Interactive FAQ Accordion (`HowWeWork.tsx`)
+  - Smooth scroll entrance micro-animations via `framer-motion`
+  - Compress `websites-apps.jpg` asset to AVIF format
