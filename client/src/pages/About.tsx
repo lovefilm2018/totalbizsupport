@@ -62,13 +62,15 @@ export default function About() {
                 <p className="text-muted-foreground mt-2">Heathfield, East Sussex</p>
               </div>
 
-              <div className="pt-4 border-t border-border/80 w-full">
-                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Contact Me Directly</p>
+              <div className="pt-4 border-t border-border/80 w-full flex flex-col items-center">
+                <p className="font-['Caveat',cursive] text-2xl text-accent font-bold transform -rotate-2 mb-1">
+                  Contact me directly...
+                </p>
                 <a 
                   href="mailto:alex@totalbiz.co.uk" 
-                  className="inline-flex items-center gap-2 text-accent font-semibold hover:underline text-lg transition-colors"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-lg"
                 >
-                  <Mail className="w-4 h-4" /> alex@totalbiz.co.uk
+                  <Mail className="w-4 h-4 text-accent" /> alex@totalbiz.co.uk
                 </a>
               </div>
             </div>
