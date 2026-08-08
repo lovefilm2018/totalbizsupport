@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu, Clock, Target, Handshake, Star, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 // Local asset imports
 import heroBg from "@/assets/hero-bg.avif";
@@ -162,7 +163,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Testimonial 1 — Bijou Coastal Stays */}
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all"
+            >
               <div>
                 <Quote className="w-8 h-8 text-primary/20 mb-4" />
                 <p className="text-foreground/80 leading-relaxed mb-6">
@@ -183,10 +190,16 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Testimonial 2 — HS Garden Maintenance */}
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-card border border-border rounded-2xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-primary/30 transition-all"
+            >
               <div>
                 <Quote className="w-8 h-8 text-primary/20 mb-4" />
                 <p className="text-foreground/80 leading-relaxed mb-6">
@@ -207,7 +220,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -226,8 +239,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg group flex flex-col justify-between"
               >
                 <div>
@@ -242,7 +259,7 @@ export default function Home() {
                     Learn more <ArrowRight className="ml-1 w-4 h-4" />
                   </span>
                 </Link>
-              </div>
+              </motion.div>
             ))}
           </div>
 

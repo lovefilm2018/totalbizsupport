@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function HowWeWork() {
   const models = [
@@ -231,18 +237,33 @@ export default function HowWeWork() {
 
       {/* FAQ Section */}
       <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-primary mb-12 text-center">
-            Frequently Asked Questions
-          </h2>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Got questions? We've got clear, straightforward answers.
+            </p>
+          </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqList.map((item, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg border border-border">
-                <h3 className="font-bold text-primary mb-3">{item.q}</h3>
-                <p className="text-muted-foreground">{item.a}</p>
-              </div>
-            ))}
+          <div className="bg-card p-6 md:p-8 rounded-2xl border border-border/80 shadow-sm">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqList.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-border/60 rounded-xl px-6 py-2 bg-background hover:border-accent/40 transition-colors"
+                >
+                  <AccordionTrigger className="text-lg font-bold text-primary hover:text-accent hover:no-underline py-4">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-4 pt-1 border-t border-border/40 mt-2">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
