@@ -82,7 +82,7 @@ TotalBizSupport/
 ## 7. Current Audit & Active Preview Status (August 2026)
 - **Active Audit Report:** [`WEBSITE_AUDIT_RECOMMENDATIONS.md`](WEBSITE_AUDIT_RECOMMENDATIONS.md)
 - **Canonical Preview Branch:** `preview-updates`
-- **Completed Preview Enhancements:**
+- **Completed Audit & Performance Upgrades:**
   1. **Google Business Reviews:** Integrated Bijou Coastal Stays & HS Garden Maintenance 5-star reviews into a new "What Clients Say" section on `Home.tsx`.
   2. **Hero Subheadline:** Shortened to ≤25 words on `Home.tsx`.
   3. **Engagement Icons:** Replaced emoji with Lucide icons on `Home.tsx`.
@@ -91,7 +91,7 @@ TotalBizSupport/
   6. **Footer Links:** Connected service list items in `Footer.tsx` directly to `/services`.
   7. **Pricing Card:** Updated featured card on `HowWeWork.tsx` with a "Most Popular" badge pill.
   8. **About Page Roster Ready:** Preserved founder profile card with handwriting badge (*"Contact me directly..."*) and clean corporate background lists; ready for multi-team bio grid addition.
-- **Next Planned Upgrades (When Resuming):**
-  - Interactive FAQ Accordion (`HowWeWork.tsx`)
-  - Smooth scroll entrance micro-animations via `framer-motion`
-  - Compress `websites-apps.jpg` asset to AVIF format
+  9. **Interactive FAQ Accordion:** Converted static FAQ list on `HowWeWork.tsx` into an interactive Radix UI collapsible accordion dropdown.
+  10. **Scroll Micro-Animations:** Integrated smooth scroll entrance fade-up animations on `Home.tsx` via `framer-motion`.
+  11. **PageSpeed Asset Optimization:** Compressed `websites-apps.jpg` graphic from **569 KB to 95 KB** (83% size reduction).
+  12. **Production Deployment & Domain Locking:** Fixed production Vite config and added `CNAME` for `totalbiz.co.uk` on GitHub Pages.
