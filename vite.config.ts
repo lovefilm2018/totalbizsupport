@@ -205,11 +205,7 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [
   react(), 
-  tailwindcss(), 
-  jsxLocPlugin(), 
-  vitePluginManusRuntime(), 
-  vitePluginManusDebugCollector(), 
-  vitePluginStorageProxy()
+  tailwindcss()
 ];
 
 export default defineConfig({
