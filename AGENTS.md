@@ -31,7 +31,7 @@ This project operates on a structured **Human-AI Partnership**:
   - Strictly **avoid tech jargon** in client-facing HTML/React text.
   - Apply standard **UK English spelling and grammar** across all text.
   - Always use **miles per hour (mph)** for speed references if relevant.
-  - Root geographic context in **Heathfield, East Sussex** and surrounding UK markets.
+  - Root geographic context in **Heathfield, East Sussex** (serving East & West Sussex and Kent) alongside UK-wide remote consultancy.
 
 ### 6. Escalation & Model Switch Protocol
 - **Rule:** If an architectural bug, layout anomaly, or deployment issue fails to resolve after **2 consecutive attempts**, immediately halt repeated execution.
@@ -55,3 +55,50 @@ This project operates on a structured **Human-AI Partnership**:
 ### 10. Central Cross-Project Usage & Task Metric CSV Audit
 - **Rule:** Every session and significant task completion must be logged to the central usage audit ledger.
 - **Requirement:** Append operational metrics, session timestamps, and task summaries to `C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv`.
+
+---
+
+## III. Lead Digital Marketing & Google Search Console Protocol
+
+### 1. Dual Agent Role & Mandate
+AGY operates in a dual capacity:
+1. **Senior Developer & Tech Lead:** Maintains React 19, TypeScript, Vite 7, and GitHub Pages build stability (`totalbiz.co.uk`).
+2. **Lead Digital Marketing Manager:** Drives search indexation, Local SEO, sitemap submission, Google Search Console API queries, legacy indexation cleanup, and CRO.
+
+### 2. Google Search Console API Credentials & Scope
+- **Key File:** `C:\Users\TotalBiz\Documents\totalbizsupport\gsc-key.json` (`./gsc-key.json`)
+- **GCloud Project ID:** `totalbiz-marketing-automation`
+- **Service Account Email:** `agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com`
+- **Target Site:** `https://totalbiz.co.uk/`
+- **Scope:** `https://www.googleapis.com/auth/webmasters`
+
+### 3. Authorized Automated GSC Execution Tasks
+- **Sitemap Verification:** Submit and check index status of `https://totalbiz.co.uk/sitemap.xml`.
+- **URL Inspection & Re-Indexing:** Query indexing status for canonical routes (`/`, `/services`, `/personal-support`, `/how-we-work`, `/about`, `/contact`).
+- **Legacy Antivirus Domain Cleanup:** Identify and request removal of legacy indexed URLs from previous domain owners (e.g. old antivirus reseller pages).
+- **Search Performance Tracking:** Fetch query impressions, clicks, CTR, and search positioning.
+
+### 4. Multi-Channel Social API Automation Protocols
+- **Facebook Page API:** Automated posting to TotalBiz Support Facebook Page (`1207871262402389`) using Page Access Token stored in `marketing/04-analytics/Facebook_Credentials.md`. Script: `scripts/post-day1-fb.js`.
+- **LinkedIn API:** Automated posting to Alex Poxon Personal Profile (`urn:li:person:pACLfBlITP`) using 60-day token stored in `marketing/04-analytics/LinkedIn_Credentials.md`. Script: `scripts/linkedin-post-test.js`.
+- **Google Analytics 4 API:** Query live traffic & conversions using `gsc-key.json` service account (`G-DXSNWTFQQ3`).
+
+---
+
+## IV. Daily Session Continuity & Ledger Synchronization Protocol
+
+To ensure 100% seamless progress across sessions, AGY MUST adhere to this 2-step continuity protocol:
+
+### 1. Session Startup Protocol (First Turn of Every Session)
+At the start of every new session, AGY must inspect:
+- `AGENTS.md` & `GEMINI.md` (Master operational rules & domain specs)
+- `marketing/05-operations/Completed.md` (Historical log of all past completed milestones)
+- `marketing/05-operations/TODAY.md` (Active day blueprint & tasks)
+- `marketing/04-analytics/` (Latest GSC, GA4, Meta, and LinkedIn API tokens and rankings)
+
+### 2. Session Wrap-Up Protocol (End of Every Session / Milestone)
+Before wrapping up any major task or ending a session, AGY must:
+1. Update `marketing/05-operations/Completed.md` with all completed tasks.
+2. Update `marketing/05-operations/TODAY.md` with the next day's exact action blueprint.
+3. Synchronize `AGENTS.md` and `GEMINI.md` with any new APIs, endpoints, or structural changes.
+4. Append operational task metrics to `C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv`.

@@ -19,6 +19,8 @@ export default function Services() {
     {
       title: "Strategy & Operating Models — Practical Consultancy & Advice",
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
+      badge: "🌐 UK-Wide Remote via Google Meet",
+      badgeType: "remote",
       description: "We provide high-level business guidance, Target Operating Model (TOM) design, and workflow optimization to help you make informed decisions.",
       features: [
         "Target Operating Model (TOM) design & process mapping",
@@ -33,6 +35,8 @@ export default function Services() {
     {
       title: "Project Management & Transformation — Delivery & Migrations",
       icon: <FolderKanban className="w-8 h-8 text-primary" />,
+      badge: "⚡ On-Site (Sussex & Kent) & UK Remote",
+      badgeType: "hybrid",
       description: "Planning a software migration, premises move, or operational change? We bring 20+ years of corporate project experience to keep your project on time and within budget.",
       features: [
         "End-to-end project planning, timelines & budget management",
@@ -47,6 +51,8 @@ export default function Services() {
     {
       title: "Getting You Online & Mobile Apps — Websites, iOS & Android",
       icon: <Globe className="w-8 h-8 text-primary" />,
+      badge: "🌐 UK-Wide Remote & Local Delivery",
+      badgeType: "remote",
       description: "We help you build and maintain a high-impact digital presence—from responsive custom websites to native & cross-platform iOS and Android mobile applications.",
       features: [
         "Custom website design & responsive web development",
@@ -61,6 +67,8 @@ export default function Services() {
     {
       title: "Admin & Bookkeeping — Invoicing, Tax & Workspace Setup",
       icon: <FileText className="w-8 h-8 text-primary" />,
+      badge: "⚡ On-Site (Sussex & Kent) & UK Remote",
+      badgeType: "hybrid",
       description: "We organize your day-to-day operations and paperwork—from commercial bookkeeping to personal Self-Assessments—so you stay in total control.",
       features: [
         "Self-Assessment tax return filing assistance & digital account setup",
@@ -75,6 +83,8 @@ export default function Services() {
     {
       title: "Tech & Equipment Fixes — Wi-Fi, Hardware & CCTV",
       icon: <Wrench className="w-8 h-8 text-primary" />,
+      badge: "📍 On-Site (Sussex & Kent)",
+      badgeType: "local",
       description: "From commercial networks to home office tech, we handle all your equipment and troubleshooting needs so everything works seamlessly.",
       features: [
         "Mesh Wi-Fi installation, dead-spot fixing & optimization for offices, guest houses & homes",
@@ -89,6 +99,8 @@ export default function Services() {
     {
       title: "Smart Home & Automation — Google Home, Nest & AV",
       icon: <Cpu className="w-8 h-8 text-primary" />,
+      badge: "📍 On-Site (Sussex & Kent)",
+      badgeType: "local",
       description: "Transform your living space or property with seamlessly connected smart devices, multi-room audio, security hardware, and automated routines.",
       features: [
         "Google Home & Nest ecosystem installation (Hubs, Displays & Speakers)",
@@ -136,8 +148,19 @@ export default function Services() {
                   {/* Text Content */}
                   <div className="w-full lg:w-1/2 space-y-6">
                     <div className="space-y-3">
-                      <div className="p-3 bg-secondary rounded-xl w-fit mb-4 shadow-sm border border-border/50">
-                        {service.icon}
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <div className="p-3 bg-secondary rounded-xl w-fit shadow-sm border border-border/50">
+                          {service.icon}
+                        </div>
+                        <span className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${
+                          service.badgeType === 'local' 
+                            ? 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/50' 
+                            : service.badgeType === 'remote'
+                            ? 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800/50'
+                            : 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/50'
+                        }`}>
+                          {service.badge}
+                        </span>
                       </div>
                       <h2 className="text-2xl md:text-3xl font-bold text-primary">
                         {service.title}

@@ -2,8 +2,8 @@
 
 ## 1. Project Overview & Core Domain
 - **Project Name:** TotalBiz Support Website
-- **Business Identity:** TotalBiz Support (`totalbiz.co.uk` / `totalbizsupport.co.uk`)
-- **Location & Reach:** Based in Heathfield, East Sussex. Providing hands-on local support across East Sussex and nationwide remote consultancy via Google Meet.
+- **Business Identity:** TotalBiz Support (`totalbiz.co.uk`)
+- **Location & Reach:** Based in Heathfield, East Sussex. Providing hands-on local support across East Sussex, West Sussex, and Kent, plus UK-wide remote consultancy via Google Meet.
 - **Value Proposition:** *"Enterprise-Grade Support. Small Business Prices."* Delivering 20+ years of global corporate IT and business strategy experience (HSBC, eBay, AXA) directly to local sole traders, small businesses, property owners, and short-term rental (Airbnb) hosts.
 - **Core Strategy:** Eliminate operational chaos without agency bloat or jargon. A single, reliable partner handling digital presence, hardware/network tech, admin/bookkeeping, and high-level strategy.
 
@@ -71,8 +71,8 @@ TotalBizSupport/
 ---
 
 ## 6. Endpoints, Contact & External Integrations
-- **Primary Email:** `contact@totalbiz.co.uk`
-- **Mailto Trigger:** `<a href="mailto:contact@totalbiz.co.uk">`
+- **Primary Emails:** `contact@totalbiz.co.uk`, `alex@totalbiz.co.uk` (Main Gmail account: `totalbizsupport@gmail.com`)
+- **Mailto Trigger:** `<a href="mailto:contact@totalbiz.co.uk">` / `<a href="mailto:alex@totalbiz.co.uk">`
 - **WhatsApp Direct Chat:** `https://wa.me/447799538311` (`+44 7799 538311`)
 - **WhatsApp Floating CTA:** Fixed floating button at `bottom: 30px; right: 30px;` with brand green (`#25D366`) and hover scaling.
 - **Google Tag Manager / Analytics:** `G-DXSNWTFQQ3`
@@ -95,3 +95,5 @@ TotalBizSupport/
   10. **Scroll Micro-Animations:** Integrated smooth scroll entrance fade-up animations on `Home.tsx` via `framer-motion`.
   11. **PageSpeed Asset Optimization:** Compressed `websites-apps.jpg` graphic from **569 KB to 95 KB** (83% size reduction).
   12. **Production Deployment & Domain Locking:** Fixed production Vite config and added `CNAME` for `totalbiz.co.uk` on GitHub Pages.
+  13. **Marketing Command Centre & API Engine:** Deployed 6 strategy ledgers in `marketing/`, authenticated Google Search Console API (`siteOwner`), GA4 API, Facebook Page Graph API (Day 1 post live: `1207871262402389_122127780927360282`), and LinkedIn REST API (Day 1 post live: `urn:li:share:7492362707782881280`).
+  14. **Website Tier Separation & Regional Reach (Day 2 Task 1):** Added visual reach badges (`📍 On-Site (Sussex & Kent)`, `🌐 UK-Wide Remote`, `⚡ On-Site & Remote`) across `Home.tsx` and `Services.tsx`; fixed navigation CTA button to `Get Support` (`/contact`); expanded Schema JSON-LD `areaServed` and meta tags to cover East Sussex, West Sussex, Kent, and United Kingdom.

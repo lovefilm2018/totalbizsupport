@@ -39,8 +39,8 @@ export default function Navigation() {
             </Link>
           ))}
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm transition-transform hover:scale-105" asChild>
-            <Link href="/services">
-              Explore Services
+            <Link href="/contact">
+              Get Support
             </Link>
           </Button>
         </div>
@@ -71,8 +71,8 @@ export default function Navigation() {
             ))}
             <div className="pt-4">
               <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg shadow-sm" asChild>
-                <Link href="/services" onClick={() => setIsOpen(false)}>
-                  Explore Services
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  Get Support
                 </Link>
               </Button>
             </div>

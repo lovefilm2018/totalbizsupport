@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu, Clock, Target, Handshake, Star, Quote } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Users, Lightbulb, FolderKanban, Cpu, Clock, Target, Handshake, Star, Quote, MapPin, Globe, Sparkles } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -13,16 +13,34 @@ import ctaBg from "@/assets/cta-bg.avif";
 export default function Home() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "name": "TotalBiz Support",
     "image": heroBg,
-    "description": "Corporate-grade business, technology, smart home, project management, and administration support for small businesses, sole traders, property owners, and individuals.",
+    "description": "Corporate-grade business, technology, custom web & app development, smart home, project management, and administration support for small businesses, sole traders, property owners, and individuals across East & West Sussex, Kent, and UK-wide remote.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Heathfield",
       "addressRegion": "East Sussex",
       "addressCountry": "UK"
     },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "East Sussex"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "West Sussex"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Kent"
+      },
+      {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
+    ],
     "telephone": "+447799538311",
     "priceRange": "££",
     "url": "https://totalbiz.co.uk"
@@ -33,39 +51,51 @@ export default function Home() {
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
       title: "Strategy & Operating Models",
       description: "Business guidance, Target Operating Model (TOM) design, and practical technology coaching.",
+      badge: "🌐 UK-Wide Remote",
+      badgeType: "remote"
     },
     {
       icon: <FolderKanban className="w-8 h-8 text-primary" />,
       title: "Project Management & Delivery",
       description: "Planning software migrations, premises moves, or service launches with strict timeline, budget, and vendor oversight.",
+      badge: "⚡ On-Site & Remote",
+      badgeType: "hybrid"
     },
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
       title: "Getting You Online & Mobile Apps",
       description: "Custom websites, iOS & Android mobile apps, and local search visibility that bring in real customers.",
+      badge: "🌐 UK-Wide Remote",
+      badgeType: "remote"
     },
     {
       icon: <Users className="w-8 h-8 text-primary" />,
       title: "Admin & Bookkeeping",
       description: "Invoicing, paperwork organization, Self-Assessments, and Google Workspace setup.",
+      badge: "⚡ On-Site & Remote",
+      badgeType: "hybrid"
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-primary" />,
       title: "Tech & Equipment Fixes",
       description: "Office & home Wi-Fi networks, security cameras, device repairs, and troubleshooting.",
+      badge: "📍 On-Site (Sussex & Kent)",
+      badgeType: "local"
     },
     {
       icon: <Cpu className="w-8 h-8 text-primary" />,
       title: "Smart Home & Automation",
       description: "Google Home & Nest ecosystem, multi-room audio, smart doorbells, heating & automated lighting.",
+      badge: "📍 On-Site (Sussex & Kent)",
+      badgeType: "local"
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>TotalBiz Support | Business, Smart Home & Project Support East Sussex</title>
-        <meta name="description" content="Corporate-grade tech, Google Home & Nest setup, web design, Wi-Fi, project management, bookkeeping, and Self-Assessment admin support across East Sussex." />
+        <title>TotalBiz Support | Business, Smart Home & Tech Support (Sussex, Kent & UK Remote)</title>
+        <meta name="description" content="Corporate-grade tech, Google Home & Nest setup, web & app design, Wi-Fi, project management, bookkeeping, and admin support across Sussex, Kent, and UK-wide remote." />
       </Helmet>
 
       <script type="application/ld+json">
@@ -89,7 +119,7 @@ export default function Home() {
               <span className="text-accent"> Small Business Prices.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              One reliable partner. Every problem sorted. Tech, strategy, admin, and smart home support — without jargon, stress, or hidden costs.
+              Hands-on local tech & admin support across Sussex & Kent — plus UK-wide remote web, mobile app development, and business strategy consultancy via Google Meet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90 transition-transform hover:scale-105" asChild>
@@ -248,8 +278,19 @@ export default function Home() {
                 className="bg-card p-8 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg group flex flex-col justify-between"
               >
                 <div>
-                  <div className="mb-4 p-3 bg-secondary rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
-                    {service.icon}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-secondary rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
+                      {service.icon}
+                    </div>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${
+                      service.badgeType === 'local' 
+                        ? 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/50' 
+                        : service.badgeType === 'remote'
+                        ? 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800/50'
+                        : 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/50'
+                    }`}>
+                      {service.badge}
+                    </span>
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">{service.description}</p>
