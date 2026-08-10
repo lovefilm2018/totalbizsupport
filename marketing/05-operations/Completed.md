@@ -1,0 +1,43 @@
+# Marketing Operations Completed Log
+
+## Day 1 — Launch & Foundation Setup (Completed: 2026-08-10)
+
+### 1. Agency Lead & Operations Framework
+- [x] Formally activated AGY dual mandate: Senior Developer & Tech Lead + Lead Digital Marketing Director.
+- [x] Defined and committed [`RESOURCE_POLICY.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/RESOURCE_POLICY.md) (10 golden rules for token/quota allocation across AI models).
+- [x] Built the **Marketing Command Centre** directory structure (`marketing/00-context`, `01-strategy`, `02-research`, `04-analytics`, `05-operations`).
+
+### 2. Market Research & Commercial Assets Ingest
+- [x] Ingested 20-page Gemini 3.1 Pro Deep Research report ([`deep_research_report.pdf`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/02-research/deep_research_report.pdf)) and generated [`Market_Research.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/02-research/Market_Research.md).
+- [x] Formally logged commercial white-label partnership with Clarviz (£15/hr backend dev cost -> 65%+ profit margin for TotalBiz) in [`Partnerships_WhiteLabel.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/00-context/Partnerships_WhiteLabel.md).
+- [x] Formally logged proprietary asset (GCloud Automated Dynamic Pricing Engine for Airbnb hosts & co-hosting) in [`Airbnb_Pricing_Tool.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/00-context/Airbnb_Pricing_Tool.md).
+- [x] Formally logged top-of-funnel content engine ("AI Life Hacks for Everyday People & Small Biz") in [`Content_Strategy.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/01-strategy/Content_Strategy.md).
+
+### 3. Search Engine & Technical SEO Milestones
+- [x] Configured Google Search Console API service account (`agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com`).
+- [x] Executed automated GSC API cleanup: Permanently deleted legacy 2022 sitemap (`custom/domain_1/sitemap/index.xml`) to eliminate 404 errors from old domain owners.
+- [x] Re-submitted canonical sitemap (`https://totalbiz.co.uk/sitemap.xml`) — 0 errors, 0 warnings.
+- [x] Confirmed live #1 Google Search rank for high-intent local queries (`business it support near me`, `it support company near me`, `small business it support near me`).
+- [x] Submitted all 6 canonical URLs (`/`, `/services`, `/personal-support`, `/how-we-work`, `/about`, `/contact`) to Google Search Console priority indexing queue.
+
+### 4. Analytics & Social Media API Integration
+- [x] **Google Analytics 4:** Linked service account as Administrator.
+- [x] **Facebook Page API:** Generated Page Access Token (`EAAT9dJ4m...`), verified permissions (`pages_manage_posts`, `pages_read_engagement`, `pages_show_list`), and **successfully published Day 1 Launch Post automatically via API** (Post ID: `1207871262402389_122127780927360282`).
+- [x] **LinkedIn Profile API:** Exchanged OAuth authorization code for a **live 60-day Access Token**, queried member URN (`urn:li:person:pACLfBlITP`), and **successfully published Day 1 Launch Post automatically via API** (Share URN: `urn:li:share:7492362707782881280`).
+- [x] **LinkedIn Company Page API:** Created App 2 (`78aki8m65b95p0`) and submitted Community Management API access request form.
+
+---
+
+## Day 2 — Website Tier Separation & Social Media Engine (Completed: 2026-08-10)
+
+### 1. Website Tier Separation & Regional Expansion (East & West Sussex + Kent)
+- [x] Audited and updated [`Home.tsx`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/client/src/pages/Home.tsx) and [`Services.tsx`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/client/src/pages/Services.tsx) with visual service reach badges (`🌐 UK-Wide Remote`, `📍 On-Site (Sussex & Kent)`, `⚡ On-Site & Remote`).
+- [x] Fixed header navigation CTA button from redundant `Explore Services` to `Get Support` (`/contact`).
+- [x] Rewrote Hero Subheadline on [`Home.tsx`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/client/src/pages/Home.tsx) to explicitly articulate both local on-site services across Sussex & Kent and nationwide remote consultancy via Google Meet.
+- [x] Updated Schema JSON-LD `areaServed` and meta tags in [`index.html`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/client/index.html) and [`Home.tsx`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/client/src/pages/Home.tsx) covering East Sussex, West Sussex, Kent, and the UK.
+- [x] Verified build integrity (`npx tsc --noEmit` exit 0, `npx vite build` exit 0), merged `preview-updates` into `main`, and deployed to live production site **`https://totalbiz.co.uk`**.
+
+### 2. Social Media Day 2 Post Engine
+- [x] **LinkedIn API:** Published Day 2 Thought Leadership Post (*"The 3 hidden costs of bloated UK web agency quotes..."*) live via REST API (Share URN: `urn:li:share:7492517528284483584`).
+- [x] **Facebook Page:** Created Day 2 "Tech Translation" Post script (`scripts/post-day2-fb.js`) ready for 1-click execution or direct page posting.
+
