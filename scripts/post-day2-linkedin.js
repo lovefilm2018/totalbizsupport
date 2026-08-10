@@ -7,7 +7,7 @@ const messageText = `The 3 hidden costs behind bloated UK web agency quotes (and
 
 When small business owners or growing firms ask for a web design or custom mobile app quote, they are often quoted £8,000 to £25,000+.
 
-Having spent 20+ years delivering major tech transformations across HSBC, eBay, and AXA, here is what you are actually paying for in those agency quotes:
+Having spent 20+ years delivering major tech transformations across HSBC, eBay, Schroders, and Gumtree, here is what you are actually paying for in those agency quotes:
 
 1. Account Executive & Overhead Markup — You pay for their fancy office rent, multiple account managers, and pitch decks.
 2. Scope Creep & Misalignment — Non-technical project managers acting as middlemen, resulting in endless revision rounds and billable scope additions.

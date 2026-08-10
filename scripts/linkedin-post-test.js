@@ -3,7 +3,7 @@ import https from 'https';
 const accessToken = 'AQU8lBLIfjFyADP-a-zGe8cRHC2wzU9y7zHRpJinLqMfVNjLzha4eSKxf26p4cV8aSncBsUwCPzKLqlE-JXg8swlmnMJlXiIGnZb-a0-K9n67s6TUxPPA_fWqwj17TyxX2dshWnb-fsafb5FBORdm20d7A9EQZqQ56Ksf0R_yXAK71GcTZg_b4t7z2poh8ZXIXHZamn3H7bU8ojR0V0t60Aowl6RJrTFkn6g3UGRXW_Yzou3E2dpLpERrw-CtImOb3q3QW-DDKy90f9hoew_3mFmgASqFUDqb6b93eHhAj3sHQAWQhyCq-jUfkyNPoRmqXl2LZMXo_r43VFPLSiQe9SGyBsIMA';
 const personUrn = 'urn:li:person:pACLfBlITP';
 
-const messageText = `After 20+ years navigating corporate IT, systems strategy, and digital operations across global brands like HSBC, eBay, and AXA, I kept seeing the exact same problem:
+const messageText = `After 20+ years navigating corporate IT, systems strategy, and digital operations across global brands like HSBC, eBay, Schroders, and Gumtree, I kept seeing the exact same problem:
 
 Small business owners, sole traders, and property hosts are drowning in operational chaos.
 

@@ -4,7 +4,7 @@
 - **Project Name:** TotalBiz Support Website
 - **Business Identity:** TotalBiz Support (`totalbiz.co.uk`)
 - **Location & Reach:** Based in Heathfield, East Sussex. Providing hands-on local support across East Sussex, West Sussex, and Kent, plus UK-wide remote consultancy via Google Meet.
-- **Value Proposition:** *"Enterprise-Grade Support. Small Business Prices."* Delivering 20+ years of global corporate IT and business strategy experience (HSBC, eBay, AXA) directly to local sole traders, small businesses, property owners, and short-term rental (Airbnb) hosts.
+- **Value Proposition:** *"Enterprise-Grade Support. Small Business Prices."* Delivering 20+ years of global corporate IT and business strategy experience (HSBC, eBay, Schroders, Gumtree) directly to local sole traders, small businesses, property owners, and short-term rental (Airbnb) hosts.
 - **Core Strategy:** Eliminate operational chaos without agency bloat or jargon. A single, reliable partner handling digital presence, hardware/network tech, admin/bookkeeping, and high-level strategy.
 
 ---
@@ -65,7 +65,7 @@ TotalBizSupport/
 - **Services (`/services`):** Detailed breakdowns for Getting You Online, Tech & Equipment Fixes, Admin & Bookkeeping, Strategy & Advice.
 - **Personal & Business Support (`/personal-support`):** Tailored technical and administrative support for individuals, sole traders, and property owners.
 - **How We Work (`/how-we-work`):** Transparent step-by-step process, pricing clarity (hourly, project, retainer), local vs remote options.
-- **About (`/about`):** Alex Poxon's 20+ years enterprise corporate IT background (HSBC, eBay, AXA) applied to local businesses.
+- **About (`/about`):** Alex Poxon's 20+ years enterprise corporate IT background (HSBC, eBay, Schroders, Gumtree) applied to local businesses.
 - **Contact (`/contact`):** Direct contact options, embedded map, inquiry channels.
 
 ---

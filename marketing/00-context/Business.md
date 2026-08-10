@@ -3,10 +3,10 @@
 ## Overview
 - **Brand Name:** TotalBiz Support
 - **Canonical Website:** `https://totalbiz.co.uk`
-- **Founder & Director:** Alex Poxon (20+ years global corporate IT & strategy background: HSBC, eBay, AXA)
+- **Founder & Director:** Alex Poxon (20+ years global corporate IT & strategy background: HSBC, eBay, Schroders, Gumtree)
 - **Base Location:** Heathfield, East Sussex, UK
 - **Service Reach:** 
-  - **Tier 1 (On-Site Local):** Hands-on support across East Sussex (Heathfield, Uckfield, Hailsham, Eastbourne, Crowborough, Lewes).
+  - **Tier 1 (On-Site Local):** Hands-on support across East Sussex, West Sussex, and Kent (Heathfield, Uckfield, Hailsham, Eastbourne, Crowborough, Lewes, Tunbridge Wells, Sevenoaks, Crawley, East Grinstead).
   - **Tier 2 (Remote UK-Wide):** Digital presence, custom Web & iOS/Android app development, TOM strategy, and fractional COO consulting via Google Meet.
 
 ## Active Digital Assets & Presence

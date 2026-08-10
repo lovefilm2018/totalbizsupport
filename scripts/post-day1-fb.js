@@ -4,7 +4,7 @@ import querystring from 'querystring';
 const pageToken = 'EAAT9dJ4m67cBSD4Ky8Irx7IrLdXmvyydZBhTZB579sbA6EQjptBQYt1NVeACagGlKMgpGZAfHcYGszixYZB3zXiPUJSVuwXRIqVujwJ3B9EyWOthYc7phBQZC0ZCEztRH0waDPdLRUvxir0ZAZAbUxrEZAoblP09dSeZBUUUucqwDsZCLazMS28Ahv8VXxJp0AInbm7vMZA8VCaqPUNmcZBjBWKe26fZBBAZBbk1njXfyC2DX1kbVFfNLTfJoRVUQZDZD';
 const pageId = '1207871262402389';
 
-const messageText = `After 20+ years navigating corporate IT, systems strategy, and digital operations across global brands like HSBC, eBay, and AXA, I kept seeing the exact same problem:
+const messageText = `After 20+ years navigating corporate IT, systems strategy, and digital operations across global brands like HSBC, eBay, Schroders, and Gumtree, I kept seeing the exact same problem:
 
 Small business owners, sole traders, and property hosts are drowning in operational chaos.
 

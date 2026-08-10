@@ -32,6 +32,7 @@ This project operates on a structured **Human-AI Partnership**:
   - Apply standard **UK English spelling and grammar** across all text.
   - Always use **miles per hour (mph)** for speed references if relevant.
   - Root geographic context in **Heathfield, East Sussex** (serving East & West Sussex and Kent) alongside UK-wide remote consultancy.
+  - **Corporate Background Reference:** Canonical corporate background brands are **HSBC, eBay, Schroders, Gumtree** (and **Boots & Topshop** for retail). **NEVER reference AXA** in any client-facing copy, social media posts, HTML/React text, or internal specs.
 
 ### 6. Escalation & Model Switch Protocol
 - **Rule:** If an architectural bug, layout anomaly, or deployment issue fails to resolve after **2 consecutive attempts**, immediately halt repeated execution.
