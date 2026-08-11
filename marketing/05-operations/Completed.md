@@ -41,3 +41,16 @@
 - [x] **LinkedIn API:** Published Day 2 Thought Leadership Post (*"The 3 hidden costs of bloated UK web agency quotes..."*) live via REST API (Share URN: `urn:li:share:7492517528284483584`).
 - [x] **Facebook Page:** Created Day 2 "Tech Translation" Post script (`scripts/post-day2-fb.js`) ready for 1-click execution or direct page posting.
 
+---
+
+## Day 3 — Lead Generation & Regional Authority Expansion (Completed: 2026-08-11)
+
+### 1. Search Engine Audit & Keyword Indexing Verification
+- [x] Executed GSC API audit (`scripts/gsc-audit.js`); confirmed live #1 rankings for *`business it support near me`*, *`business it solutions near me`*, *`it support near me`*, *`small business it support near me`*, *`business mobile kent`*, and #2 rank for *`business it support tonbridge`*.
+- [x] Re-submitted sitemap and priority crawl indexation requests for all 6 canonical routes (`/`, `/services`, `/personal-support`, `/how-we-work`, `/about`, `/contact`).
+
+### 2. Social Media & Thought Leadership Automation
+- [x] **LinkedIn Profile API:** Published Day 3 Thought Leadership Post (*"Why sole traders don't need a 5-man IT department — they need 1 reliable partner with corporate discipline."*) live via REST API (Share URN: `urn:li:share:7492879444777553920`).
+- [x] **Facebook Page:** Created Day 3 "Tech Audit" Post script (`scripts/post-day3-fb.js`) ready for publication.
+
+
