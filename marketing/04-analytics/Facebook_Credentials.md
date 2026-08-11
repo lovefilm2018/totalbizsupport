@@ -5,7 +5,7 @@
 - **Page ID:** `1207871262402389`
 - **Category:** Business Service / Business Consultant / Web Designer
 - **Page Tasks Allowed:** `CREATE_CONTENT`, `MANAGE`, `ANALYZE`, `MODERATE`, `MESSAGING`, `ADVERTISE`
-- **Active Page Access Token (Permanent / Never-Expiring):** `EAAT9dJ4m67cBSNs6szf5tsmb4vyKZCpA3gtsBoRhTUBj9Pa1DnubjnWtL3pHdqz7zNgAqP2OJqOdDmpxLZByJ8b0sHHH1wgN7rVJL0GtiyASWQt8jNHoFvzR9BVF92ICFwFWgKbXtcuLcXciaPwV8CnRZA4hrqhYckXb4gwDsZA02Wqx0JcNbKKVxs6mqNNfFx6gRrlXhCEHKmnaYQTjN1BusAMw9bhq0sxO1By2AXla7UMJL77ZBRkZCZB`
+- **Active Page Access Token (Valid through October 10, 2026):** `EAAT9dJ4m67cBSLzxt5qOn3vP9z6MTGgdKG3fjeYsoCAhH4tmx8ZBe4xP5dihZCbZAclzoBuTDePZBxOtiu83GLrsQjmvyxITD0jRhGUthZAF571I0gzo1mBO8woiYVbQFM3mZC9mJ7o4ZAfC04JuCZCZAfJZCK2J7ZACASLIRZCSYd2d8ur6ZC5SpOYRgO4xLRmhueCMJd9WPfz0r6iZB31E9ePwZDZD`
 
 ---
 
@@ -24,5 +24,6 @@
 
 ## 3. User Access Token
 - **User:** Alex Poxon (User ID: `10165528525729104`)
-- **Active User Token:** `EAAT9dJ4m67cBSAd7FZABh4d2MhuG6934PisVENBfLyiBfrGsmQPuZAGgusLSVNsvO5ZCRfar1vlsIYlctooDfgwBdTRsLv18kdXmdTI8AxX2SVDsgprsXlaIQZCiDsP0GYrJA0m5ZA7iKca70itSk2wMCeWJoxjQZB1NiwuxIuBBsDsr5bLvzO0oZCZBZCeT82NIRQQvO73dh4ukZATnyVZCvkHHIihh2XTQSFXVjCt3fbPZBATHxO6LeAZDZD`
+- **Active User Token (Expires October 10, 2026):** `EAAT9dJ4m67cBSFwD6Rao3BIRKIpSNjAtF72j6aoxtcNyNZBoZC8s3FyU6p8ZBrBSkZA2PDITKxR9KwPOgSnIS8gHZB0KMavXvVXu8vJZB9iQQGBpRxAzZAAuCVjKmmmD9P4BxjeyNLox9cnfMvX5qn2hKNkyrjdLcNZBVAwkxLciJSTli8uLZB8DGZB1Kfxrrg7cHWsW0rjpjgEK7ehgZDZD`
+
 
