@@ -84,6 +84,12 @@ AGY operates in a dual capacity:
 - **LinkedIn API:** Automated posting to Alex Poxon Personal Profile (`urn:li:person:pACLfBlITP`) using 60-day token stored in `marketing/04-analytics/LinkedIn_Credentials.md`. Script: `scripts/linkedin-post-test.js`.
 - **Google Analytics 4 API:** Query live traffic & conversions using `gsc-key.json` service account (`G-DXSNWTFQQ3`).
 
+### 5. AI Life Hacks Short Video Automation Protocol
+- **Framework Location:** `marketing/03-content/life-hacks/`
+- **Render Engine:** FFmpeg 9.0 (`C:\Users\TotalBiz\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.exe`)
+- **Automated Workflow:** Chromakey green-screen plate compositing (`assets/phone_in_hand_green_screen.png`), presenter portrait overlay, logo header, and dynamic filter-complex text script (`render/lifehack_filter_template.txt`). Render target: 1080×1920 vertical MP4.
+
+
 ---
 
 ## IV. Daily Session Continuity & Ledger Synchronization Protocol
