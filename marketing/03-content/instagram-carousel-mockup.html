@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TotalBiz Support — Instagram Pinned Carousel (Brand Polish)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&family=Poppins:wght@600;700;800;900&family=Source+Serif+4:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-bg: #06182c;
+      --navy-card: #0b2545;
+      --navy-light: #133a68;
+      --cyan-accent: #00d2ff;
+      --blue-accent: #0080ff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #030712;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
+    .header-bar {
+      text-align: center;
+      margin-bottom: 25px;
+      max-width: 600px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: var(--cyan-accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Instagram Phone Container */
+    .instagram-wrapper {
+      width: 100%;
+      max-width: 480px;
+      background: #000;
+      border-radius: 36px;
+      border: 8px solid #1e293b;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 210, 255, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .insta-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: #000;
+      border-bottom: 1px solid #18181b;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-avatar-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--cyan-accent);
+      object-fit: cover;
+    }
+
+    .profile-names {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-handle {
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .verified-tick {
+      color: #0095f6;
+      font-size: 13px;
+    }
+
+    .user-location {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Carousel Canvas (1080x1350 aspect ratio 4:5) */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: var(--navy-bg);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: radial-gradient(circle at 85% 15%, rgba(0, 210, 255, 0.18), transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(0, 128, 255, 0.15), transparent 50%),
+                  var(--navy-bg);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    .slide.prev {
+      opacity: 0;
+      transform: translateX(-100%);
+      z-index: 1;
+    }
+
+    /* Header in Slide */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .slide-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cyan-accent);
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .slide-content-hero {
+      text-align: left;
+      margin: auto 0;
+    }
+
+    .slide-tag {
+      color: var(--cyan-accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .hero-title span {
+      color: var(--cyan-accent);
+    }
+
+    .hero-desc {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(11, 37, 69, 0.85);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: 20px;
+      padding: 12px 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .founder-avatar-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--cyan-accent);
+      object-fit: cover;
+    }
+
+    .founder-info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .founder-info p {
+      font-size: 12px;
+      color: var(--cyan-accent);
+      font-weight: 600;
+    }
+
+    .founder-badge {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Slide 2: Stylized Corporate Logos Grid */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .cred-box {
+      background: rgba(11, 37, 69, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 14px 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 84px;
+      transition: border-color 0.2s;
+    }
+
+    /* Exact Brand Logos & Typography */
+    .logo-hsbc {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 19px;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .hsbc-hex {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: #db0011;
+      transform: rotate(45deg);
+      margin-right: 3px;
+    }
+
+    .logo-ebay {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+    .ebay-e { color: #e53238; }
+    .ebay-b { color: #0064d2; }
+    .ebay-a { color: #f5af02; }
+    .ebay-y { color: #86b817; }
+
+    .logo-schroders {
+      font-family: 'Source Serif 4', serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .logo-gumtree {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #72ef36;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cred-desc {
+      font-size: 10.5px;
+      color: var(--cyan-accent);
+      font-weight: 600;
+      margin-top: 4px;
+      line-height: 1.25;
+    }
+
+    .mission-quote-box {
+      background: rgba(0, 210, 255, 0.08);
+      border-left: 3px solid var(--cyan-accent);
+      padding: 12px 14px;
+      border-radius: 0 14px 14px 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      margin-top: 8px;
+    }
+
+    /* Slide 3: 4 Pillars */
+    .pillars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 12px 0;
+    }
+
+    .pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(11, 37, 69, 0.7);
+      border: 1px solid rgba(0, 210, 255, 0.18);
+      border-radius: 12px;
+      padding: 9px 12px;
+    }
+
+    .pillar-icon-box {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .pillar-text h5 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .pillar-text p {
+      font-size: 11.5px;
+      color: #94a3b8;
+      line-height: 1.3;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #00509E, #0080ff);
+      border: 1px solid rgba(0, 210, 255, 0.4);
+      border-radius: 14px;
+      padding: 11px 14px;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .cta-banner h4 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .cta-banner p {
+      font-size: 11.5px;
+      color: #dbeafe;
+      font-weight: 500;
+    }
+
+    /* Footer Swipe Bar */
+    .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+    }
+
+    .swipe-prompt {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cyan-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dots-indicator {
+      display: flex;
+      gap: 5px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      width: 18px;
+      border-radius: 999px;
+      background: var(--cyan-accent);
+    }
+
+    /* Interactive Controls */
+    .nav-controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: #000;
+      border-top: 1px solid #18181b;
+    }
+
+    .control-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .control-btn:hover {
+      background: #334155;
+    }
+
+    .control-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .interactive-hint {
+      margin-top: 15px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .interactive-hint span {
+      color: var(--cyan-accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-bar">
+    <div class="badge-pill">✨ Brand Polish & Exact Company Logos</div>
+    <h1>TotalBiz Support Carousel Mockup v2</h1>
+    <p class="subtitle">Updated with your real logo & headshot, accurate brand typography (HSBC, eBay, Schroders, Gumtree), and high-scale company descriptions.</p>
+  </div>
+
+  <div class="instagram-wrapper">
+    <!-- Instagram Top Header -->
+    <div class="insta-top-bar">
+      <div class="profile-info">
+        <img src="life-hacks/assets/presenter_portrait.png" alt="Alex Poxon" class="profile-avatar-img">
+        <div class="profile-names">
+          <div class="user-handle">totalbiz_support <span class="verified-tick">✓</span></div>
+          <div class="user-location">Heathfield, East Sussex</div>
+        </div>
+      </div>
+      <div style="color: var(--text-muted); font-size: 18px; font-weight: bold;">•••</div>
+    </div>
+
+    <!-- Carousel Viewport -->
+    <div class="carousel-container">
+
+      <!-- SLIDE 1: The Hook & Introduction -->
+      <div class="slide active" id="slide-1">
+        <div class="slide-header">
+          <div class="brand-logo-wrap">
+            <img src="life-hacks/assets/totalbiz_logo_blue_white_final.png" alt="TotalBiz Support" class="brand-logo-img">
+          </div>
+          <div class="slide-number">1 / 3</div>
+        </div>
+
+        <div class="slide-content-hero">
+          <span class="slide-tag">⚡ ENTERPRISE DISCIPLINE • SMALL BIZ PRICES</span>
+          <h2 class="hero-title">High-Level IT & Strategy. <span>Zero Jargon.</span></h2>
+          <p class="hero-desc">Delivering 20+ years of global corporate IT experience directly to local sole traders, growing businesses, and property hosts across Sussex & Kent.</p>
+
+          <div class="founder-card">
+            <img src="life-hacks/assets/presenter_portrait.png" alt="Alex Poxon" class="founder-avatar-img">
+            <div class="founder-info">
+              <h4>Alex Poxon</h4>
+              <p>Founder & Project Director</p>
+              <div class="founder-badge">📍 Heathfield • Sussex, Kent & UK Remote</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div class="swipe-prompt">Swipe for Corporate Track Record ➡️</div>
+          <div class="dots-indicator">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Corporate Proof with Exact Brand Typography -->
+      <div class="slide" id="slide-2">
+        <div class="slide-header">
+          <div class="brand-logo-wrap">
+            <img src="life-hacks/assets/totalbiz_logo_blue_white_final.png" alt="TotalBiz Support" class="brand-logo-img">
+          </div>
+          <div class="slide-number">2 / 3</div>
+        </div>
+
+        <div class="slide-content-hero">
+          <span class="slide-tag">🏛️ PROVEN AT ENTERPRISE SCALE</span>
+          <h2 class="hero-title" style="font-size: 23px;">Built on High-Stakes <span>Global Infrastructure</span></h2>
+
+          <div class="credentials-grid">
+            <!-- HSBC -->
+            <div class="cred-box">
+              <div class="logo-hsbc">
+                <span class="hsbc-hex"></span>HSBC
+              </div>
+              <div class="cred-desc">World's 7th Largest Bank</div>
+            </div>
+
+            <!-- eBay -->
+            <div class="cred-box">
+              <div class="logo-ebay">
+                <span class="ebay-e">e</span><span class="ebay-b">b</span><span class="ebay-a">a</span><span class="ebay-y">y</span>
+              </div>
+              <div class="cred-desc">Global E-Commerce Giant</div>
+            </div>
+
+            <!-- Schroders -->
+            <div class="cred-box">
+              <div class="logo-schroders">Schroders</div>
+              <div class="cred-desc">£750B+ Global Asset Manager</div>
+            </div>
+
+            <!-- Gumtree -->
+            <div class="cred-box">
+              <div class="logo-gumtree">🌳 Gumtree</div>
+              <div class="cred-desc">UK's #1 Classifieds Platform</div>
+            </div>
+          </div>
+
+          <div class="mission-quote-box">
+            "You don't need a bloated 5-man agency. You need 1 reliable, accountable partner who solves digital, hardware, and admin headaches under one roof."
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div class="swipe-prompt">Swipe to See What We Fix ➡️</div>
+          <div class="dots-indicator">
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: 4 Core Pillars & Call to Action -->
+      <div class="slide" id="slide-3">
+        <div class="slide-header">
+          <div class="brand-logo-wrap">
+            <img src="life-hacks/assets/totalbiz_logo_blue_white_final.png" alt="TotalBiz Support" class="brand-logo-img">
+          </div>
+          <div class="slide-number">3 / 3</div>
+        </div>
+
+        <div class="slide-content-hero">
+          <span class="slide-tag">🛠️ 4 CORE SERVICE PILLARS</span>
+
+          <div class="pillars-list">
+            <div class="pillar-item">
+              <div class="pillar-icon-box">💻</div>
+              <div class="pillar-text">
+                <h5>Websites & Mobile Apps</h5>
+                <p>Custom builds without £5k–£10k agency price bloat.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon-box">🛠️</div>
+              <div class="pillar-text">
+                <h5>Tech & Equipment Fixes</h5>
+                <p>Hands-on Wi-Fi, hardware & networks across Sussex & Kent.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon-box">📊</div>
+              <div class="pillar-text">
+                <h5>Admin & Bookkeeping</h5>
+                <p>Streamlined invoices, software audits, and automation.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon-box">⚡</div>
+              <div class="pillar-text">
+                <h5>Proprietary Tech & AI</h5>
+                <p>Airbnb dynamic pricing engines and custom tools.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-banner">
+            <h4>Ready to streamline your business?</h4>
+            <p>🌐 totalbiz.co.uk • 📍 Heathfield, East Sussex</p>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div class="swipe-prompt" style="color: #fff;">👉 Tap Link in Bio</div>
+          <div class="dots-indicator">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot active"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-controls">
+      <button class="control-btn" id="prev-btn" onclick="prevSlide()" disabled>⬅️ Previous</button>
+      <span style="color: var(--text-muted); font-size: 13px; display: flex; align-items: center;" id="slide-tracker">Slide 1 of 3</span>
+      <button class="control-btn" id="next-btn" onclick="nextSlide()">Next ➡️</button>
+    </div>
+  </div>
+
+  <div class="interactive-hint">
+    💡 Click <span>Next ➡️</span> to preview Slide 2 with the stylized <strong>HSBC</strong>, <strong>eBay</strong>, <strong>Schroders</strong> & <strong>Gumtree</strong> brand marks!
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 3;
+
+    function updateCarousel() {
+      for (let i = 1; i <= totalSlides; i++) {
+        const slide = document.getElementById(`slide-${i}`);
+        slide.className = 'slide';
+        if (i === currentSlide) {
+          slide.classList.add('active');
+        } else if (i < currentSlide) {
+          slide.classList.add('prev');
+        }
+      }
+
+      document.getElementById('prev-btn').disabled = (currentSlide === 1);
+      document.getElementById('next-btn').disabled = (currentSlide === totalSlides);
+      document.getElementById('slide-tracker').textContent = `Slide ${currentSlide} of ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateCarousel();
+      }
+    }
+  </script>
+</body>
+</html>
