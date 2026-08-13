@@ -26,3 +26,12 @@
   - Parameters: `media_type=REELS`, `video_url=<PUBLIC_HTTPS_URL>`, `caption=<CAPTION_TEXT>`
 - **Publish Endpoint:** `POST /v19.0/17841437512971881/media_publish`
   - Parameters: `creation_id=<CONTAINER_ID>`
+
+---
+
+## 4. Published Reels Log
+- **Reel 1 (AI Life Hack #1 Fact Check - Option 1 Caption):** Published on 2026-08-13
+  - **Instagram Media ID:** `18111994949053451`
+  - **Status:** Live on `@totalbiz_support` Instagram Reel feed
+
+
