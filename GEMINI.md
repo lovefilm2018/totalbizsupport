@@ -100,4 +100,6 @@ TotalBizSupport/
   15. **Brand Favicon & Address Bar Logo (Day 3):** Linked `/profile_picture.png` directly in `index.html` for standard favicon, Apple Touch icon, and search snippet branding.
   16. **High-Margin Service Promotion & Social API Automation (Day 4):** Published Day 4 Facebook post (`1207871262402389_122129279307360282`) and LinkedIn post (`urn:li:share:7493602320744689664`) live via REST APIs; confirmed #1 GSC search rank for 10 high-intent queries.
   17. **AI Life Hacks Video Production Engine (Day 4):** Onboarded Manus AI programmatic video compositing framework (`marketing/03-content/life-hacks/`) and installed system Gyan.FFmpeg 9.0 build (`C:\Users\TotalBiz\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.exe`) for 1-click automated short-form video rendering and publishing.
+  18. **Serverless Cloud Scheduler & Poster Engine (Day 4):** Deployed dedicated Google Cloud Run microservice `totalbiz-social-poster` in `europe-west2` (London) with exact-second Cloud Schedulers (`totalbiz-morning-linkedin` at 07:45 BST Sharp & `totalbiz-evening-meta` at 19:30 BST Sharp) for 100% automated offline multi-channel posting.
+
 

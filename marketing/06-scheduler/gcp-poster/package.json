@@ -1,0 +1,13 @@
+{
+  "name": "totalbiz-social-poster",
+  "version": "1.0.0",
+  "description": "Serverless multi-channel social posting engine on Google Cloud Run with exact-second Cloud Scheduler",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
