@@ -1,31 +1,31 @@
-# Daily Marketing Execution Blueprint — Day 4 (Ready for Next Session)
+# Daily Marketing Execution Blueprint — Day 5 (Ready for Next Session)
 
-**Date:** Next Session (Day 4)  
+**Date:** Next Session (Day 5)  
 **Lead:** Antigravity CLI (Marketing Operations Lead & Senior Developer)  
 **Assistant / Executor:** Alex Poxon (Project Director)  
 **Estimated Time:** ~15 Minutes  
 
 ---
 
-## 🎯 DAY 4 OBJECTIVE: High-Margin Service Promotion & Direct Lead Nurturing
+## 🎯 DAY 5 OBJECTIVE: Local SEO Domination & Conversational Lead Capture
 
-Today we focus on driving inquiry conversions for custom web builds, iOS/Android mobile apps, and proprietary tech tools:
-1. **White-Label Web & Mobile App Pipeline:** Promote enterprise architecture + white-label dev pricing model to local sole traders & growing firms.
-2. **Proprietary Asset Showcase:** Highlight the Airbnb Dynamic Pricing Engine & Smart Home / Lock automations.
-
----
-
-### Task 1: GSC Analytics & Conversion Tracking Audit
-- [ ] Query 7-day GSC click-through rate (CTR) and user session metrics across key landing pages (`/services`, `/contact`).
-- [ ] Audit organic query growth for *`custom website design sussex`*, *`app development kent`*, and *`airbnb dynamic pricing tool`*.
+Today we focus on converting search traffic and local business interest into direct inbound leads:
+1. **Local Business & Sole Trader Outreach:** Highlight hands-on on-site IT support across East Sussex, West Sussex, and Kent + UK remote consultancy.
+2. **Review & Proof Amplification:** Showcase 5-star Google Business client reviews (Bijou Coastal Stays, HS Garden Maintenance) across social channels.
 
 ---
 
-### Task 2: Multi-Channel Social Day 4 Execution
-- [ ] Publish Day 4 Facebook Post via API script (`scripts/post-day4-fb.js`):
-  * **Theme:** *"Why your small business shouldn't pay £10,000 for a website—how enterprise PM + white-label dev cuts costs by 60%."*
-- [ ] Publish Day 4 LinkedIn Thought Leadership Post via API script (`scripts/post-day4-linkedin.js`):
-  * **Theme:** *"How we built a Google Cloud dynamic pricing engine for Airbnb hosts—and why local tech strategy beats off-the-shelf software."*
+### Task 1: Search Console Indexation & Ranking Monitor
+- [ ] Run `scripts/gsc-audit.js` to track organic impression growth and URL indexing status.
+- [ ] Verify Schema JSON-LD and canonical metadata across all 6 main site routes (`/`, `/services`, `/personal-support`, `/how-we-work`, `/about`, `/contact`).
+
+---
+
+### Task 2: Multi-Channel Social Day 5 Execution
+- [ ] Publish Day 5 Facebook Post via API script (`scripts/post-day5-fb.js`):
+  * **Theme:** *"5-Star Local Support Proof: How we help Sussex sole traders & Airbnb hosts streamline operations without monthly corporate contracts."*
+- [ ] Publish Day 5 LinkedIn Thought Leadership Post via API script (`scripts/post-day5-linkedin.js`):
+  * **Theme:** *"Why corporate IT experience (HSBC, eBay, Schroders) matters when protecting a small business or rental property business."*
 
 ---
 
@@ -33,6 +33,5 @@ Today we focus on driving inquiry conversions for custom web builds, iOS/Android
 - [x] **Day 1 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
 - [x] **Day 2 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
 - [x] **Day 3 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
-- [ ] **Day 4 Tasks:** Ready for execution next session!
-
-
+- [x] **Day 4 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
+- [ ] **Day 5 Tasks:** Ready for execution next session!

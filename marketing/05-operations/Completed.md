@@ -53,4 +53,16 @@
 - [x] **LinkedIn Profile API:** Published Day 3 Thought Leadership Post (*"Why sole traders don't need a 5-man IT department — they need 1 reliable partner with corporate discipline."*) live via REST API (Share URN: `urn:li:share:7492879444777553920`).
 - [x] **Facebook Page:** Created Day 3 "Tech Audit" Post script (`scripts/post-day3-fb.js`) ready for publication.
 
+---
+
+## Day 4 — High-Margin Service Promotion & Direct Lead Nurturing (Completed: 2026-08-13)
+
+### 1. GSC Analytics & Conversion Tracking Audit
+- [x] Executed live GSC API audit (`scripts/gsc-audit.js`); confirmed live #1 rankings for high-intent queries: *`business it services`*, *`business it solutions near me`*, *`business it support near me`*, *`business mobile kent`*, *`it support near me`*, *`small business it support near me`*, and #1.5–#1.9 for *`business it support`*, *`business it support tonbridge`*, and *`it consultant for small business`*.
+
+### 2. Multi-Channel Social Day 4 Execution
+- [x] **Facebook Page API:** Published Day 4 Post (*"Why your small business shouldn't pay £5,000–£10,000 for a website—how enterprise PM + white-label dev cuts costs by 60%"*) live via REST API (Post ID: `1207871262402389_122129279307360282`).
+- [x] **LinkedIn Profile API:** Published Day 4 Thought Leadership Post (*"How we built a Google Cloud dynamic pricing engine for Airbnb hosts—and why custom tech strategy beats off-the-shelf software"*) live via REST API (Share URN: `urn:li:share:7493602320744689664`).
+
+
 
