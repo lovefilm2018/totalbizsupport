@@ -63,6 +63,9 @@
 ### 2. Multi-Channel Social Day 4 Execution
 - [x] **Facebook Page API:** Published Day 4 Post (*"Why your small business shouldn't pay £5,000–£10,000 for a website—how enterprise PM + white-label dev cuts costs by 60%"*) live via REST API (Post ID: `1207871262402389_122129279307360282`).
 - [x] **LinkedIn Profile API:** Published Day 4 Thought Leadership Post (*"How we built a Google Cloud dynamic pricing engine for Airbnb hosts—and why custom tech strategy beats off-the-shelf software"*) live via REST API (Share URN: `urn:li:share:7493602320744689664`).
+- [x] **Instagram Reels API:** Published AI Life Hack #1 Reel live to `@totalbiz_support` (Media ID: `18111994949053451`).
+- [x] **Facebook Page Video API:** Published AI Life Hack #1 native video post live to TotalBiz Support Facebook Page (Video ID: `1029270596485980`).
+- [x] **GCP Cloud Scheduler Queue:** Queued AI Life Hack #1 thought leadership post on Cloud Run (`europe-west2` London) for exact-second execution at **07:45:00 BST tomorrow morning** on Alex Poxon's personal LinkedIn profile.
 
 
 
