@@ -188,12 +188,33 @@
     }
 
     .brand-logo-img {
-      height: 44px;
-      max-width: 240px;
+      height: 42px;
+      max-width: 220px;
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.45));
     }
+
+    /* Slide 1 Hero Logo */
+    .brand-logo-wrap-hero {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      padding: 8px 18px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.2);
+    }
+
+    .brand-logo-img-hero {
+      height: 66px;
+      max-width: 300px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 16px rgba(0, 210, 255, 0.55));
+    }
+
 
 
 
@@ -551,13 +572,12 @@
       <!-- SLIDE 1: The Hook & Introduction -->
       <div class="slide active" id="slide-1">
         <div class="slide-header">
-          <div class="brand-logo-wrap">
-            <img src="brand-assets/totalbiz_logo_electric_white_tight.png" alt="TotalBiz Support" class="brand-logo-img">
-
-
+          <div class="brand-logo-wrap-hero">
+            <img src="brand-assets/totalbiz_logo_electric_white_tight.png" alt="TotalBiz Support" class="brand-logo-img-hero">
           </div>
           <div class="slide-number">1 / 3</div>
         </div>
+
 
         <div class="slide-content-hero">
           <span class="slide-tag">⚡ ENTERPRISE DISCIPLINE • SMALL BIZ PRICES</span>
