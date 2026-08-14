@@ -4,7 +4,7 @@
 - **Instagram Handle:** `@TotalBiz_Support`
 - **Instagram Business Account ID:** `17841437512971881`
 - **Linked Facebook Page:** TotalBiz Support (`1207871262402389`)
-- **Permanent Page Access Token (Extracted):** `EAAT9dJ4m67cBSDn5peGzsdPB6kPMZBwKLN4Atmk1TGRl0rzwTPQJZAvH22S7YMG89uOGPV3UeAJyI5SlvTKL2hFfvIc6sl7EYac0Of7ZA5oI8lf6ZAiZAkvdGS53RNqLDxonIror7NtRUj9qkZBgxho4hsaUPfJMViYnaAhXDFFkKLg0EyvMd6ALjN3XUzDr2f6yCCzyqVKNz2uj9wr4Pkx58FKK15VnB1ay0FIXQZCZAdor6nAsdX4P`
+- **60-Day Extended Access Token (Expires: 2026-10-12):** `EAAT9dJ4m67cBSDY2IFulx3gaJj3mjo5WLfVHZAZCQbVZA54sV5N4IZAeZBTIY3H4ZAtAquZBHsjK4L8P6VUBrMyZCMdZCWAsxrzJLERZC80mhXZCjlLnvoUIMbNPuhZB0GV7oALxM6djHlni2HkZBxm6Ar2ZCeBT7vebsEpLsoZA0rt5ESXNKqrzhOZBiNhWp5weB0dUtxGtwHEgak1k7jZCYWgZDZD`
 
 ---
 
@@ -30,8 +30,10 @@
 ---
 
 ## 4. Published Reels & Carousel Log
-- **Reel 1 (AI Life Hack #1 Fact Check - Option 1 Caption):** Published on 2026-08-13
+- **Reel 1 (AI Life Hack #1 Fact Check):** Published on 2026-08-13
   - **Instagram Media ID:** `18111994949053451`
+  - **Analytics (Overnight):** 109 Views, 104 Unique Accounts Reached, 172.5s Total Watch Time
   - **Status:** Live on `@totalbiz_support` Instagram Reel feed
-
-
+- **Carousel 1 (Brand Overview 3-Slide Carousel):** Published on 2026-08-13
+  - **Instagram Media ID:** `17925715092167780`
+  - **Status:** Live on `@totalbiz_support` feed

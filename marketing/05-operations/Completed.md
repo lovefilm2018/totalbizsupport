@@ -66,8 +66,21 @@
 - [x] **Instagram Reels API:** Published AI Life Hack #1 Reel live to `@totalbiz_support` (Media ID: `18111994949053451`).
 - [x] **Instagram Carousel API:** Published 3-Slide Brand Overview Carousel live to `@totalbiz_support` feed (Media ID: `17925715092167780`).
 - [x] **Facebook Page Video API:** Published AI Life Hack #1 native video post live to TotalBiz Support Facebook Page (Video ID: `1029270596485980`).
-- [x] **GCP Cloud Scheduler Queue:** Queued AI Life Hack #1 thought leadership post on Cloud Run (`europe-west2` London) for exact-second execution at **07:45:00 BST tomorrow morning** on Alex Poxon's personal LinkedIn profile.
+- [x] **GCP Cloud Scheduler Queue:** Queued AI Life Hack #1 thought leadership post on Cloud Run (`europe-west2` London).
 
+---
 
+## Day 5 — AI Life Hacks Video Deployment, Meta Automation & Cloud Run Upgrades (Completed: 2026-08-14)
 
+### 1. Serverless Video Pipeline on Google Cloud Run
+- [x] **LinkedIn Video Streaming Engine:** Integrated direct URL binary streaming into Cloud Run container (`totalbiz-social-poster`) for native LinkedIn digital media uploads (`feedshare-video`).
+- [x] **Google Cloud Scheduler Lunch Trigger:** Deployed `totalbiz-lunch-linkedin` job in `europe-west2` scheduled for **12:30:00 BST Sharp** (`30 12 * * 1-5` Europe/London).
+- [x] **Asset Polling Optimization:** Patched recipe status inspection in `server.js` (`recipes[0].status` and `ALLOWED` state).
+- [x] **Live Video Publish:** Successfully dispatched AI Life Hack #1 video post to Alex Poxon's profile (Post ID: `urn:li:ugcPost:7493998521759522816`).
 
+### 2. Meta Multi-Channel Scheduler & Permanent Token Engine
+- [x] **Permanent Page Access Token Upgrade:** Swapped User token for permanent non-expiring Page Access Token with full `pages_manage_posts` and `instagram_content_publish` scope.
+- [x] **Instagram Container Processing Buffer:** Added asynchronous readiness delay (2.5s) to guarantee media availability before container publication.
+- [x] **Live Facebook Page Post:** Published Day 5 Small Business / Client Proof post live via API (Post ID: `1207871262402389_122129866749360282`).
+- [x] **Live Instagram Post:** Published Day 5 Brand Overview image post live to `@totalbiz_support` (Post ID: `18088281983446321`).
+- [x] **Cloud Run Revision 7 Live:** Deployed container revision `totalbiz-social-poster-00007-nt6` in `europe-west2` (London) serving 100% traffic with active health check.

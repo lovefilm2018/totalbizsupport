@@ -5,7 +5,8 @@
 - **Page ID:** `1207871262402389`
 - **Linked Instagram Business Account ID:** `17841437512971881` (`@TotalBiz_Support`)
 - **Category:** Business Service / Business Consultant / Web Designer
-- **Page Access Token (Permanent / Long-Lived):** `EAAT9dJ4m67cBSDn5peGzsdPB6kPMZBwKLN4Atmk1TGRl0rzwTPQJZAvH22S7YMG89uOGPV3UeAJyI5SlvTKL2hFfvIc6sl7EYac0Of7ZA5oI8lf6ZAiZAkvdGS53RNqLDxonIror7NtRUj9qkZBgxho4hsaUPfJMViYnaAhXDFFkKLg0EyvMd6ALjN3XUzDr2f6yCCzyqVKNz2uj9wr4Pkx58FKK15VnB1ay0FIXQZCZAdor6nAsdX4P`
+- **Permanent Page Access Token (Never Expires):** `EAAT9dJ4m67cBSKtrfcSdoDG3xrg2ZCTk9aR9EJZC6OBfjidEZChE8ZBj4ZCAtDnDOcZCvZAEYKm3lZCwVMbABpkJzw8wTatvvAeMeOHUxO8Re2Y7r4UsD7y5y41gdkSE9KIVD2ZCWg9zxIh2OXaD0RfZCUR0U3slIUK6ycSofKIsbJhylZCraszFTlpJafDrBv3Ylqx57WMsWV0dMgamzvwDZCVfVQZDZD`
+- **User Token (Never Expires):** `EAAT9dJ4m67cBSDY2IFulx3gaJj3mjo5WLfVHZAZCQbVZA54sV5N4IZAeZBTIY3H4ZAtAquZBHsjK4L8P6VUBrMyZCMdZCWAsxrzJLERZC80mhXZCjlLnvoUIMbNPuhZB0GV7oALxM6djHlni2HkZBxm6Ar2ZCeBT7vebsEpLsoZA0rt5ESXNKqrzhOZBiNhWp5weB0dUtxGtwHEgak1k7jZCYWgZDZD`
 
 
 ---

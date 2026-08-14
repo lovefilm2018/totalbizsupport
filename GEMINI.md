@@ -102,6 +102,8 @@ TotalBizSupport/
   17. **AI Life Hacks Video Production Engine (Day 4):** Onboarded Manus AI programmatic video compositing framework (`marketing/03-content/life-hacks/`) and installed system Gyan.FFmpeg 9.0 build (`C:\Users\TotalBiz\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.exe`) for 1-click automated short-form video rendering and publishing.
   18. **Serverless Cloud Scheduler & Poster Engine (Day 4):** Deployed dedicated Google Cloud Run microservice `totalbiz-social-poster` in `europe-west2` (London) with exact-second Cloud Schedulers (`totalbiz-morning-linkedin` at 07:45 BST Sharp & `totalbiz-evening-meta` at 19:30 BST Sharp) for 100% automated offline multi-channel posting.
   19. **Instagram Brand Carousel Launch (Day 4):** Onboarded `@totalbiz_support`, generated 1080×1350 HD 3-slide brand overview with tight two-tone logo color transformation (Electric Cyan & White), and published live to Instagram via Graph API (Media ID: `17925715092167780`).
+  20. **Serverless LinkedIn Video Engine & Lunch Scheduler (Day 5):** Integrated full streaming binary LinkedIn digital media video pipeline into Cloud Run microservice (`/publish/lunch-linkedin`), fixed asset recipe polling, provisioned Google Cloud Scheduler `totalbiz-lunch-linkedin` for 12:30 BST sharp, and published live AI Life Hack #1 post (`urn:li:ugcPost:7493998521759522816`).
+  21. **Permanent Meta Page Token & Multi-Channel Pipeline (Day 5):** Upgraded Cloud Run microservice (`totalbiz-social-poster`) with non-expiring Page Access Token and 2.5s container rendering delay; published Day 5 Small Business Proof live to Facebook (`1207871262402389_122129866749360282`) and Instagram (`18088281983446321`).
 
 
 

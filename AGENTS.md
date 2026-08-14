@@ -90,10 +90,11 @@ AGY operates in a dual capacity:
 - **Automated Workflow:** Chromakey green-screen plate compositing (`assets/phone_in_hand_green_screen.png`), presenter portrait overlay, logo header, and dynamic filter-complex text script (`render/lifehack_filter_template.txt`). Render target: 1080×1920 vertical MP4.
 
 ### 6. Serverless Cloud Run & Exact-Second Cloud Scheduler Protocol
-- **GCP Project:** `bijou-501014` (Region: `europe-west2` London)
-- **Live Service URL:** `https://totalbiz-social-poster-x2gt3erp4a-nw.a.run.app`
-- **Morning LinkedIn Scheduler (07:45 BST Sharp):** `totalbiz-morning-linkedin` (`45 7 * * *` in `Europe/London`) -> `POST /publish/daily-morning`
-- **Evening Meta Scheduler (19:30 BST Sharp):** `totalbiz-evening-meta` (`30 19 * * *` in `Europe/London`) -> `POST /publish/daily-evening`
+- **GCP Project:** `totalbiz-marketing-automation` (Region: `europe-west2` London)
+- **Live Service URL:** `https://totalbiz-social-poster-2wm7y2f4ia-nw.a.run.app`
+- **Morning LinkedIn Scheduler (07:45 BST Sharp Mon–Fri):** `totalbiz-morning-linkedin` (`45 7 * * 1-5` in `Europe/London`) -> `POST /publish/daily-morning`
+- **Lunch LinkedIn Video Scheduler (12:30 BST Sharp Mon–Fri):** `totalbiz-lunch-linkedin` (`30 12 * * 1-5` in `Europe/London`) -> `POST /publish/lunch-linkedin`
+- **Evening Meta Scheduler (19:30 BST Sharp Mon–Fri):** `totalbiz-evening-meta` (`30 19 * * 1-5` in `Europe/London`) -> `POST /publish/daily-evening`
 - **Deployment Script:** `marketing/06-scheduler/gcp-poster/deploy.ps1`
 
 
