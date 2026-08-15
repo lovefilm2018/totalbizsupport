@@ -104,6 +104,7 @@ TotalBizSupport/
   19. **Instagram Brand Carousel Launch (Day 4):** Onboarded `@totalbiz_support`, generated 1080×1350 HD 3-slide brand overview with tight two-tone logo color transformation (Electric Cyan & White), and published live to Instagram via Graph API (Media ID: `17925715092167780`).
   20. **Serverless LinkedIn Video Engine & Lunch Scheduler (Day 5):** Integrated full streaming binary LinkedIn digital media video pipeline into Cloud Run microservice (`/publish/lunch-linkedin`), fixed asset recipe polling, provisioned Google Cloud Scheduler `totalbiz-lunch-linkedin` for 12:30 BST sharp, and published live AI Life Hack #1 post (`urn:li:ugcPost:7493998521759522816`).
   21. **Permanent Meta Page Token & Multi-Channel Pipeline (Day 5):** Upgraded Cloud Run microservice (`totalbiz-social-poster`) with non-expiring Page Access Token and 2.5s container rendering delay; published Day 5 Small Business Proof live to Facebook (`1207871262402389_122129866749360282`) and Instagram (`18088281983446321`).
+  22. **Contextual Branded Social Visuals Protocol (Day 6):** Codified strict mandate in `AGENTS.md` ensuring all future Instagram, Facebook, and LinkedIn posts generate topic-specific graphics (website mockups, hardware/network diagrams, automation flows, review quote cards) with TotalBiz branding, Cyan/Navy styling, and 1080×1350 formatting.
 
 
 

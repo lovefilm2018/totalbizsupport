@@ -84,3 +84,10 @@
 - [x] **Live Facebook Page Post:** Published Day 5 Small Business / Client Proof post live via API (Post ID: `1207871262402389_122129866749360282`).
 - [x] **Live Instagram Post:** Published Day 5 Brand Overview image post live to `@totalbiz_support` (Post ID: `18088281983446321`).
 - [x] **Cloud Run Revision 7 Live:** Deployed container revision `totalbiz-social-poster-00007-nt6` in `europe-west2` (London) serving 100% traffic with active health check.
+
+---
+
+## Day 6 — Contextual Branded Visuals Protocol & Social Strategy Alignment (Completed: 2026-08-15)
+- [x] **Instagram Feed Visual Audit:** Diagnosed Day 5 test asset fallback behavior on Instagram single-image container endpoint.
+- [x] **Contextual Branded Social Visuals Protocol:** Codified Section III.7 in `AGENTS.md` and `GEMINI.md` mandating bespoke, topic-specific graphics (website mockups, hardware setups, automation charts, review cards) with TotalBiz branding for all future social posts.
+- [x] **Cross-Platform Visual Strategy Alignment:** Formulated best practices for LinkedIn (PDF carousels & infographics) and Facebook (high-contrast 1080×1350 rich media) to maximize algorithmic dwell time.

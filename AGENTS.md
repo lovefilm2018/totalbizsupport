@@ -97,6 +97,14 @@ AGY operates in a dual capacity:
 - **Evening Meta Scheduler (19:30 BST Sharp Mon–Fri):** `totalbiz-evening-meta` (`30 19 * * 1-5` in `Europe/London`) -> `POST /publish/daily-evening`
 - **Deployment Script:** `marketing/06-scheduler/gcp-poster/deploy.ps1`
 
+### 7. Contextual Branded Social Visuals Protocol
+- **Rule:** Every post across Instagram, Facebook, and LinkedIn must feature a **bespoke, context-relevant graphic** tailored specifically to the subject matter being discussed (e.g., Website Design shows modern desktop/browser mockup; Hardware/POS shows workstation setup; Airbnb Automation shows smart booking/pricing; Client Reviews show branded quote cards).
+- **Brand Standards:**
+  - Must include official TotalBiz Support logo emblem/watermark and website URL (`totalbiz.co.uk`).
+  - Strict brand palette: Deep Corporate Navy (`#003366`), Electric Cyan (`#00f0ff` / `#0284c7`), Slate Grey, and clean white typography.
+  - Optimal Aspect Ratio: 1080×1350 (4:5 portrait) for Instagram/Facebook feed engagement or 1080×1080 square.
+  - **Zero Fallback Reuse:** Never fall back to or duplicate pinned carousel slides for unrelated daily dispatches.
+
 
 
 ---

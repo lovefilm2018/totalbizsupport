@@ -34,13 +34,14 @@
 - [x] **Day 3 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
 - [x] **Day 4 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
 - [x] **Day 5 Tasks:** 100% COMPLETED — LinkedIn Video, Facebook Page & Instagram Posts Published Live!
+- [x] **Day 6 Tasks:** 100% COMPLETED — Contextual Branded Social Visuals Protocol codified in AGENTS.md & GEMINI.md
 
 ---
 
-## 🎯 UPCOMING: Day 6 Blueprint (Monday, 17 August 2026)
+## 🎯 UPCOMING: Day 7 Blueprint (Monday, 17 August 2026)
 1. **Weekend Analytics Review:** Query GA4, GSC, and Meta Graph APIs for 72-hour impressions, click-throughs, and profile visits.
 2. **AI Life Hack #2 Video Production:** Compose and render the second short-form AI Life Hack video via Gyan.FFmpeg 9.0 (`marketing/03-content/life-hacks/`).
-3. **Automated Monday Dispatches:**
+3. **Automated Monday Dispatches (with Contextual Branded Visuals):**
    - 07:45 BST Morning LinkedIn Thought Leadership
    - 12:30 BST Lunch LinkedIn Video Dispatch
-   - 19:30 BST Evening Meta Dispatch across Facebook & Instagram
+   - 19:30 BST Evening Meta Dispatch across Facebook & Instagram (with bespoke contextual graphic)
