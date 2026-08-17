@@ -1,47 +1,44 @@
-# Daily Marketing Execution Blueprint — Day 5 (Active: 2026-08-14)
+# Daily Marketing Execution Blueprint — Day 7 (Active: 2026-08-17)
 
-**Date:** Friday, 14 August 2026  
+**Date:** Monday, 17 August 2026  
 **Lead:** Antigravity CLI (Marketing Operations Lead & Senior Developer)  
 **Assistant / Executor:** Alex Poxon (Project Director)  
 
 ---
 
-## 🎯 DAY 5 OBJECTIVE: Serverless Video Deployment & 5-Star Client Proof
+## 🎯 DAY 7 OBJECTIVE: Weekend Analytics Review & Contextual Social Engine
 
-1. **LinkedIn Native Video Dispatch:** AI Life Hack #1 Fact Check video scheduled for **12:30 BST Sharp** via Google Cloud Scheduler on `totalbiz-marketing-automation`.
-2. **Meta Client Proof Dispatch:** 5-Star Client Proof (Bijou Coastal Stays, HS Garden Maintenance) scheduled for **19:30 BST Sharp** across Facebook & Instagram with 60-day verified token.
-3. **Weekend Quiet Mode:** All schedulers configured for **Monday–Friday only (`1-5`)** — next active run is Monday 07:45 BST.
-
----
-
-### Task 1: Google Cloud Run & Scheduler Upgrades
-- [x] Migrated all cloud poster infrastructure to dedicated project `totalbiz-marketing-automation` (London `europe-west2`).
-- [x] Streamed binary video pipeline for native LinkedIn video uploads.
-- [x] Cleaned all legacy jobs from `bijou-501014`.
+1. **Weekend Analytics Audit:** Completed live audit across Google Search Console, Instagram Insights, and Meta Page APIs.
+2. **AI Life Hack #2 Video Production:** Rescheduled for **Wednesday, 19 August 2026** (per Project Director direction).
+3. **Automated Monday Dispatches & Contextual Visuals:**
+   - **12:30 BST Lunch LinkedIn Video:** Verify Cloud Scheduler execution and status.
+   - **19:30 BST Evening Meta Dispatch:** Craft and publish the evening post across Facebook & Instagram with a **bespoke, topic-specific branded graphic** (1080×1350, Navy/Cyan `#003366`/`#00f0ff`) adhering to Section III.7 protocol.
 
 ---
 
-### Task 2: Token Verification & Analytics Audit
-- [x] Verified 60-Day Meta Extended Token (Expires: 2026-10-12 / 59.4 days remaining).
-- [x] Queried live Instagram API analytics: **AI Life Hack #1 Reel achieved 109 views and 104 unique accounts reached overnight**.
-- [x] Synchronized all credentials and ledgers.
+### Task 1: Weekend Analytics & Search Rankings
+- [x] **Google Search Console (GSC):**
+  - #1 Rank: *business it support near me*, *business it solutions near me*, *it support company near me*, *it companies near me*, *business mobile kent*, *business support services*.
+  - #1.5–#1.76 Rank: *business it support tonbridge* (21 impressions), *it consultant for small business*, *business it support*.
+- [x] **Instagram Insights (`@totalbiz_support`):**
+  - **Reel #1 (Fact-Checking AI):** 133 Lifetime Views, 123 Accounts Reached, 404.9s Total Watch Time (+22% weekend growth).
+  - **Brand Carousel (3-Slide):** 59 Lifetime Views, 25 Accounts Reached, 6 Interactions.
+- [x] **Meta Permanent Token:** Verified and active.
+
+---
+
+### Task 2: Monday Multi-Channel Execution
+- [ ] Monitor 12:30 BST Cloud Scheduler video dispatch.
+- [ ] Generate bespoke contextual graphic (1080×1350) for tonight's 19:30 BST Meta post.
+- [ ] Prepare Evening Facebook & Instagram post copy.
+
+---
+
+### Task 3: Mid-Week Roadmap
+- **Wednesday, 19 August 2026:** AI Life Hack #2 Video Production & Publishing (FFmpeg 9.0 compositing, presenter portrait plate, multi-channel rollout).
 
 ---
 
 ## 📊 Status Tracker
-- [x] **Day 1 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
-- [x] **Day 2 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
-- [x] **Day 3 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
-- [x] **Day 4 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
-- [x] **Day 5 Tasks:** 100% COMPLETED — LinkedIn Video, Facebook Page & Instagram Posts Published Live!
-- [x] **Day 6 Tasks:** 100% COMPLETED — Contextual Branded Social Visuals Protocol codified in AGENTS.md & GEMINI.md
-
----
-
-## 🎯 UPCOMING: Day 7 Blueprint (Monday, 17 August 2026)
-1. **Weekend Analytics Review:** Query GA4, GSC, and Meta Graph APIs for 72-hour impressions, click-throughs, and profile visits.
-2. **AI Life Hack #2 Video Production:** Compose and render the second short-form AI Life Hack video via Gyan.FFmpeg 9.0 (`marketing/03-content/life-hacks/`).
-3. **Automated Monday Dispatches (with Contextual Branded Visuals):**
-   - 07:45 BST Morning LinkedIn Thought Leadership
-   - 12:30 BST Lunch LinkedIn Video Dispatch
-   - 19:30 BST Evening Meta Dispatch across Facebook & Instagram (with bespoke contextual graphic)
+- [x] **Day 1–6 Tasks:** 100% COMPLETED ([`Completed.md`](file:///C:/Users/TotalBiz/Documents/totalbizsupport/marketing/05-operations/Completed.md))
+- [ ] **Day 7 Tasks:** In Progress (Analytics Done; Evening Dispatch & Visual Pending)
