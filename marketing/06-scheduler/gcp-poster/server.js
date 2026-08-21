@@ -14,30 +14,61 @@ const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
 const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSKtrfcSdoDG3xrg2ZCTk9aR9EJZC6OBfjidEZChE8ZBj4ZCAtDnDOcZCvZAEYKm3lZCwVMbABpkJzw8wTatvvAeMeOHUxO8Re2Y7r4UsD7y5y41gdkSE9KIVD2ZCWg9zxIh2OXaD0RfZCUR0U3slIUK6ycSofKIsbJhylZCraszFTlpJafDrBv3Ylqx57WMsWV0dMgamzvwDZCVfVQZDZD';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
 
-// 1. Lunch LinkedIn Video Payload (12:30 BST Sharp)
-let queuedLunchLinkedInPost = {
-  videoUrl: 'https://totalbiz.co.uk/TotalBiz_Support_AI_Life_Hack_1_FINAL.mp4',
-  title: 'AI Life Hack #1: 30-Second Screenshot Fact Check 📲',
-  text: `Stop falling for fake news or edited photos on your feed! 🛑📲\n\nHere is a 30-second AI Life Hack using your smartphone's built-in Google Gemini to fact-check any image, headline, or claim in seconds:\n\n1️⃣ Take a quick screenshot of any suspicious post or image\n2️⃣ Tap Share & send it directly to Google Gemini\n3️⃣ Type "Fact check" or "Is this real?"\n\nAt TotalBiz Support, we combine 20+ years of corporate IT discipline (HSBC, eBay, Schroders, Gumtree) with practical tech solutions for small businesses, sole traders, and everyday productivity.\n\n👉 Explore our support & tech services: totalbiz.co.uk\n\n#AILifeHacks #TechTips #SmallBusinessUK #Productivity #SussexBusiness #TotalBizSupport`
+// Strict Queue State - ZERO FALLBACKS
+// Posts must be explicitly agreed and queued for a specific date (YYYY-MM-DD in Europe/London).
+// If no post is queued for today, the scheduler triggers will safely SKIP posting.
+let postQueue = {
+  morningLinkedIn: null, // { date: 'YYYY-MM-DD', text: '...', title: '...' }
+  lunchLinkedIn: null,   // { date: 'YYYY-MM-DD', videoUrl: '...', title: '...', text: '...' }
+  eveningMeta: null      // { date: 'YYYY-MM-DD', facebookText: '...', instagramImageUrl: '...', instagramCaption: '...' }
 };
 
-// 2. Evening Meta Post Payload (19:30 BST Sharp) - Day 7 Smart Lock & Airbnb Access Automation
-let queuedMetaPost = {
-  facebookText: `The 11 PM "lost key" phone call is every Airbnb host’s worst nightmare. 🔑 🛑\n\nIf you manage holiday lets, guesthouses, or rental properties across East Sussex, West Sussex, or Kent, you shouldn't be losing your evenings driving across town to hand over spare keys or troubleshoot lockouts.\n\nHere’s how we help local hosts automate guest access from end to end:\n\n✅ Smart Keypad Installation & Setup: Commercial-grade digital keypads with individual, auto-expiring guest PIN codes.\n✅ Calendar Sync: Integration with Airbnb, Booking.com & direct booking engines so codes activate only during guest stays.\n✅ Backup Power & Wi-Fi Redundancy: Ensuring smart access works even if local broadband hiccups.\n✅ Hands-On Local Support: Installed and tested on-site by a local tech specialist in Heathfield.\n\nFree up your weekends and run your property like a five-star hotel.\n\n👉 Visit totalbiz.co.uk/personal-support or send us a WhatsApp message to upgrade your setup.\n💬 WhatsApp: +44 7799 538311\n\n📍 Serving East Sussex, West Sussex & Kent | 🌐 UK-Wide Remote Support\n\n#AirbnbHostUK #SussexAirbnb #KentHolidayLets #Heathfield #EastSussex #SmartHomeUK #TotalBizSupport #PropertyManagementUK #HolidayCottagesUK`,
-  instagramImageUrl: 'https://totalbiz.co.uk/day7_airbnb_smartlock.jpg',
-  instagramCaption: `The 11 PM "lost key" phone call is every holiday let host’s nightmare. 🔑 🛑\n\nStop losing your evenings driving across Sussex to hand over keys or manage lockouts.\n\nHere’s how we help local Airbnb & holiday rental hosts automate access:\n\n🔒 Smart Keypads with Auto-Expiring PINs\n📅 Automatic Calendar Sync (Airbnb, Booking.com, Direct)\n📶 Wi-Fi & Power Redundancy\n🛠️ Hands-on local setup across Sussex & Kent\n\nRun your property smoothly and reclaim your free time.\n\n👉 Tap link in bio to explore totalbiz.co.uk or drop us a DM.\n\n📍 On-site across East Sussex, West Sussex & Kent\n\n#AirbnbHostUK #SussexAirbnb #KentHolidayLets #Heathfield #EastSussex #SmartHomeUK #TotalBizSupport #PropertyManagementUK #HolidayCottagesUK #SmallBusinessUK`
-};
+function getLondonDateString() {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/London' }).format(new Date());
+}
 
-
-// Health Check
+// Health Check & Queue Status
 app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
     service: 'totalbiz-social-poster',
     project: 'totalbiz-marketing-automation',
     timezone: 'Europe/London',
+    todayLondon: getLondonDateString(),
+    queueStatus: {
+      morningLinkedIn: postQueue.morningLinkedIn ? `Queued for ${postQueue.morningLinkedIn.date}` : 'None (Will Skip)',
+      lunchLinkedIn: postQueue.lunchLinkedIn ? `Queued for ${postQueue.lunchLinkedIn.date}` : 'None (Will Skip)',
+      eveningMeta: postQueue.eveningMeta ? `Queued for ${postQueue.eveningMeta.date}` : 'None (Will Skip)'
+    },
     timestamp: new Date().toISOString()
   });
+});
+
+// View and Manage Queues
+app.get('/queue', (req, res) => {
+  res.json({
+    todayLondon: getLondonDateString(),
+    queue: postQueue
+  });
+});
+
+app.post('/queue/clear', (req, res) => {
+  postQueue = { morningLinkedIn: null, lunchLinkedIn: null, eveningMeta: null };
+  console.log('[Queue] All queued posts cleared.');
+  res.json({ status: 'cleared', queue: postQueue });
+});
+
+app.post('/queue/set', (req, res) => {
+  const { channel, post } = req.body;
+  if (!['morningLinkedIn', 'lunchLinkedIn', 'eveningMeta'].includes(channel)) {
+    return res.status(400).json({ error: 'Invalid channel. Must be morningLinkedIn, lunchLinkedIn, or eveningMeta' });
+  }
+  if (!post || !post.date) {
+    return res.status(400).json({ error: 'Post must include a target date (YYYY-MM-DD)' });
+  }
+  postQueue[channel] = post;
+  console.log(`[Queue] Set ${channel} post for ${post.date}`);
+  res.json({ status: 'queued', channel, post });
 });
 
 // Helper: Fetch binary buffer from URL
@@ -213,7 +244,7 @@ async function publishLinkedInVideo(videoUrl, title, text) {
   });
 }
 
-// 2. Publish Facebook Page
+// 2. Publish Facebook Page Text Post
 async function publishFacebook(messageText) {
   return new Promise((resolve, reject) => {
     const postData = new URLSearchParams({
@@ -287,7 +318,6 @@ async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
             return reject(new Error('Instagram container creation failed: ' + d));
           }
           
-          // Wait for Instagram to process the image container before publishing
           setTimeout(() => {
             const pubData = new URLSearchParams({ creation_id: container.id, access_token: FB_PAGE_TOKEN }).toString();
             const pubReq = https.request({
@@ -329,13 +359,27 @@ async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
 
 // 4. Lunch Scheduler Trigger (12:30 BST Sharp) - LinkedIn Native Video
 app.post('/publish/lunch-linkedin', async (req, res) => {
-  console.log('[Cloud Scheduler] Executing 12:30 PM Lunch LinkedIn Video Dispatch...');
-  try {
-    const videoUrl = req.body?.videoUrl || queuedLunchLinkedInPost.videoUrl;
-    const title = req.body?.title || queuedLunchLinkedInPost.title;
-    const text = req.body?.text || queuedLunchLinkedInPost.text;
+  const todayLondon = getLondonDateString();
+  console.log(`[Cloud Scheduler] 12:30 PM Lunch LinkedIn Video Trigger for ${todayLondon}...`);
 
+  // Explicit payload in request OR active queued post matching today's date
+  let postToPublish = null;
+  if (req.body && req.body.videoUrl && req.body.title && req.body.text) {
+    postToPublish = req.body;
+  } else if (postQueue.lunchLinkedIn && postQueue.lunchLinkedIn.date === todayLondon) {
+    postToPublish = postQueue.lunchLinkedIn;
+  }
+
+  if (!postToPublish) {
+    console.log(`[Cloud Scheduler] Skipped Lunch LinkedIn: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
+    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
+  }
+
+  try {
+    const { videoUrl, title, text } = postToPublish;
     const result = await publishLinkedInVideo(videoUrl, title, text);
+    // Clear queue so it never repeats
+    postQueue.lunchLinkedIn = null;
     console.log('[LinkedIn Video Success]', result);
     res.json({ status: 'published_lunch_video', linkedin: result });
   } catch (err) {
@@ -346,19 +390,33 @@ app.post('/publish/lunch-linkedin', async (req, res) => {
 
 // 5. Evening Scheduler Trigger (19:30 BST Sharp) - Meta Facebook & Instagram
 app.post('/publish/daily-evening', async (req, res) => {
-  console.log('[Cloud Scheduler] Executing 19:30 PM Evening Meta Dispatch...');
+  const todayLondon = getLondonDateString();
+  console.log(`[Cloud Scheduler] 19:30 PM Evening Meta Trigger for ${todayLondon}...`);
+
+  // Explicit payload in request OR active queued post matching today's date
+  let postToPublish = null;
+  if (req.body && (req.body.facebookText || req.body.instagramCaption)) {
+    postToPublish = req.body;
+  } else if (postQueue.eveningMeta && postQueue.eveningMeta.date === todayLondon) {
+    postToPublish = postQueue.eveningMeta;
+  }
+
+  if (!postToPublish) {
+    console.log(`[Cloud Scheduler] Skipped Evening Meta: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
+    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
+  }
+
   try {
-    const fbText = req.body?.facebookText || queuedMetaPost.facebookText;
-    const igImage = req.body?.instagramImageUrl || queuedMetaPost.instagramImageUrl;
-    const igCaption = req.body?.instagramCaption || queuedMetaPost.instagramCaption;
+    const { facebookText, instagramImageUrl, instagramCaption } = postToPublish;
+    const promises = [];
+    if (facebookText) promises.push(publishFacebook(facebookText));
+    if (instagramImageUrl && instagramCaption) promises.push(publishInstagramMedia(instagramImageUrl, instagramCaption, false));
 
-    const [fbResult, igResult] = await Promise.allSettled([
-      publishFacebook(fbText),
-      publishInstagramMedia(igImage, igCaption, false)
-    ]);
-
-    console.log('[Meta Dispatch Results]', { facebook: fbResult, instagram: igResult });
-    res.json({ status: 'published_evening', facebook: fbResult, instagram: igResult });
+    const results = await Promise.allSettled(promises);
+    // Clear queue so it never repeats
+    postQueue.eveningMeta = null;
+    console.log('[Meta Dispatch Results]', results);
+    res.json({ status: 'published_evening', results });
   } catch (err) {
     console.error('[Meta Error]', err);
     res.status(500).json({ error: err.message });

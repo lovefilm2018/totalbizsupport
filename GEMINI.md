@@ -105,6 +105,8 @@ TotalBizSupport/
   20. **Serverless LinkedIn Video Engine & Lunch Scheduler (Day 5):** Integrated full streaming binary LinkedIn digital media video pipeline into Cloud Run microservice (`/publish/lunch-linkedin`), fixed asset recipe polling, provisioned Google Cloud Scheduler `totalbiz-lunch-linkedin` for 12:30 BST sharp, and published live AI Life Hack #1 post (`urn:li:ugcPost:7493998521759522816`).
   21. **Permanent Meta Page Token & Multi-Channel Pipeline (Day 5):** Upgraded Cloud Run microservice (`totalbiz-social-poster`) with non-expiring Page Access Token and 2.5s container rendering delay; published Day 5 Small Business Proof live to Facebook (`1207871262402389_122129866749360282`) and Instagram (`18088281983446321`).
   22. **Contextual Branded Social Visuals Protocol (Day 6):** Codified strict mandate in `AGENTS.md` ensuring all future Instagram, Facebook, and LinkedIn posts generate topic-specific graphics (website mockups, hardware/network diagrams, automation flows, review quote cards) with TotalBiz branding, Cyan/Navy styling, and 1080×1350 formatting.
+  23. **Zero-Fallback Scheduler Engine & Free Contact Wednesday (Day 8):** Deployed live Cloud Run revision `totalbiz-social-poster-00009-7gc` eliminating stale/duplicate fallback reposts, requiring strict explicit queue entries per London date; published Free Advice Wednesday photo post live to Facebook Page (`1207871262402389_122131828485360282`).
+
 
 
 

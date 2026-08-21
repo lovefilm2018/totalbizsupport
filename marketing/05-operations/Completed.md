@@ -91,3 +91,16 @@
 - [x] **Instagram Feed Visual Audit:** Diagnosed Day 5 test asset fallback behavior on Instagram single-image container endpoint.
 - [x] **Contextual Branded Social Visuals Protocol:** Codified Section III.7 in `AGENTS.md` and `GEMINI.md` mandating bespoke, topic-specific graphics (website mockups, hardware setups, automation charts, review cards) with TotalBiz branding for all future social posts.
 - [x] **Cross-Platform Visual Strategy Alignment:** Formulated best practices for LinkedIn (PDF carousels & infographics) and Facebook (high-contrast 1080×1350 rich media) to maximize algorithmic dwell time.
+
+---
+
+## Day 7 — Weekend Search Console Audit & Airbnb Smart Lock Automation (Completed: 2026-08-17)
+- [x] **Weekend Analytics Audit:** Live audit across GSC (#1 ranks verified for 10 high-intent queries), Instagram Insights, and Meta Page API.
+- [x] **Contextual Social Graphic:** Rendered 1080×1350 bespoke graphic (`day7_airbnb_smartlock.jpg`) for smart lock and property automation services.
+
+---
+
+## Day 8 — Free Contact Wednesday Live Post & Zero-Fallback Scheduler Safety Engine (Completed: 2026-08-19)
+- [x] **Zero-Fallback Scheduler Engine:** Upgraded Cloud Run microservice (`totalbiz-social-poster`) in `europe-west2` (London) removing all hardcoded fallback reposts. Cloud Schedulers (12:30 BST LinkedIn, 19:30 BST Meta) now strictly require an active, agreed queue entry matching today's London date (`YYYY-MM-DD`), otherwise safely skipping dispatches to eliminate duplicate reposting.
+- [x] **Free Advice Wednesday Live Post:** Published bespoke branded photo post with official logo badge (`free_contact_wednesday_official.jpg`) live to TotalBiz Support Facebook Page (`1207871262402389`) via Graph API (Post ID: `1207871262402389_122131828485360282`, Photo ID: `122131828449360282`).
+
