@@ -20,6 +20,7 @@ service_account.json
 *.log
 .manus-logs/
 gsc-report-output.json
+marketing/03-content/temp_post/
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
