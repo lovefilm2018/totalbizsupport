@@ -126,3 +126,24 @@ Before wrapping up any major task or ending a session, AGY must:
 2. Update `marketing/05-operations/TODAY.md` with the next day's exact action blueprint.
 3. Synchronize `AGENTS.md` and `GEMINI.md` with any new APIs, endpoints, or structural changes.
 4. Append operational task metrics to `C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv`.
+5. Stage all new/modified files, commit with a semantic summary, and execute `git push origin main`.
+
+---
+
+## V. Telegram Operations Gateway & Seedbox Sync Protocols
+
+### 1. Session Start & Close GitHub Synchronization Protocol (Telegram Bot Alignment)
+- **Session Start:** Run `git pull --rebase origin main` to pull latest changes.
+- **Session Close / Wrap-Up:** Stage all new/modified files, commit with a semantic summary, and execute `git push origin main`. This guarantees that the 24/7 Telegram Operations Gateway bot on the seedbox always has access to the latest code, documentation, and live hosting endpoints.
+
+### 2. Telegram Operations Hub — Seedbox Sync & Service Reload Protocol
+Whenever modifying, creating, or uploading files to `/storage/services/telegram_gateway/` on the GigaRapid seedbox:
+1. **Upload Files:** Sync your updated context (`context/<project>.md`) and/or tool module (`tools/<project>.py`) via SCP/SFTP.
+2. **Mandatory Daemon Reload:** Context markdown files are cached in memory by the bot at startup. You **MUST** execute a detached reload after uploading:
+   ```bash
+   ssh lovefilm-seedbox "cd /storage/services/telegram_gateway && pkill -f '[b]ot.py'; nohup python3 bot.py >> bot.log 2>&1 &"
+   ```
+3. **Verify Process Status:** Confirm the bot is running on a new PID with:
+   ```bash
+   ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"
+   ```
