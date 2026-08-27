@@ -11,7 +11,7 @@ const LINKEDIN_TOKEN = process.env.LINKEDIN_TOKEN || 'AQU8lBLIfjFyADP-a-zGe8cRHC
 const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:pACLfBlITP';
 
 const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
-const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSKtrfcSdoDG3xrg2ZCTk9aR9EJZC6OBfjidEZChE8ZBj4ZCAtDnDOcZCvZAEYKm3lZCwVMbABpkJzw8wTatvvAeMeOHUxO8Re2Y7r4UsD7y5y41gdkSE9KIVD2ZCWg9zxIh2OXaD0RfZCUR0U3slIUK6ycSofKIsbJhylZCraszFTlpJafDrBv3Ylqx57WMsWV0dMgamzvwDZCVfVQZDZD';
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSUWbIpihJTAWidtdMAiRO54Gp3rV5jDQqEoOI6vzqGsNLZAMJdboW8pzTsa7ALqkYvgg34PKqYwyemwDGhri6FFa9m5bMiVqVUKo0ZArgxjEfn0csnDn7g7gZB0OkUtrZBqNaNZC36EK69ZBdxvN7xZBxprRNXA2BSvamXcah4bUzyxjcRHIa1HtKz7uzCvNY2FYjA0XSxwqetKZCZAa3nbyUF4PyDp8oED2pPTztpwTsOZA0i';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
 
 // Strict Queue State - ZERO FALLBACKS
@@ -244,6 +244,53 @@ async function publishLinkedInVideo(videoUrl, title, text) {
   });
 }
 
+// 1b. Publish LinkedIn Text Post
+async function publishLinkedInText(text) {
+  const postBody = JSON.stringify({
+    author: LINKEDIN_PERSON_URN,
+    lifecycleState: 'PUBLISHED',
+    specificContent: {
+      'com.linkedin.ugc.ShareContent': {
+        shareCommentary: { text: text },
+        shareMediaCategory: 'NONE'
+      }
+    },
+    visibility: { 'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC' }
+  });
+
+  return new Promise((resolve, reject) => {
+    const req = https.request({
+      hostname: 'api.linkedin.com',
+      port: 443,
+      path: '/v2/ugcPosts',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
+        'Content-Type': 'application/json',
+        'X-Restli-Protocol-Version': '2.0.0',
+        'Content-Length': Buffer.byteLength(postBody)
+      }
+    }, res => {
+      let d = '';
+      res.on('data', chunk => d += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(d);
+          if (parsed.status && parsed.status >= 400) {
+            return reject(new Error('LinkedIn API error: ' + d));
+          }
+          resolve(parsed);
+        } catch (e) {
+          resolve({ raw: d, status: res.statusCode });
+        }
+      });
+    });
+    req.on('error', reject);
+    req.write(postBody);
+    req.end();
+  });
+}
+
 // 2. Publish Facebook Page Text Post
 async function publishFacebook(messageText) {
   return new Promise((resolve, reject) => {
@@ -419,6 +466,35 @@ app.post('/publish/daily-evening', async (req, res) => {
     res.json({ status: 'published_evening', results });
   } catch (err) {
     console.error('[Meta Error]', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 6. Morning Scheduler Trigger (07:45 BST Sharp) - LinkedIn Post
+app.post('/publish/daily-morning', async (req, res) => {
+  const todayLondon = getLondonDateString();
+  console.log(`[Cloud Scheduler] 07:45 AM Morning LinkedIn Trigger for ${todayLondon}...`);
+
+  let postToPublish = null;
+  if (req.body && req.body.text) {
+    postToPublish = req.body;
+  } else if (postQueue.morningLinkedIn && postQueue.morningLinkedIn.date === todayLondon) {
+    postToPublish = postQueue.morningLinkedIn;
+  }
+
+  if (!postToPublish) {
+    console.log(`[Cloud Scheduler] Skipped Morning LinkedIn: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
+    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
+  }
+
+  try {
+    const { text } = postToPublish;
+    const result = await publishLinkedInText(text);
+    postQueue.morningLinkedIn = null;
+    console.log('[LinkedIn Morning Success]', result);
+    res.json({ status: 'published_morning_linkedin', linkedin: result });
+  } catch (err) {
+    console.error('[LinkedIn Morning Error]', err);
     res.status(500).json({ error: err.message });
   }
 });

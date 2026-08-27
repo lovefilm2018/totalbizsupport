@@ -15,6 +15,7 @@ gsc-key.json
 service_account.json
 *.pem
 *.key
+*.bat
 
 # Logs & Diagnostics
 *.log

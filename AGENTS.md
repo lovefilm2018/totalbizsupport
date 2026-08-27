@@ -55,7 +55,7 @@ This project operates on a structured **Human-AI Partnership**:
 
 ### 10. Central Cross-Project Usage & Task Metric CSV Audit
 - **Rule:** Every session and significant task completion must be logged to the central usage audit ledger.
-- **Requirement:** Append operational metrics, session timestamps, and task summaries to `C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv`.
+- **Requirement:** Append operational metrics instantly in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Task Summary>"`
 
 ---
 
@@ -120,14 +120,13 @@ At the start of every new session, AGY must inspect:
 - `marketing/05-operations/TODAY.md` (Active day blueprint & tasks)
 - `marketing/04-analytics/` (Latest GSC, GA4, Meta, and LinkedIn API tokens and rankings)
 
-### 2. Session Wrap-Up Protocol (End of Every Session / Milestone)
-Before wrapping up any major task or ending a session, AGY must:
-1. Update `marketing/05-operations/Completed.md` with all completed tasks.
-2. Update `marketing/05-operations/TODAY.md` with the next day's exact action blueprint.
-3. Synchronize `AGENTS.md` and `GEMINI.md` with any new APIs, endpoints, or structural changes.
-4. Append operational task metrics to `C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv`.
-5. Stage all new/modified files, commit with a semantic summary, and execute `git push origin main`.
-
+### 2. Session Wrap-Up Protocol (Trigger: "That's a wrap")
+Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 5 closing steps automatically:
+1. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
+2. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
+3. **Seedbox Synchronization:** If any context/tool files were touched, deploy to seedbox and verify running daemon PID.
+4. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
+5. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
 ---
 
 ## V. Telegram Operations Gateway & Seedbox Sync Protocols
@@ -147,3 +146,38 @@ Whenever modifying, creating, or uploading files to `/storage/services/telegram_
    ```bash
    ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"
    ```
+
+---
+
+## III. Session Continuity Protocol
+
+### 1. Session Startup Protocol (First Turn of Every Session)
+At the start of every session, inspect:
+- `AGENTS.md` & `GEMINI.md` (Operational rules & architecture specs)
+- Recent job logs and configuration states in `jobs/` or `config/`
+
+### 2. Session Wrap-Up Protocol (Trigger: "That's a wrap")
+Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 5 closing steps automatically:
+1. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
+2. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
+3. **Seedbox Synchronization:** If any context/tool files were touched, deploy to seedbox and verify running daemon PID.
+4. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
+5. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
+
+---
+
+## IV. Task-Adaptive Model & Quota Optimization Protocol
+
+To maximize reasoning accuracy while preventing premature subscription quota depletion, adhere strictly to this task-to-tier matrix:
+
+### 1. Task-to-Model Execution Matrix
+- **Data Ingestion, Research & Scans:** Use lightweight Python/shell scripts or delegate to `research` / `flash_lite` subagents (`invoke_subagent`). Never burn high-reasoning tokens on raw text parsing or bulk log scraping.
+- **Routine Scaffolding & Minor Tweaks (Low Effort / Flash Lite):** File renaming, batch launcher updates, minor CSS/HTML tweaks, simple config edits.
+- **Core Engineering & Logic (Medium Effort — Recommended Baseline):** Multi-file feature builds, database queries, API routing, state management, algorithmic problem solving.
+- **Deep Root Cause & System Architecture (High Effort / Advanced Models):** Intricate race conditions, asynchronous crashes, complex state engine rewrites, cross-cloud IAM security policies.
+
+### 2. The 2-Strike Loop-Breaker Rule (Hard Stop)
+- **Trigger:** If any build, deployment, or bugfix fails **2 consecutive times** in a session:
+  1. **STOP immediately.** Do not attempt a 3rd blind fix.
+  2. Summarize: (a) what was attempted, (b) why it failed, and (c) the hypothesized root cause.
+  3. Prompt the user to escalate: *"⚠️ **2-Strike Safety Net:** We have hit 2 consecutive failures. To protect your quota and resolve this accurately, please switch to **Medium/High Effort** or an advanced reasoning model before we proceed."*

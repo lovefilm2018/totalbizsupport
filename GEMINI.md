@@ -1,4 +1,6 @@
 # GEMINI.md — TotalBiz Support Website Specification
+> **Operational Partnership Rules:** All AI agents operating in this workspace (Antigravity CLI or Gemini CLI) must strictly adhere to the operational rules, pre-deployment summaries, and instant audit logging defined in [AGENTS.md](AGENTS.md).
+
 
 ## 1. Project Overview & Core Domain
 - **Project Name:** TotalBiz Support Website
@@ -110,4 +112,70 @@ TotalBizSupport/
 
 
 
-
+
+
+---
+
+## Dual Launcher & Workspace Script Architecture
+- **In-Workspace Storage:** All .bat launcher scripts are stored directly within this repository root folder (AGY_TotalBiz.bat, CLI_TotalBiz.bat).
+- **Desktop Shortcut Model:** Desktop icons are Windows Shortcuts (.lnk) pointing directly to these in-workspace .bat files. This safeguards scripts against accidental desktop deletion and automatically includes them in daily Google Drive workspace backups.
+- **Dual Launcher Suites:**
+  - **AGY_TotalBiz.bat (Antigravity CLI):** Launches the full agentic AI coding assistant with --effort medium and multi-dir audit access.
+  - **CLI_TotalBiz.bat (Gemini CLI):** Launches Gemini CLI (gemini-3.5-flash-lite) using project-isolated Google AI Studio API keys (GEMINI_API_KEY) for unlimited free-tier daily turns when AGY quota is on cooldown.
+- **Standardized Pre-Launch Protocol:**
+  1. UTF-8 code page enforcement (chcp 65001 > nul).
+  2. Automatic upstream git synchronization (git pull --rebase --autostash).
+  3. Operational audit logging to C:\Users\TotalBiz\Documents\AI_Usage_Audit\global_usage_audit.csv.
+- **Launcher Modification Protocol:** When modifying launcher parameters, edit the .bat files located in the project's root folder; desktop shortcuts will immediately reflect the changes.
+
+---
+
+## 🛰️ GigaRapid Dedicated Seedbox & High-Compute Cluster Specification
+
+### 1. Hardware & Network Profile (Enterprise Compute Node)
+* **Compute Power:** 6+ dedicated vCores (3.35GHz base / up to 4.9GHz Turbo).
+* **Network Throughput:** Shared **25 Gbps pipe** with **14TB monthly egress** (currently using <10%).
+* **Storage Capacity:** ~3.9TB high-speed personal NVMe/SSD pool mounted on `/storage`.
+* **Cost / Allocation:** Zero marginal cost (£0.00). Use as the primary compute offload destination.
+
+### 2. Architectural Offload & Design Suggestion Rule
+> **Rule for AI Agents:** When architecting, proposing, or implementing new features that require:
+> 1. Continuous 24/7 background execution or high-frequency cron daemons
+> 2. Heavy parallel web scraping (e.g. MealMind supermarket pricing, competitor analysis)
+> 3. Large data processing, video/image transcoding, or bulk file ingestion
+> 4. Multi-terabyte automated backups (`rclone` to Google Drive)
+> 
+> **Always proactively suggest utilizing the GigaRapid Seedbox Compute Cluster** rather than burning billable GCP Cloud Run / Lambda quotas or running heavy loads on Alex's local PC.
+
+### 3. SSH Connectivity & Remote Execution
+* **SSH Command:** `ssh -i ~/.ssh/gigarapid_key -p 34004 lovefilm2018@openssh-ubuntu-lovefilm2018.elektra.mygiga.cloud`
+* **SSH Host Alias (Windows/PowerShell):** `ssh lovefilm-seedbox`
+* **Authentication:** ED25519 Private Key (`~/.ssh/gigarapid_key` on local Windows machine).
+
+### 4. Standard Seedbox Directory Schema
+```text
+/storage/
+├── services/
+│   └── telegram_gateway/               # 24/7 Telegram Operations Hub Daemon (@TotalBizAgyBot)
+│       ├── bot.py                      # Main polling supervisor daemon
+│       ├── topic_mappings.json         # Thread-to-project persistent mappings
+│       ├── service_account.json        # Google Cloud IAM credentials (all projects)
+│       ├── context/                    # Project context engines (*.md)
+│       └── tools/                      # Project live tool scripts (*.py)
+├── workspaces/                         # Mirrored Git repositories across all 7 projects
+│   ├── DogField/
+│   ├── TotalBizSupport/
+│   ├── MealMind/
+│   └── ...
+└── .appdata/                           # Persistent app configurations & SQLite databases
+    ├── homarr/
+    ├── sonarr/
+    └── radarr/
+```
+
+### 5. Telegram Daemon Supervisor & Reload Protocol
+Whenever updating project tools (`tools/<project>.py`) or context (`context/<project>.md`):
+```bash
+ssh -i ~/.ssh/gigarapid_key -p 34004 lovefilm2018@openssh-ubuntu-lovefilm2018.elektra.mygiga.cloud "pkill -f '[b]ot.py'; nohup python3 /storage/services/telegram_gateway/bot.py >/storage/services/telegram_gateway/bot.log 2>&1 </dev/null & disown"
+```
+Verify running PID with: `ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"`
