@@ -11,7 +11,8 @@ const LINKEDIN_TOKEN = process.env.LINKEDIN_TOKEN || 'AQU8lBLIfjFyADP-a-zGe8cRHC
 const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:pACLfBlITP';
 
 const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
-const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSUWbIpihJTAWidtdMAiRO54Gp3rV5jDQqEoOI6vzqGsNLZAMJdboW8pzTsa7ALqkYvgg34PKqYwyemwDGhri6FFa9m5bMiVqVUKo0ZArgxjEfn0csnDn7g7gZB0OkUtrZBqNaNZC36EK69ZBdxvN7xZBxprRNXA2BSvamXcah4bUzyxjcRHIa1HtKz7uzCvNY2FYjA0XSxwqetKZCZAa3nbyUF4PyDp8oED2pPTztpwTsOZA0i';
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSfu3ZB7rywodwQPoOwJfujVdGLlYMzLJ5yZCjnZBSGXlbQXPBwc7kXmp3oF8Jn37ucN6XmuTmf3CILQtBElNpZA0HwuEOmOw2ZAsFZCRi9NdpJSzwvZBEugiGaEoiNnfoTUqky4WiKadASE2RCzVyD70Yxsvli0EkpONMtyAZAbZBtx7By2AIg1kj9ZAcUYt52BP8oPFRXJZAyJr0d5TRbi5ecWy0GtSeIk3ZA5wacIX0lwaHtscFAZDZD';
+const META_USER_TOKEN = process.env.META_USER_TOKEN || 'EAAT9dJ4m67cBSWYwSNE1sPpdCY2AmzOFgkxhut1RYPq69m2PHvPhYw6ApnhnZB46EVWVugFHSZB5QrvdveZCi5B9ZBVzgNMkN7kL8yQM6T1mtAWFFC2X46C213Nx6PZAPUsd8tSZAp56ZB7GIZCDnZBFAZCDJjd8TULVN5UZALUAdaNkKZAZAuhKZAqQDn40xP2IpQqlZAb75tOXgTkdOGg2xbV0wBwfZAlL2uy9gvrOa7EzZCvvUDUnjDE6lXw6DrWEcLjZAiT5G6ID3qxAQynFwsyPAN63xvSXvjzAAZD2';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
 
 // Strict Queue State - ZERO FALLBACKS
@@ -333,9 +334,10 @@ async function publishFacebook(messageText) {
 // 3. Publish Instagram (Image or Video)
 async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
   return new Promise((resolve, reject) => {
+    const tokenToUse = META_USER_TOKEN || FB_PAGE_TOKEN;
     const params = {
       caption: caption,
-      access_token: FB_PAGE_TOKEN
+      access_token: tokenToUse
     };
     if (isVideo) {
       params.media_type = 'REELS';
@@ -366,7 +368,7 @@ async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
           }
           
           setTimeout(() => {
-            const pubData = new URLSearchParams({ creation_id: container.id, access_token: FB_PAGE_TOKEN }).toString();
+            const pubData = new URLSearchParams({ creation_id: container.id, access_token: tokenToUse }).toString();
             const pubReq = https.request({
               hostname: 'graph.facebook.com',
               port: 443,
