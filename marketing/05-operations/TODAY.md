@@ -8,17 +8,19 @@
 
 ## 🎯 DAY 10 OBJECTIVES & EXECUTIONS: Meta Re-Arming & Scheduled Cloud Dispatches
 
-1. **Meta API Key Diagnostic & Token Refresh:** Verified that previous session was expired (Subcode 460). Tested and authenticated fresh Meta User token (`10165528665484104`), derived Page Access Token, and confirmed 100% permissions across Facebook Page (`1207871262402389`) and Instagram (`@totalbiz_support` / `17841437512971881`).
-2. **Cloud Run Poster Upgrade:** Updated Google Cloud Run microservice (`totalbiz-social-poster`) to revision `totalbiz-social-poster-00012-kq8` with active Page tokens and integrated native text publishing for LinkedIn.
-3. **Google Cloud Scheduler Provisioning:** Created `totalbiz-morning-linkedin` (07:45 BST Sharp Mon–Fri in `Europe/London`) targeting `POST /publish/daily-morning`.
-4. **Queued Dispatches (Zero-Fallback):**
-   - **Tonight (19:30 BST Thursday 2026-08-27):** Evening Meta Post ("Zombie Software Subscriptions Audit") + bespoke 1080×1350 branded visual (`zombie_saas_audit_visual.jpg`).
-   - **Tomorrow Morning (07:45 BST Friday 2026-08-28):** LinkedIn Thought Leadership Post ("Why 90% of growth pain is broken workflows").
+1. **Meta API Key Diagnostic & Token Refresh:** Verified and authenticated fresh Meta tokens across Facebook Page (`1207871262402389`) and Instagram (`@totalbiz_support` / `17841437512971881`).
+2. **Cloud Run Poster Microservice & Schedulers:** Verified healthy running containers in `europe-west2` with active schedulers for Morning LinkedIn (07:45 BST), Lunch LinkedIn Video (12:30 BST), and Evening Meta (19:30 BST).
+3. **GA4 Service Account Admin Access:** Confirmed Administrator access granted for service account on Google Analytics 4 (`G-DXSNWTFQQ3`).
+4. **Friday Queued Dispatches (Zero-Fallback):**
+   - **Friday Morning (07:45 BST 2026-08-28):** LinkedIn Thought Leadership Post ("Why 90% of growth pain is broken workflows").
+   - **Friday Evening (19:30 BST 2026-08-28):** Meta Facebook & Instagram Dispatch ("Zombie Software Subscriptions Audit") + bespoke 1080×1350 visual (`zombie_saas_audit_visual.jpg`).
+5. **Telegram Bot Mockups Sync:** Synchronized all queue payloads and assets for live mockup rendering in Telegram.
 
 ---
 
 ## 📊 Status Tracker
 - [x] **Meta API Re-Authentication & Token Sync:** COMPLETED
-- [x] **Cloud Run Microservice & Schedulers:** LIVE & ACTIVE
-- [x] **Evening Meta Post (19:30 BST Tonight):** QUEUED
-- [x] **Morning LinkedIn Post (07:45 BST Friday):** QUEUED
+- [x] **GA4 Service Account Admin Access:** ACTIVE
+- [x] **Friday Morning LinkedIn Post (07:45 BST):** QUEUED
+- [x] **Friday Evening Meta Post (19:30 BST):** QUEUED
+- [x] **Bespoke 1080x1350 Instagram Visual:** RENDERED & DEPLOYED
