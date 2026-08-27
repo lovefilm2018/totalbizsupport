@@ -180,3 +180,18 @@ Whenever updating project tools (`tools/<project>.py`) or context (`context/<pro
 ssh -i ~/.ssh/gigarapid_key -p 34004 lovefilm2018@openssh-ubuntu-lovefilm2018.elektra.mygiga.cloud "pkill -f '[b]ot.py'; nohup python3 /storage/services/telegram_gateway/bot.py >/storage/services/telegram_gateway/bot.log 2>&1 </dev/null & disown"
 ```
 Verify running PID with: `ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"`
+
+---
+
+## 9. Automated Social Media Schedulers & Real-Time Discord Alerts
+
+### Google Cloud Run Microservice (`totalbiz-social-poster`)
+* **Project ID:** `totalbiz-marketing-automation`
+* **Region:** `europe-west2` (London)
+* **Service URL:** `https://totalbiz-social-poster-682815206557.europe-west2.run.app`
+* **Automated Publishing Schedules:**
+  * **07:45 BST:** Morning LinkedIn Thought Leadership (`/publish/daily-morning`)
+  * **12:30 BST:** Lunch LinkedIn Native Video (`/publish/lunch-linkedin`)
+  * **19:30 BST:** Evening Meta Facebook Page (`1207871262402389`) + Instagram Business (`@totalbiz_support`, `17841437512971881`) (`/publish/daily-evening`)
+* **Real-Time Discord Webhook Alerts:** Every publication dispatch triggers an instant rich embed notification to Discord (with visual artwork, execution status, and error logs).
+* **CLI Inspection Tool:** `python tools/totalbiz.py queue` (Inspect in-memory schedule) & `python tools/totalbiz.py analytics` (Live Meta, Instagram, and LinkedIn metrics).

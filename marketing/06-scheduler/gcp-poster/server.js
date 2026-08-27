@@ -11,8 +11,8 @@ const LINKEDIN_TOKEN = process.env.LINKEDIN_TOKEN || 'AQU8lBLIfjFyADP-a-zGe8cRHC
 const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:pACLfBlITP';
 
 const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
-const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSfu3ZB7rywodwQPoOwJfujVdGLlYMzLJ5yZCjnZBSGXlbQXPBwc7kXmp3oF8Jn37ucN6XmuTmf3CILQtBElNpZA0HwuEOmOw2ZAsFZCRi9NdpJSzwvZBEugiGaEoiNnfoTUqky4WiKadASE2RCzVyD70Yxsvli0EkpONMtyAZAbZBtx7By2AIg1kj9ZAcUYt52BP8oPFRXJZAyJr0d5TRbi5ecWy0GtSeIk3ZA5wacIX0lwaHtscFAZDZD';
-const META_USER_TOKEN = process.env.META_USER_TOKEN || 'EAAT9dJ4m67cBSWYwSNE1sPpdCY2AmzOFgkxhut1RYPq69m2PHvPhYw6ApnhnZB46EVWVugFHSZB5QrvdveZCi5B9ZBVzgNMkN7kL8yQM6T1mtAWFFC2X46C213Nx6PZAPUsd8tSZAp56ZB7GIZCDnZBFAZCDJjd8TULVN5UZALUAdaNkKZAZAuhKZAqQDn40xP2IpQqlZAb75tOXgTkdOGg2xbV0wBwfZAlL2uy9gvrOa7EzZCvvUDUnjDE6lXw6DrWEcLjZAiT5G6ID3qxAQynFwsyPAN63xvSXvjzAAZD2';
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSdi402D9TP5dzQkzCCW4O48Hs6kv17WV9gWXPiRFq9s1I9nFZC5F2aW1dKkAHRgnLPhcQCrdaQKIEMv9l9Ax46RlLgc2mLS5ffZAOXTCtdCNUeCl7hXZCL7Peq9isLKuQMPkcCmNak1wxbs0SmwZAGEh6bKhXKOPB7iN6cN1MRZA29guGSyL2TSmJF99RZBN1vZAZASpnwZDZD';
+const META_USER_TOKEN = process.env.META_USER_TOKEN || 'EAAT9dJ4m67cBSV3ZB4tjRQrmG0UGFI5hEqpYykJNQzhHcYfZCvRfZBsrizJNlhpQZC3ZAJS4sublLupMkFhP8LTTlAoJ1C6o0RhHaXl8wBiZAQRWBXSYxLl9vkFfJqLrDFx5LPbSHwPmrChMP0B0ol77qSmhJCZBZBDbAwYifbH7vOxRhUIw8cHSodROpirUGQNacT64vRRHrAZDZD';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
 
 // Strict Queue State - ZERO FALLBACKS
@@ -406,6 +406,64 @@ async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
   });
 }
 
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1542635929271926895/Vedw2_1bwVYZC8sfVmLPHz49lSn96gXeZyArke8JTGbFMCGvcsSiIenrJXHMGBpeBP2D';
+
+function sendDiscordNotification({ title, headline, statusOk, platforms, messageText, imageUrl, failureReason }) {
+  if (!DISCORD_WEBHOOK_URL) return;
+  try {
+    const color = statusOk ? 3066993 : 15158332; // Green or Red
+    const statusText = statusOk ? '🟢 **PUBLISHED SUCCESSFULLY**' : '🔴 **PUBLISHING FAILED**';
+    const snippet = messageText ? (messageText.split('\n\n')[0] || messageText.slice(0, 350)) : '';
+
+    const embed = {
+      title: `🏛️ TotalBiz Support — ${title || headline || 'Social Dispatch'}`,
+      description: `**Execution:** ${statusText}\n\n${snippet}`,
+      color: color,
+      fields: Object.entries(platforms || {}).map(([k, v]) => ({
+        name: k,
+        value: `\`${v}\``,
+        inline: true
+      })),
+      footer: { text: 'TotalBiz Google Cloud Run Scheduler • Live Alert' },
+      timestamp: new Date().toISOString()
+    };
+
+    if (failureReason) {
+      embed.fields.push({
+        name: '⚠️ Error Detail',
+        value: `\`\`\`${String(failureReason).slice(0, 250)}\`\`\``,
+        inline: false
+      });
+    }
+
+    if (imageUrl) {
+      embed.image = { url: imageUrl };
+    }
+
+    const payload = JSON.stringify({
+      username: 'TotalBiz Operations Dispatcher',
+      embeds: [embed]
+    });
+
+    const parsedUrl = new URL(DISCORD_WEBHOOK_URL);
+    const req = https.request({
+      hostname: parsedUrl.hostname,
+      port: 443,
+      path: parsedUrl.pathname + parsedUrl.search,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload)
+      }
+    }, () => {});
+    req.on('error', err => console.error('[Discord Alert Error]', err));
+    req.write(payload);
+    req.end();
+  } catch (err) {
+    console.error('[Discord Alert Failure]', err);
+  }
+}
+
 // 4. Lunch Scheduler Trigger (12:30 BST Sharp) - LinkedIn Native Video
 app.post('/publish/lunch-linkedin', async (req, res) => {
   const todayLondon = getLondonDateString();
@@ -430,9 +488,29 @@ app.post('/publish/lunch-linkedin', async (req, res) => {
     // Clear queue so it never repeats
     postQueue.lunchLinkedIn = null;
     console.log('[LinkedIn Video Success]', result);
+
+    sendDiscordNotification({
+      title: 'Lunch LinkedIn Video',
+      headline: title,
+      statusOk: true,
+      platforms: { '💼 Platform': 'LinkedIn Native Video', '👤 Author': 'Alex Poxon' },
+      messageText: text,
+      imageUrl: null
+    });
+
     res.json({ status: 'published_lunch_video', linkedin: result });
   } catch (err) {
     console.error('[LinkedIn Video Error]', err);
+
+    sendDiscordNotification({
+      title: 'Lunch LinkedIn Video',
+      headline: postToPublish?.title || 'Lunch Video',
+      statusOk: false,
+      platforms: { '💼 Platform': 'LinkedIn Native Video' },
+      messageText: postToPublish?.text || '',
+      failureReason: err.message
+    });
+
     res.status(500).json({ error: err.message });
   }
 });
@@ -465,9 +543,37 @@ app.post('/publish/daily-evening', async (req, res) => {
     // Clear queue so it never repeats
     postQueue.eveningMeta = null;
     console.log('[Meta Dispatch Results]', results);
+
+    const fbOk = results.length > 0 && results[0].status === 'fulfilled';
+    const igOk = results.length > 1 && results[1].status === 'fulfilled';
+    const overallOk = results.some(r => r.status === 'fulfilled');
+
+    sendDiscordNotification({
+      title: 'Evening Meta Post',
+      headline: 'Zombie Software SaaS Audit',
+      statusOk: overallOk,
+      platforms: {
+        '📘 Facebook Page': fbOk ? 'Published' : (facebookText ? 'Failed' : 'Skipped'),
+        '📸 Instagram': igOk ? 'Published' : (instagramCaption ? 'Failed' : 'Skipped')
+      },
+      messageText: instagramCaption || facebookText || '',
+      imageUrl: instagramImageUrl
+    });
+
     res.json({ status: 'published_evening', results });
   } catch (err) {
     console.error('[Meta Error]', err);
+
+    sendDiscordNotification({
+      title: 'Evening Meta Post',
+      headline: 'Zombie Software SaaS Audit',
+      statusOk: false,
+      platforms: { '📘 Facebook / 📸 Instagram': 'Failed' },
+      messageText: postToPublish?.instagramCaption || postToPublish?.facebookText || '',
+      imageUrl: postToPublish?.instagramImageUrl,
+      failureReason: err.message
+    });
+
     res.status(500).json({ error: err.message });
   }
 });
@@ -490,13 +596,33 @@ app.post('/publish/daily-morning', async (req, res) => {
   }
 
   try {
-    const { text } = postToPublish;
+    const { text, title } = postToPublish;
     const result = await publishLinkedInText(text);
     postQueue.morningLinkedIn = null;
     console.log('[LinkedIn Morning Success]', result);
+
+    sendDiscordNotification({
+      title: 'Morning LinkedIn',
+      headline: title || 'Thought Leadership',
+      statusOk: true,
+      platforms: { '💼 Platform': 'LinkedIn Thought Leadership', '👤 Author': 'Alex Poxon' },
+      messageText: text,
+      imageUrl: null
+    });
+
     res.json({ status: 'published_morning_linkedin', linkedin: result });
   } catch (err) {
     console.error('[LinkedIn Morning Error]', err);
+
+    sendDiscordNotification({
+      title: 'Morning LinkedIn',
+      headline: postToPublish?.title || 'Thought Leadership',
+      statusOk: false,
+      platforms: { '💼 Platform': 'LinkedIn Thought Leadership' },
+      messageText: postToPublish?.text || '',
+      failureReason: err.message
+    });
+
     res.status(500).json({ error: err.message });
   }
 });
