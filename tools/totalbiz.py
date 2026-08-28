@@ -39,7 +39,7 @@ GA4_MEASUREMENT_ID = "G-DXSNWTFQQ3"
 GSC_SERVICE_ACCOUNT = "agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com"
 
 # Cloud Run Social Poster Microservice
-SOCIAL_POSTER_URL = os.getenv("TOTALBIZ_POSTER_URL", "https://totalbiz-social-poster-2wm7y2f4ia-nw.a.run.app")
+SOCIAL_POSTER_URL = os.getenv("TOTALBIZ_POSTER_URL", "https://totalbiz-social-poster-682815206557.europe-west2.run.app")
 
 # Meta / Facebook & Instagram Credentials
 META_USER_TOKEN = os.getenv(

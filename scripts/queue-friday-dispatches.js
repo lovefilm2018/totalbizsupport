@@ -1,6 +1,6 @@
 import https from 'https';
 
-const CLOUD_RUN_URL = 'https://totalbiz-social-poster-2wm7y2f4ia-nw.a.run.app';
+const CLOUD_RUN_URL = 'https://totalbiz-social-poster-682815206557.europe-west2.run.app';
 
 const morningLinkedInPost = {
   date: '2026-08-28',
