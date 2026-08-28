@@ -30,7 +30,32 @@ gcloud run deploy $ServiceName `
 $ServiceUrl = (gcloud run services describe $ServiceName --project $Project --region $Region --format="value(status.url)").Trim()
 Write-Host "Cloud Run Service URL: $ServiceUrl" -ForegroundColor Green
 
-# 3. Create or Update Cloud Scheduler Job: Lunch LinkedIn Video (12:30 BST Sharp)
+# 3. Create or Update Cloud Scheduler Job: Morning LinkedIn (07:45 BST Sharp)
+Write-Host "Configuring Cloud Scheduler: Morning LinkedIn (07:45 BST Sharp)..." -ForegroundColor Cyan
+
+$MorningJob = "totalbiz-morning-linkedin"
+$MorningUri = "$ServiceUrl/publish/daily-morning"
+
+$existingMorning = gcloud scheduler jobs list --project $Project --location $Region --filter="ID:$MorningJob" --format="value(ID)"
+if ($existingMorning) {
+    gcloud scheduler jobs update http $MorningJob `
+      --project $Project `
+      --location $Region `
+      --schedule "45 7 * * 1-5" `
+      --time-zone "Europe/London" `
+      --uri $MorningUri `
+      --http-method POST
+} else {
+    gcloud scheduler jobs create http $MorningJob `
+      --project $Project `
+      --location $Region `
+      --schedule "45 7 * * 1-5" `
+      --time-zone "Europe/London" `
+      --uri $MorningUri `
+      --http-method POST
+}
+
+# 4. Create or Update Cloud Scheduler Job: Lunch LinkedIn Video (12:30 BST Sharp)
 Write-Host "Configuring Cloud Scheduler: Lunch LinkedIn Video (12:30 BST Sharp)..." -ForegroundColor Cyan
 
 $LunchJob = "totalbiz-lunch-linkedin"
@@ -55,7 +80,7 @@ if ($existingLunch) {
       --http-method POST
 }
 
-# 4. Create or Update Cloud Scheduler Job: Evening Meta (19:30 BST Sharp)
+# 5. Create or Update Cloud Scheduler Job: Evening Meta (19:30 BST Sharp)
 Write-Host "Configuring Cloud Scheduler: Evening Meta (19:30 BST Sharp)..." -ForegroundColor Cyan
 
 $EveningJob = "totalbiz-evening-meta"
@@ -82,7 +107,8 @@ if ($existingEvening) {
 
 Write-Host "=====================================================" -ForegroundColor Green
 Write-Host "DEPLOYMENT COMPLETE!" -ForegroundColor Green
-Write-Host "Cloud Run Service:  $ServiceUrl" -ForegroundColor Green
-Write-Host "Lunch LinkedIn Job: 12:30:00 BST Sharp ($LunchJob)" -ForegroundColor Green
-Write-Host "Evening Meta Job:   19:30:00 BST Sharp ($EveningJob)" -ForegroundColor Green
+Write-Host "Cloud Run Service:    $ServiceUrl" -ForegroundColor Green
+Write-Host "Morning LinkedIn Job: 07:45:00 BST Sharp ($MorningJob)" -ForegroundColor Green
+Write-Host "Lunch LinkedIn Job:   12:30:00 BST Sharp ($LunchJob)" -ForegroundColor Green
+Write-Host "Evening Meta Job:     19:30:00 BST Sharp ($EveningJob)" -ForegroundColor Green
 Write-Host "=====================================================" -ForegroundColor Green
