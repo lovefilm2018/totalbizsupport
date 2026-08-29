@@ -39,18 +39,18 @@ GA4_MEASUREMENT_ID = "G-DXSNWTFQQ3"
 GSC_SERVICE_ACCOUNT = "agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com"
 
 # Cloud Run Social Poster Microservice
-SOCIAL_POSTER_URL = os.getenv("TOTALBIZ_POSTER_URL", "https://totalbiz-social-poster-682815206557.europe-west2.run.app")
+SOCIAL_POSTER_URL = os.getenv("TOTALBIZ_POSTER_URL", "https://totalbiz-social-poster-2wm7y2f4ia-nw.a.run.app")
 
 # Meta / Facebook & Instagram Credentials
 META_USER_TOKEN = os.getenv(
     "META_USER_TOKEN",
-    "EAAT9dJ4m67cBSV3ZB4tjRQrmG0UGFI5hEqpYykJNQzhHcYfZCvRfZBsrizJNlhpQZC3ZAJS4sublLupMkFhP8LTTlAoJ1C6o0RhHaXl8wBiZAQRWBXSYxLl9vkFfJqLrDFx5LPbSHwPmrChMP0B0ol77qSmhJCZBZBDbAwYifbH7vOxRhUIw8cHSodROpirUGQNacT64vRRHrAZDZD"
+    "EAAT9dJ4m67cBSaZBTgZCKbLnhV2PODaTO5CuF446NZBbNr3AdvRb7n3ZAzjRKoUDiVw95XmBmQDqWPZCfZAIsGbXA1Iee3XyELPclm9zpwm1DptVCL8ZCz3zwNCrW8ZBaZCtwsmZBygybvWL7fiRAy4OZAi8rPAGCdpDZC1oNos3ZB6tsOqsWYY1o9QXnzAKXm5Js65v9VwJrqpymbAZDZD"
 )
 FB_PAGE_ID = os.getenv("FB_PAGE_ID", "1207871262402389")
 IG_ACCOUNT_ID = os.getenv("IG_ACCOUNT_ID", "17841437512971881")
 FB_PAGE_TOKEN = os.getenv(
     "FB_PAGE_TOKEN",
-    "EAAT9dJ4m67cBSdi402D9TP5dzQkzCCW4O48Hs6kv17WV9gWXPiRFq9s1I9nFZC5F2aW1dKkAHRgnLPhcQCrdaQKIEMv9l9Ax46RlLgc2mLS5ffZAOXTCtdCNUeCl7hXZCL7Peq9isLKuQMPkcCmNak1wxbs0SmwZAGEh6bKhXKOPB7iN6cN1MRZA29guGSyL2TSmJF99RZBN1vZAZASpnwZDZD"
+    "EAAT9dJ4m67cBSfgKrcqCpcZBJkQ79U3Vz9ioNYlHTwZCoT1krwxkK9wrO8wolZAxq0gK6UAxIhr95im25fJoBjb7SqTZADhd6bAH9EU9Rjn6ZCKz2WR8HDnQgbn73u9upjQVxmEJtwVrR2XA763jrRY1X7oN48vbobOvAs0PM9zsTRZBpTX11vTu3iQzZBAw1IbGRqYKL83VWuGGniTyQZDZD"
 )
 
 # LinkedIn Credentials
