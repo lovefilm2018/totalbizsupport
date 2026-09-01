@@ -59,6 +59,12 @@ LINKEDIN_TOKEN = os.getenv(
     "LINKEDIN_TOKEN",
     "AQU8lBLIfjFyADP-a-zGe8cRHC2wzU9y7zHRpJinLqMfVNjLzha4eSKxf26p4cV8aSncBsUwCPzKLqlE-JXg8swlmnMJlXiIGnZb-a0-K9n67s6TUxPPA_fWqwj17TyxX2dshWnb-fsafb5FBORdm20d7A9EQZqQ56Ksf0R_yXAK71GcTZg_b4t7z2poh8ZXIXHZamn3H7bU8ojR0V0t60Aowl6RJrTFkn6g3UGRXW_Yzou3E2dpLpERrw-CtImOb3q3QW-DDKy90f9hoew_3mFmgASqFUDqb6b93eHhAj3sHQAWQhyCq-jUfkyNPoRmqXl2LZMXo_r43VFPLSiQe9SGyBsIMA"
 )
+LINKEDIN_ORG_URN = os.getenv("LINKEDIN_ORG_URN", "urn:li:organization:130184035")
+LINKEDIN_ORG_TOKEN = os.getenv(
+    "LINKEDIN_ORG_TOKEN",
+    "AQVUnsRWybq0VT8KcIrxUboH26Hae5v_PKQ6-Y8-lI_VOcVVARgZtrNgccCs8MhdpwMF7vPH-qAOlGx8SWdOWjzeoWhEeuoSmowVbjMZc54MTrSrgFaU2CQM5NraUHBHgV4auRtjHh9pMs4fDiOELQplNmeQIJG3Swsap1_hzdG3sckXTHQ_hDKNrq6w6ZfCPEXWOVDTdAha3GmcwvkTAT1Ub2InV-6MucZ3PbDFj-4eXi0ToaMfP1VJyKZw77OQ7jvgUR-ShC5-of5LF6jL4szeh91p_H2MAW71h-TtO-y2pwA3bg-I7xDynl6VdJWbzPfZ4Ru3ANfxxLsm48CCyy2yvo-5Jw"
+)
+
 
 CANONICAL_ROUTES = [
     {"name": "Home", "path": "/", "url": "https://totalbiz.co.uk/"},
@@ -205,31 +211,53 @@ def check_social_poster_health() -> str:
 
 
 def get_social_queue() -> str:
-    """Inspects detailed queued post payloads waiting on Cloud Run."""
+    """Inspects detailed queued post payloads and master calendar waiting on Cloud Run."""
     try:
         resp = requests.get(f"{SOCIAL_POSTER_URL}/queue", timeout=12)
         if resp.status_code == 200:
             data = resp.json()
             today = data.get("todayLondon", "N/A")
-            queue = data.get("queue", {})
+            active_today = data.get("activeScheduleToday", {}) or {}
+            calendar = data.get("masterCalendar", {}) or {}
             
             lines = [
-                f"📋 *TotalBiz Social Poster Queue Ledger*",
-                f"• *London Today:* `{today}`\n"
+                f"📋 *TotalBiz Social Poster Master Calendar & Queue*",
+                f"• *London Today:* `{today}`\n",
+                "*Today's Execution Schedule:*"
             ]
             
-            for channel, post in queue.items():
+            slots = [
+                ("Morning LinkedIn (07:45 BST)", active_today.get("morningLinkedIn")),
+                ("Lunch Video (12:30 BST)", active_today.get("lunchLinkedIn")),
+                ("Evening Meta (19:30 BST)", active_today.get("eveningMeta"))
+            ]
+            
+            for name, post in slots:
                 if post:
-                    p_date = post.get("date", "Unknown")
-                    p_title = post.get("title", post.get("facebookText", "")[:35] + "...")
-                    lines.append(f"• *{channel}:* 🟢 Queued for `{p_date}` — _{p_title}_")
+                    is_pub = post.get("published", False)
+                    status_icon = "🟢 (Published)" if is_pub else "⏳ (Ready to Publish)"
+                    title = post.get("title", "Post")
+                    lines.append(f"• *{name}:* {status_icon} — _{title}_")
                 else:
-                    lines.append(f"• *{channel}:* ⚪ _Empty (Will safely skip)_")
+                    lines.append(f"• *{name}:* ⚪ _Empty / Skipped_")
+                    
+            lines.append("\n*Upcoming Master Editorial Calendar:*")
+            for day_key, day_data in calendar.items():
+                if day_key == today:
+                    continue
+                li_post = day_data.get("morningLinkedIn", {})
+                meta_post = day_data.get("eveningMeta", {})
+                li_title = li_post.get("title", "N/A") if li_post else "N/A"
+                meta_title = meta_post.get("title", "N/A") if meta_post else "N/A"
+                lines.append(f"📅 *{day_key}:*")
+                lines.append(f"   💼 LinkedIn (07:45 BST): _{li_title}_ (Dual Personal + Company)")
+                lines.append(f"   📘 Meta (19:30 BST): _{meta_title}_ (FB + Instagram)")
             
             return "\n".join(lines)
         return f"⚠️ *Error fetching queue:* HTTP {resp.status_code}"
     except Exception as e:
         return f"🔴 *Error connecting to queue endpoint:* `{str(e)}`"
+
 
 
 def get_social_performance(limit: int = 3) -> str:

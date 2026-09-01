@@ -113,4 +113,23 @@
 - [x] **Telegram Gateway Router Hardening:** Patched `/storage/services/telegram_gateway/bot.py` with `run_project_tool` schema, expanded topic detection (`gsc`, `seo`, `indexing`), and verified live responses in Telegram.
 - [x] **Git Repository & Security Hardening:** Configured root `.gitignore` protecting `gsc-key.json`, dependencies, and build outputs, and synchronized all changes cleanly to GitHub `origin/main`.
 
+---
+
+## Day 10 — Meta Token Refresh, LinkedIn Thought Leadership & Multi-Channel Schedulers (Completed: 2026-08-28)
+- [x] **Meta Graph API Token Refresh:** Verified and updated active long-lived tokens across Facebook Page (`1207871262402389`) and Instagram Business (`17841437512971881`).
+- [x] **Live Friday LinkedIn Post:** Published Friday thought leadership dispatch live via LinkedIn UGC Posts API (`urn:li:share:7499036395513229312`).
+- [x] **GA4 Service Account Admin Delegation:** Granted Administrator permissions on Google Analytics 4 (`G-DXSNWTFQQ3`) to `agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com`.
+- [x] **Persistent Cloud Run Schedule Engine:** Upgraded Cloud Run microservice (`totalbiz-social-poster-00016-gct`) with persistent disk caching + default seed schedule and Discord alert integration.
+
+---
+
+## Day 11 — LinkedIn Community Management API Activation & Dual Channel Publication (Completed: 2026-09-01)
+- [x] **LinkedIn Community Management API Approved & Activated:** Configured App `78aki8m65b95p0` with approved `w_organization_social` & `r_organization_social` permissions. Completed OAuth authorization and generated active 60-day token with 1-year refresh token.
+- [x] **TotalBiz Support Company Page Mapped:** Successfully verified read/write API access to the official TotalBiz Support LinkedIn Organization (`urn:li:organization:130184035`).
+- [x] **Dual LinkedIn Tuesday Live Post Published:** Successfully published *"The Hiring Trap: Why Adding Headcount Scales Chaos"* simultaneously across:
+  - **Alex Poxon Personal Profile:** `urn:li:share:7500483172829265921`
+  - **TotalBiz Support Company Page:** `urn:li:share:7500483174699802625`
+- [x] **Bespoke Hardware & Wi-Fi Visual Staged:** Rendered 1080×1350 visual (`hardware_wifi_visual.jpg`) ready for Tuesday Evening Meta dispatch (19:30 BST).
+
+
 

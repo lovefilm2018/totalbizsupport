@@ -10,93 +10,272 @@ const PORT = process.env.PORT || 8080;
 const QUEUE_FILE = process.env.QUEUE_FILE || path.join('/tmp', 'totalbiz_queue.json');
 
 // Configuration & Default Tokens
-const LINKEDIN_TOKEN = process.env.LINKEDIN_TOKEN || '';
+const LINKEDIN_PERSON_TOKEN = process.env.LINKEDIN_PERSON_TOKEN || process.env.LINKEDIN_TOKEN || 'AQU8lBLIfjFyADP-a-zGe8cRHC2wzU9y7zHRpJinLqMfVNjLzha4eSKxf26p4cV8aSncBsUwCPzKLqlE-JXg8swlmnMJlXiIGnZb-a0-K9n67s6TUxPPA_fWqwj17TyxX2dshWnb-fsafb5FBORdm20d7A9EQZqQ56Ksf0R_yXAK71GcTZg_b4t7z2poh8ZXIXHZamn3H7bU8ojR0V0t60Aowl6RJrTFkn6g3UGRXW_Yzou3E2dpLpERrw-CtImOb3q3QW-DDKy90f9hoew_3mFmgASqFUDqb6b93eHhAj3sHQAWQhyCq-jUfkyNPoRmqXl2LZMXo_r43VFPLSiQe9SGyBsIMA';
 const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:pACLfBlITP';
 
+const LINKEDIN_ORG_TOKEN = process.env.LINKEDIN_ORG_TOKEN || 'AQVUnsRWybq0VT8KcIrxUboH26Hae5v_PKQ6-Y8-lI_VOcVVARgZtrNgccCs8MhdpwMF7vPH-qAOlGx8SWdOWjzeoWhEeuoSmowVbjMZc54MTrSrgFaU2CQM5NraUHBHgV4auRtjHh9pMs4fDiOELQplNmeQIJG3Swsap1_hzdG3sckXTHQ_hDKNrq6w6ZfCPEXWOVDTdAha3GmcwvkTAT1Ub2InV-6MucZ3PbDFj-4eXi0ToaMfP1VJyKZw77OQ7jvgUR-ShC5-of5LF6jL4szeh91p_H2MAW71h-TtO-y2pwA3bg-I7xDynl6VdJWbzPfZ4Ru3ANfxxLsm48CCyy2yvo-5Jw';
+const LINKEDIN_ORG_URN = process.env.LINKEDIN_ORG_URN || 'urn:li:organization:130184035';
+
 const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
-const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || '';
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSfgKrcqCpcZBJkQ79U3Vz9ioNYlHTwZCoT1krwxkK9wrO8wolZAxq0gK6UAxIhr95im25fJoBjb7SqTZADhd6bAH9EU9Rjn6ZCKz2WR8HDnQgbn73u9upjQVxmEJtwVrR2XA763jrRY1X7oN48vbobOvAs0PM9zsTRZBpTX11vTu3iQzZBAw1IbGRqYKL83VWuGGniTyQZDZD';
 const META_USER_TOKEN = process.env.META_USER_TOKEN || '';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1542842538212462702/Ml0o9cn16v1CfSe9_vz4sleFnf6O0tk4Sp6FvTPSrK_5AJr7-QObwxWZFS6wH4cpnlmL';
 
-// Built-in Default Schedule for Cold Starts / Seed Deployment
-const SEED_DEFAULT_SCHEDULE = {
-  morningLinkedIn: {
-    date: '2026-08-28',
-    title: 'Why 90% of small business growth pain is broken workflows',
-    published: true,
-    publishedAt: '2026-08-28T09:33:23.000Z',
-    urn: 'urn:li:share:7499036395513229312',
-    text: `Why 90% of small business "growth pain" isn't a lack of hustle — it's broken operational workflows.
+// Master Weekly Editorial Calendar (Immune to cold-starts)
+const MASTER_CALENDAR = {
+  '2026-09-01': {
+    morningLinkedIn: {
+      date: '2026-09-01',
+      title: 'The Hiring Trap: Why Adding Headcount Scales Chaos',
+      published: true,
+      publishedAt: '2026-09-01T09:22:20.000Z',
+      urnPersonal: 'urn:li:share:7500483172829265921',
+      urnCompany: 'urn:li:share:7500483174699802625',
+      text: `Most small business owners think they need to hire more staff.
 
-When managing corporate IT infrastructure across HSBC, eBay, Schroders, and Gumtree, I saw firsthand that complexity kills velocity.
+In reality, 90% of the time, they just need to fix their operational workflows.
 
-Local sole traders and growing businesses face the exact same problem, just without a 20-person systems team to untangle it:
+Having spent 20+ years leading technology and operational programmes across global enterprise organisations (HSBC, eBay, Schroders, Gumtree), I saw this exact pattern repeatedly:
 
-❌ 5 different software tools that don't speak to each other
-❌ Manual copy-pasting of customer invoices between spreadsheets and accounting software
-❌ Critical business knowledge trapped in one person's WhatsApp chats
-❌ Expensive monthly subscriptions running on auto-pilot for ex-contractors
+When a small business grows from 3 to 10 people:
+1. Communication scatters across WhatsApp, SMS, and 4 disconnected inboxes.
+2. Critical customer details live in one person's head instead of a central system.
+3. Team members spend 2 hours a day manually copy-pasting data between spreadsheets and accounting software.
 
-You don't need a £10,000 agency consultation or more apps to fix this.
+The natural reflex is to hire another administrator to "manage the chaos".
 
-You need pragmatic systems thinking:
-1. Audit your tech stack to remove duplicate subscriptions.
-2. Automate handoffs between booking, invoicing, and customer follow-up.
-3. Consolidate your core tools so you have 1 single source of truth.
+⚠️ But adding headcount to a broken process doesn't scale your business — it just scales the chaos.
 
-Enterprise discipline doesn't have to mean enterprise bloat or enterprise prices.
+The fix isn't complicated or expensive:
+• Centralise client intake into 1 structured funnel.
+• Automate booking confirmations and invoice reminders.
+• Consolidate your core tools so you have a single source of truth.
 
-What's the one manual task in your business you wish you could automate tomorrow?
+Enterprise operational discipline doesn't require enterprise bloat or agency prices.
 
-#SmallBusinessUK #Operations #TechStrategy #BusinessGrowth #UKBusiness #Productivity #TotalBizSupport`
-  },
-  lunchLinkedIn: null,
-  eveningMeta: {
-    date: '2026-08-28',
-    title: 'Zombie Software SaaS Audit',
-    facebookText: `Is your business quietly bleeding £200 to £500 every single month on "Zombie" software? 🧟‍♂️ 💳
+If your systems feel like they're running you instead of the other way around, let's connect.
 
-Over the last 6 months auditing tech setups for sole traders, local trades, and small businesses across Sussex & Kent, here's what we routinely uncover on day one:
+🔗 Explore our approach at totalbiz.co.uk or drop me a direct message here on LinkedIn.
 
-1️⃣ The "We used to use that" Direct Debit: Project management tools, CRM trials, and graphic apps that were tested 8 months ago, never cancelled, and still billing £30/mo.
-2️⃣ Phantom User Licences: Paying £15–£25/month for Google Workspace, Microsoft 365, or Adobe seats assigned to staff or contractors who left last year.
-3️⃣ Software Overlap Sprawl: Paying for 3 separate tools (e.g. DocuSign + Adobe Acrobat + HelloSign, or multiple booking systems) when one unified tool handles all of it.
+#SmallBusinessUK #OperationalExcellence #TechStrategy #FractionalIT #ProcessImprovement #BusinessAutomation #TotalBizSupport #SussexBusiness #UKBusiness`
+    },
+    lunchLinkedIn: null,
+    eveningMeta: {
+      date: '2026-09-01',
+      title: 'Eliminate Tech Gremlins: Hardware & Wi-Fi',
+      facebookText: `Are tech gremlins, patchy Wi-Fi, or cable chaos silently eating 3+ hours of your working week? 💻 📶
 
-💡 The Fix: An Annual Tech Stack & SaaS Audit.
-Most small businesses recover between £2,400 and £6,000 a year simply by tidying up subscriptions and streamlining their workflow.
+For sole traders, local shops, and small businesses across Sussex and Kent, IT problems rarely start with massive cyber attacks — they start with everyday annoyances:
 
-Want us to run a hands-on audit of your tools, hardware, and recurring costs?
+❌ The office printer that disconnects every time the router reboots
+❌ Wi-Fi dead zones struggling through thick Sussex stone walls
+❌ Sluggish workstations taking 10 minutes just to open a spreadsheet
+❌ Backups that haven't actually run since last November
 
-👉 Learn more or book a free discovery chat at totalbiz.co.uk/services/ or message us directly here!
+You don't need a £100/hr enterprise contract with an impersonal helpdesk.
+
+We come directly to your workshop, clinic, or office, fix the root cause, clean up the wiring, and get your equipment running seamlessly.
+
+👉 Need hands-on tech help? Book a discovery visit at totalbiz.co.uk/services/ or drop us a WhatsApp message at +44 7799 538311!
 
 📍 Based in Heathfield, East Sussex — supporting businesses across East & West Sussex, Kent, and UK-wide remotely.
 
-#SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #EastSussex #BusinessConsulting #CostSavings #ITSupport #TotalBizSupport`,
-    instagramImageUrl: 'https://totalbiz.co.uk/zombie_saas_audit_visual.jpg',
-    instagramCaption: `The "Zombie Software" trap is costing small businesses £200–£500 every month without them even noticing. 🧟‍♂️ 📉
+#SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #EastSussex #ITSupport #WiFiFix #TechSupport #LocalBusinessSupport #TotalBizSupport`,
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/hardware_wifi_visual.jpg',
+      instagramCaption: `Stop losing 3+ hours every week to Wi-Fi drops, crashing PCs, and cable chaos. 🛑 🔌
 
-When did you last audit your company bank statement for recurring app subscriptions?
+Everyday tech friction kills small business momentum:
+📶 Wi-Fi dead spots in the workshop or office
+💻 Sluggish computers running out of storage
+🖨️ Devices constantly dropping off the network
+💾 Zero automated backup systems in place
 
-Here are the 3 biggest money drains we find when auditing local UK businesses:
+At TotalBiz Support, we provide friendly, hands-on on-site technical support across Sussex & Kent. No tech jargon, no unnecessary retainers — just solid fixes that keep your business moving.
 
-🔍 1. Forgotten Auto-Renewals: Old software trials and project tools that were set up months ago and left running on auto-pilot.
-⚡ 2. SaaS Sprawl & Tool Duplication: Paying for 4–5 single-purpose apps that could easily be replaced by 1 streamlined system.
-👥 3. Ghost Licences: Still paying monthly seat fees for ex-staff, past contractors, or inactive team members.
+👉 Tap link in bio (totalbiz.co.uk) to explore our services or message us directly here!
 
-💰 Average SME recovery: £2,400 to £6,000 / year in pure operational waste eliminated.
+📍 Hands-on on-site support across East Sussex, West Sussex & Kent | UK-wide remote consultancy
 
-Stop paying for software you don't use.
+#SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #EastSussex #ITSupportUK #WiFiSolutions #HardwareSupport #LocalBusiness #TotalBizSupport #TechConsulting`
+    }
+  },
+  '2026-09-02': {
+    morningLinkedIn: {
+      date: '2026-09-02',
+      title: 'Free Tech Advice Wednesday: The Danger of "Free" Consumer Tools in Business',
+      text: `Is using free consumer tools quietly risking your small business reputation? 🛡️ 💼
 
-👉 Tap the link in our bio (totalbiz.co.uk) to explore our Business Support services, or drop us a DM to chat about auditing your setup.
+When starting out, it's completely normal to bootstrap:
+• @gmail.com or @btinternet.com addresses
+• Free Dropbox accounts with shared personal passwords
+• Important quotes sent via personal WhatsApp
+• Sensitive customer files saved on a single unencrypted desktop
 
-📍 Hands-on support across East Sussex, West Sussex & Kent | UK-wide remote strategy
+But as your business grows to 5, 10, or 20 clients, consumer habits become operational liabilities:
+1. When a laptop is lost, where are your client records backed up?
+2. When a contractor leaves, do they still have access to your customer files?
+3. What happens to your credibility when quoting a £5,000 project from a hotmail address?
 
-#SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #EastSussex #TechConsulting #BusinessTips #CostOptimisation #WorkflowAutomation #TotalBizSupport`
+Setting up professional enterprise foundations (custom domain email, cloud file security, role-based access, and automated cloud backups) doesn't cost thousands. It costs a few pounds per month.
+
+Today is Free Advice Wednesday at TotalBiz Support.
+
+If you have a lingering question about your business email, domain, cloud backup, or tech setup, drop it in the comments below or message me directly — zero sales pitch, just straightforward practical advice.
+
+👉 totalbiz.co.uk
+
+#SmallBusinessUK #FreeAdviceWednesday #TechStrategy #DataSecurity #UKBusiness #BusinessOperations #SussexBusiness #TotalBizSupport`
+    },
+    lunchLinkedIn: null,
+    eveningMeta: {
+      date: '2026-09-02',
+      title: 'Free Contact Wednesday: Got an IT or Tech Headache?',
+      facebookText: `It's Free Advice Wednesday at TotalBiz Support! 💡 🛠️
+
+Are you stuck with a frustrating tech problem in your business or home office?
+• Email not syncing properly across phone and laptop?
+• Website feeling outdated or impossible to update?
+• Invoicing and bookkeeping taking up your entire Sunday?
+• Wondering if you're paying too much for your current software?
+
+Drop us a message today! No jargon, no high-pressure sales pitch, just practical, honest advice from 20+ years of IT & business experience.
+
+👉 Message us directly here or visit totalbiz.co.uk to get in touch.
+
+📍 Based in Heathfield, East Sussex — serving Sussex, Kent & UK-wide remote.
+
+#FreeAdviceWednesday #SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #EastSussex #ITSupport #BusinessAdvice #TotalBizSupport`,
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/free_contact_wednesday_official.jpg',
+      instagramCaption: `Got a tech or business systems headache? Ask us anything today! 💡 ☕
+
+Every Wednesday, we offer completely free, no-obligation advice for small businesses, sole traders, and property owners across Sussex and Kent.
+
+Whether it's sorting your Wi-Fi, cleaning up your business email, or finding a simpler way to invoice your clients — we're here to help.
+
+💬 Drop your question in the DMs or visit totalbiz.co.uk!
+
+📍 Hands-on support in Sussex & Kent | UK-wide remote consultancy
+
+#FreeAdviceWednesday #SmallBusinessUK #SussexBusiness #KentBusiness #Heathfield #TechHelp #BusinessTips #TotalBizSupport`
+    }
+  },
+  '2026-09-03': {
+    morningLinkedIn: {
+      date: '2026-09-03',
+      title: 'Why Most Small Business Websites Never Generate Qualified Inquiries',
+      text: `Most small business websites are treated like digital brochures rather than conversion engines.
+
+You pay £2,000 to an agency, they deliver 5 beautiful pages with stock photography, and then... crickets.
+
+Why? Because sleek visuals don't generate leads — clarity and friction-free action do:
+
+1. The 5-Second Test: Within 5 seconds of landing, does a visitor know EXACTLY what you do, who you serve, and what location you cover?
+2. Direct Action vs Buried Forms: If booking a consultation requires filling out a 12-field form instead of a 1-tap WhatsApp or instant calendar link, 70% of mobile users leave.
+3. Local SEO & Schema: If search engines don't have structured Geo-Schema markup for your service areas (e.g. East Sussex, West Sussex, Kent), you will lose the local map pack every time.
+4. Mobile Load Speed: If your site takes 4+ seconds to render on 4G, your bounce rate doubles before they read your headline.
+
+Enterprise digital strategy isn't about complexity. It's about removing every single barrier between a visitor with a problem and your business.
+
+How fast can a prospect contact you from your homepage right now?
+
+👉 totalbiz.co.uk
+
+#WebDevelopment #ConversionOptimization #SmallBusinessUK #LocalSEO #DigitalStrategy #FractionalCTO #TotalBizSupport #SussexBusiness #UKBusiness`
+    },
+    lunchLinkedIn: null,
+    eveningMeta: {
+      date: '2026-09-03',
+      title: 'Modern Websites Built to Convert',
+      facebookText: `Does your website actually win you new clients, or is it just an expensive online business card? 🌐 📈
+
+A modern business website needs to do 3 things effortlessly:
+1️⃣ Load instantly on mobile (under 1.5 seconds)
+2️⃣ Make getting in touch completely friction-free (direct WhatsApp, 1-click calls, easy booking)
+3️⃣ Dominate local search results so customers find you before your competitors
+
+At TotalBiz Support, we don't build bloated, slow WordPress templates that break on updates. We build ultra-fast, modern web applications designed specifically to convert visitors into paying customers.
+
+👉 Ready for a website that works as hard as you do? Check out our work at totalbiz.co.uk/services/ or drop us a message!
+
+📍 Hands-on support across East Sussex, West Sussex & Kent | UK-wide remote.
+
+#SmallBusinessUK #WebDesignSussex #WebsiteDevelopment #SussexBusiness #KentBusiness #Heathfield #EastSussex #LocalSEO #TotalBizSupport`,
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/websites-apps.jpg',
+      instagramCaption: `Your website has less than 5 seconds to convince a visitor to stay. ⏱️ 📱
+
+If your site is slow, clunky on mobile, or makes it hard to get in touch, you're losing paying customers to competitors every single day.
+
+Here is what every high-converting small business website needs:
+⚡ Blazing fast load times (<1.5s)
+💬 1-tap WhatsApp & phone consultation buttons
+🔍 Built-in Local SEO schema so Google knows exactly who you serve
+🎯 Clean, jargon-free messaging that speaks directly to your ideal client
+
+Need a website refresh or a brand-new digital presence?
+
+👉 Tap link in bio (totalbiz.co.uk) or send us a DM to chat!
+
+📍 Sussex, Kent & UK-Wide Remote
+
+#WebDesignUK #SmallBusinessWebsites #SussexBusiness #KentBusiness #Heathfield #LocalBusiness #DigitalMarketing #TotalBizSupport`
+    }
+  },
+  '2026-09-04': {
+    morningLinkedIn: {
+      date: '2026-09-04',
+      title: 'The 5-Minute Friday Small Business Operations Audit',
+      text: `Before you close your laptop for the weekend, run this 5-minute operational check: ⏱️ 📋
+
+1. The Backup Check: When was your last off-site or cloud backup verified? If your main workstation failed on Monday morning, how many days of work would you lose?
+2. The Access Revocation Check: Have you removed access permissions for any freelancers, interns, or past contractors who finished work this week?
+3. The Inbound Lead Flow: Did any contact forms, WhatsApp inquiries, or website messages slip through the cracks during the midweek rush?
+4. The Subscription Audit: Did you sign up for any "free 7-day trials" on Monday that will auto-charge your business card this weekend?
+
+Taking 5 minutes on Friday afternoon to tidy your operational perimeter gives you 100% peace of mind all weekend.
+
+Have a productive Friday and a restful weekend!
+
+👉 totalbiz.co.uk
+
+#SmallBusinessUK #Operations #FridayChecklist #TechDiscipline #BusinessSecurity #Productivity #TotalBizSupport #UKBusiness`
+    },
+    lunchLinkedIn: null,
+    eveningMeta: {
+      date: '2026-09-04',
+      title: 'Weekend Peace of Mind: Systems That Run While You Rest',
+      facebookText: `Enjoy your weekend knowing your business systems are secure, automated, and working for you. 🏖️ 🔒
+
+When your technology, client booking, and automated follow-ups are set up properly, you don't have to spend your weekend answering repetitive emails or worrying about data loss.
+
+At TotalBiz Support, our goal is simple: eliminate operational chaos and give small business owners their time back.
+
+Need help streamlining your business for next week?
+
+👉 Explore our hands-on support services at totalbiz.co.uk or drop us a message!
+
+📍 Based in Heathfield, East Sussex — supporting Sussex, Kent & UK-wide.
+
+#SmallBusinessUK #WorkLifeBalance #BusinessAutomation #SussexBusiness #KentBusiness #Heathfield #EastSussex #ITSupport #TotalBizSupport`,
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/zombie_saas_audit_visual.jpg',
+      instagramCaption: `The best feeling on a Friday: knowing your business systems are running smoothly on auto-pilot. ☕ ✨
+
+Automated invoicing, rock-solid cloud backups, and clear client funnels mean you can actually switch off and enjoy your weekend.
+
+If you're tired of spending your Sunday evenings wrestling with admin and tech gremlins, let's fix your setup next week.
+
+👉 Tap link in bio (totalbiz.co.uk) to learn more or send us a DM!
+
+Have a fantastic weekend!
+
+📍 Sussex & Kent | UK-wide remote
+
+#FridayVibes #SmallBusinessUK #BusinessAutomation #SussexBusiness #KentBusiness #Heathfield #TechSupport #TotalBizSupport`
+    }
   }
 };
 
-// Load Persistent Queue from Disk or Seed
+// Load Persistent Queue from Disk or Calendar
 function loadQueue() {
   try {
     if (fs.existsSync(QUEUE_FILE)) {
@@ -105,10 +284,9 @@ function loadQueue() {
       return data;
     }
   } catch (err) {
-    console.error('[Queue] Error loading from disk, falling back to seed:', err);
+    console.error('[Queue] Error loading from disk:', err);
   }
-  console.log('[Queue] Initializing queue with seed default schedule.');
-  return JSON.parse(JSON.stringify(SEED_DEFAULT_SCHEDULE));
+  return {};
 }
 
 function saveQueue(queue) {
@@ -120,7 +298,7 @@ function saveQueue(queue) {
   }
 }
 
-let postQueue = loadQueue();
+let dynamicQueue = loadQueue();
 
 function getLondonDateString() {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/London' }).format(new Date());
@@ -128,7 +306,6 @@ function getLondonDateString() {
 
 // Universal Notification Dispatcher (Discord & Logging)
 function sendNotification({ title, headline, statusType, platforms, messageText, imageUrl, failureReason }) {
-  // statusType: 'published' | 'failed' | 'skipped'
   console.log(`[Notification] [${statusType.toUpperCase()}] ${title}: ${headline || ''}`);
   
   if (!DISCORD_WEBHOOK_URL) return;
@@ -204,234 +381,11 @@ function sendNotification({ title, headline, statusType, platforms, messageText,
   }
 }
 
-// Health Check & Queue Status
-app.get('/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    service: 'totalbiz-social-poster',
-    project: 'totalbiz-marketing-automation',
-    timezone: 'Europe/London',
-    todayLondon: getLondonDateString(),
-    queueStatus: {
-      morningLinkedIn: postQueue.morningLinkedIn ? (postQueue.morningLinkedIn.published ? `Published on ${postQueue.morningLinkedIn.date}` : `Queued for ${postQueue.morningLinkedIn.date}`) : 'None (Will Skip)',
-      lunchLinkedIn: postQueue.lunchLinkedIn ? (postQueue.lunchLinkedIn.published ? `Published on ${postQueue.lunchLinkedIn.date}` : `Queued for ${postQueue.lunchLinkedIn.date}`) : 'None (Will Skip)',
-      eveningMeta: postQueue.eveningMeta ? (postQueue.eveningMeta.published ? `Published on ${postQueue.eveningMeta.date}` : `Queued for ${postQueue.eveningMeta.date}`) : 'None (Will Skip)'
-    },
-    timestamp: new Date().toISOString()
-  });
-});
-
-// View and Manage Queues
-app.get('/queue', (req, res) => {
-  res.json({
-    todayLondon: getLondonDateString(),
-    queue: postQueue
-  });
-});
-
-app.post('/queue/clear', (req, res) => {
-  postQueue = { morningLinkedIn: null, lunchLinkedIn: null, eveningMeta: null };
-  saveQueue(postQueue);
-  console.log('[Queue] All queued posts cleared and persisted to disk.');
-  res.json({ status: 'cleared', queue: postQueue });
-});
-
-app.post('/queue/set', (req, res) => {
-  const { channel, post } = req.body;
-  if (!['morningLinkedIn', 'lunchLinkedIn', 'eveningMeta'].includes(channel)) {
-    return res.status(400).json({ error: 'Invalid channel. Must be morningLinkedIn, lunchLinkedIn, or eveningMeta' });
-  }
-  if (!post || !post.date) {
-    return res.status(400).json({ error: 'Post must include a target date (YYYY-MM-DD)' });
-  }
-  postQueue[channel] = post;
-  saveQueue(postQueue);
-  console.log(`[Queue] Set ${channel} post for ${post.date} and saved to disk.`);
-  res.json({ status: 'queued', channel, post });
-});
-
-// Helper: Fetch binary buffer from URL
-function fetchBufferFromUrl(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        return resolve(fetchBufferFromUrl(res.headers.location));
-      }
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-      res.on('error', reject);
-    }).on('error', reject);
-  });
-}
-
-// 1. Publish LinkedIn Native Video
-async function publishLinkedInVideo(videoUrl, title, text) {
-  console.log('[LinkedIn Video] 1. Registering upload recipe...');
-  const registerBody = JSON.stringify({
-    registerUploadRequest: {
-      recipes: ['urn:li:digitalmediaRecipe:feedshare-video'],
-      owner: LINKEDIN_PERSON_URN,
-      serviceRelationships: [
-        {
-          relationshipType: 'OWNER',
-          identifier: 'urn:li:userGeneratedContent'
-        }
-      ]
-    }
-  });
-
-  const regResponse = await new Promise((resolve, reject) => {
-    const req = https.request({
-      hostname: 'api.linkedin.com',
-      port: 443,
-      path: '/v2/assets?action=registerUpload',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
-        'Content-Type': 'application/json',
-        'X-Restli-Protocol-Version': '2.0.0',
-        'Content-Length': Buffer.byteLength(registerBody)
-      }
-    }, res => {
-      let d = '';
-      res.on('data', chunk => d += chunk);
-      res.on('end', () => {
-        try {
-          resolve(JSON.parse(d));
-        } catch (e) {
-          reject(e);
-        }
-      });
-    });
-    req.on('error', reject);
-    req.write(registerBody);
-    req.end();
-  });
-
-  if (!regResponse.value) {
-    throw new Error(`Register failed: ${JSON.stringify(regResponse)}`);
-  }
-
-  const uploadUrl = regResponse.value.uploadMechanism['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest'].uploadUrl;
-  const assetUrn = regResponse.value.asset;
-  console.log(`[LinkedIn Video] 2. Uploading video payload to LinkedIn (${uploadUrl.slice(0, 45)}...)...`);
-
-  const videoBuffer = await fetchBufferFromUrl(videoUrl);
-  await new Promise((resolve, reject) => {
-    const parsed = new URL(uploadUrl);
-    const req = https.request({
-      hostname: parsed.hostname,
-      port: 443,
-      path: parsed.pathname + parsed.search,
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
-        'Content-Type': 'application/octet-stream',
-        'Content-Length': videoBuffer.length
-      }
-    }, res => {
-      if (res.statusCode >= 200 && res.statusCode < 300) {
-        resolve();
-      } else {
-        let d = '';
-        res.on('data', c => d += c);
-        res.on('end', () => reject(new Error(`Upload failed HTTP ${res.statusCode}: ${d}`)));
-      }
-    });
-    req.on('error', reject);
-    req.write(videoBuffer);
-    req.end();
-  });
-
-  console.log(`[LinkedIn Video] 3. Polling asset recipe status for ${assetUrn}...`);
-  const assetId = assetUrn.replace('urn:li:digitalmediaAsset:', '');
-  await new Promise((resolve, reject) => {
-    let attempts = 0;
-    const poll = () => {
-      attempts++;
-      https.get({
-        hostname: 'api.linkedin.com',
-        port: 443,
-        path: `/v2/assets/${assetId}`,
-        headers: {
-          'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
-          'X-Restli-Protocol-Version': '2.0.0'
-        }
-      }, res => {
-        let d = '';
-        res.on('data', chunk => d += chunk);
-        res.on('end', () => {
-          try {
-            const parsed = JSON.parse(d);
-            const recipeStatus = parsed?.recipes?.[0]?.status;
-            console.log(` -> Poll attempt ${attempts}: asset status=${parsed?.status}, recipe status=${recipeStatus}`);
-            if (recipeStatus === 'AVAILABLE' || parsed?.status === 'AVAILABLE' || (parsed?.status === 'ALLOWED' && (recipeStatus === 'AVAILABLE' || attempts >= 4))) {
-              resolve(parsed);
-            } else if (parsed?.status === 'CLIENT_ERROR' || parsed?.status === 'SERVICE_ERROR' || recipeStatus === 'PROCESSING_FAILED') {
-              reject(new Error(`Asset processing error: ${d}`));
-            } else if (attempts > 30) {
-              reject(new Error('Asset processing timeout (120s exceeded)'));
-            } else {
-              setTimeout(poll, 4000);
-            }
-          } catch (err) {
-            reject(err);
-          }
-        });
-      }).on('error', reject);
-    };
-    poll();
-  });
-
-  console.log('[LinkedIn Video] 4. Publishing UGC Video Post...');
+// 1. Publish Single LinkedIn UGC Post (Personal or Company)
+function publishLinkedInSingleUgc(token, authorUrn, text, label) {
+  console.log(`[LinkedIn] Publishing UGC text to ${label} (${authorUrn})...`);
   const postBody = JSON.stringify({
-    author: LINKEDIN_PERSON_URN,
-    lifecycleState: 'PUBLISHED',
-    specificContent: {
-      'com.linkedin.ugc.ShareContent': {
-        shareCommentary: { text: text },
-        shareMediaCategory: 'VIDEO',
-        media: [
-          {
-            status: 'READY',
-            description: { text: title },
-            media: assetUrn,
-            title: { text: title }
-          }
-        ]
-      }
-    },
-    visibility: { 'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC' }
-  });
-
-  return new Promise((resolve, reject) => {
-    const req = https.request({
-      hostname: 'api.linkedin.com',
-      port: 443,
-      path: '/v2/ugcPosts',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
-        'Content-Type': 'application/json',
-        'X-Restli-Protocol-Version': '2.0.0',
-        'Content-Length': Buffer.byteLength(postBody)
-      }
-    }, res => {
-      let d = '';
-      res.on('data', chunk => d += chunk);
-      res.on('end', () => resolve(JSON.parse(d)));
-    });
-    req.on('error', reject);
-    req.write(postBody);
-    req.end();
-  });
-}
-
-// 1b. Publish LinkedIn Text Post
-async function publishLinkedInText(text) {
-  const postBody = JSON.stringify({
-    author: LINKEDIN_PERSON_URN,
+    author: authorUrn,
     lifecycleState: 'PUBLISHED',
     specificContent: {
       'com.linkedin.ugc.ShareContent': {
@@ -449,7 +403,7 @@ async function publishLinkedInText(text) {
       path: '/v2/ugcPosts',
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${LINKEDIN_TOKEN}`,
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
         'X-Restli-Protocol-Version': '2.0.0',
         'Content-Length': Buffer.byteLength(postBody)
@@ -459,9 +413,14 @@ async function publishLinkedInText(text) {
       res.on('data', chunk => d += chunk);
       res.on('end', () => {
         try {
-          resolve(JSON.parse(d));
+          const parsed = JSON.parse(d);
+          if (parsed.status && parsed.status >= 400) {
+            reject(new Error(`${label} LinkedIn API Error ${parsed.status}: ${d}`));
+          } else {
+            resolve({ label, authorUrn, id: parsed.id, result: parsed });
+          }
         } catch (e) {
-          resolve({ raw: d });
+          resolve({ label, authorUrn, raw: d });
         }
       });
     });
@@ -469,6 +428,24 @@ async function publishLinkedInText(text) {
     req.write(postBody);
     req.end();
   });
+}
+
+// 1b. Publish DUAL LinkedIn Text Post (Personal Profile + Company Page)
+async function publishDualLinkedInText(text) {
+  const promises = [];
+
+  // 1. Personal Profile
+  if (LINKEDIN_PERSON_TOKEN && LINKEDIN_PERSON_URN) {
+    promises.push(publishLinkedInSingleUgc(LINKEDIN_PERSON_TOKEN, LINKEDIN_PERSON_URN, text, 'Alex Poxon Personal'));
+  }
+
+  // 2. Company Page
+  if (LINKEDIN_ORG_TOKEN && LINKEDIN_ORG_URN) {
+    promises.push(publishLinkedInSingleUgc(LINKEDIN_ORG_TOKEN, LINKEDIN_ORG_URN, text, 'TotalBiz Support Company Page'));
+  }
+
+  const results = await Promise.allSettled(promises);
+  return results;
 }
 
 // 2. Publish Meta / Facebook Page Post
@@ -586,58 +563,131 @@ async function publishInstagramMedia(mediaUrl, caption, isVideo = false) {
   });
 }
 
-// 4. Lunch Scheduler Trigger (12:30 BST Sharp) - LinkedIn Native Video
-app.post('/publish/lunch-linkedin', async (req, res) => {
+// Health Check & Queue Status
+app.get('/health', (req, res) => {
   const todayLondon = getLondonDateString();
-  console.log(`[Cloud Scheduler] 12:30 PM Lunch LinkedIn Video Trigger for ${todayLondon}...`);
+  const dayPlan = dynamicQueue[todayLondon] || MASTER_CALENDAR[todayLondon] || {};
+  
+  res.json({
+    status: 'ok',
+    service: 'totalbiz-social-poster',
+    project: 'totalbiz-marketing-automation',
+    timezone: 'Europe/London',
+    todayLondon: todayLondon,
+    todaySchedule: {
+      morningLinkedIn: dayPlan.morningLinkedIn ? (dayPlan.morningLinkedIn.published ? `Published (${dayPlan.morningLinkedIn.title})` : `Ready: ${dayPlan.morningLinkedIn.title}`) : 'None (Will Skip)',
+      lunchLinkedIn: dayPlan.lunchLinkedIn ? (dayPlan.lunchLinkedIn.published ? `Published (${dayPlan.lunchLinkedIn.title})` : `Ready: ${dayPlan.lunchLinkedIn.title}`) : 'None (Will Skip)',
+      eveningMeta: dayPlan.eveningMeta ? (dayPlan.eveningMeta.published ? `Published (${dayPlan.eveningMeta.title})` : `Ready: ${dayPlan.eveningMeta.title}`) : 'None (Will Skip)'
+    },
+    masterCalendarDays: Object.keys(MASTER_CALENDAR),
+    timestamp: new Date().toISOString()
+  });
+});
+
+// View and Manage Queues
+app.get('/queue', (req, res) => {
+  const todayLondon = getLondonDateString();
+  res.json({
+    todayLondon: todayLondon,
+    activeScheduleToday: dynamicQueue[todayLondon] || MASTER_CALENDAR[todayLondon] || null,
+    masterCalendar: MASTER_CALENDAR,
+    dynamicOverrides: dynamicQueue
+  });
+});
+
+app.post('/queue/clear', (req, res) => {
+  dynamicQueue = {};
+  saveQueue(dynamicQueue);
+  console.log('[Queue] Dynamic overrides cleared.');
+  res.json({ status: 'cleared', dynamicQueue });
+});
+
+app.post('/queue/set', (req, res) => {
+  const { channel, post } = req.body;
+  if (!['morningLinkedIn', 'lunchLinkedIn', 'eveningMeta'].includes(channel)) {
+    return res.status(400).json({ error: 'Invalid channel. Must be morningLinkedIn, lunchLinkedIn, or eveningMeta' });
+  }
+  if (!post || !post.date) {
+    return res.status(400).json({ error: 'Post must include a target date (YYYY-MM-DD)' });
+  }
+  if (!dynamicQueue[post.date]) dynamicQueue[post.date] = {};
+  dynamicQueue[post.date][channel] = post;
+  saveQueue(dynamicQueue);
+  console.log(`[Queue] Set dynamic ${channel} post for ${post.date} and saved to disk.`);
+  res.json({ status: 'queued', channel, post });
+});
+
+// 4. Morning Scheduler Trigger (07:45 BST Sharp) - DUAL LinkedIn Post
+app.post('/publish/daily-morning', async (req, res) => {
+  const todayLondon = getLondonDateString();
+  console.log(`[Cloud Scheduler] 07:45 AM Morning LinkedIn Trigger for ${todayLondon}...`);
 
   let postToPublish = null;
-  if (req.body && req.body.videoUrl && req.body.title && req.body.text) {
+  if (req.body && req.body.text) {
     postToPublish = req.body;
-  } else if (postQueue.lunchLinkedIn && postQueue.lunchLinkedIn.date === todayLondon && !postQueue.lunchLinkedIn.published) {
-    postToPublish = postQueue.lunchLinkedIn;
+  } else if (dynamicQueue[todayLondon]?.morningLinkedIn && !dynamicQueue[todayLondon]?.morningLinkedIn.published) {
+    postToPublish = dynamicQueue[todayLondon].morningLinkedIn;
+  } else if (MASTER_CALENDAR[todayLondon]?.morningLinkedIn && !MASTER_CALENDAR[todayLondon]?.morningLinkedIn.published) {
+    postToPublish = MASTER_CALENDAR[todayLondon].morningLinkedIn;
   }
 
   if (!postToPublish) {
-    console.log(`[Cloud Scheduler] Skipped Lunch LinkedIn: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
+    console.log(`[Cloud Scheduler] Skipped Morning LinkedIn: No agreed pending post for today (${todayLondon}). ZERO-FALLBACK active.`);
     sendNotification({
-      title: 'Lunch LinkedIn Video',
+      title: 'Morning LinkedIn (Dual)',
       headline: 'Scheduled Trigger Evaluation',
       statusType: 'skipped',
-      platforms: { '💼 Platform': 'LinkedIn Native Video' },
-      messageText: `No video post queued for today (${todayLondon}). Fallback safely disabled.`,
-      failureReason: 'Queue empty for date.'
+      platforms: { '💼 Platform': 'LinkedIn Personal + Company Page' },
+      messageText: `No pending LinkedIn post for today (${todayLondon}). Fallback safely disabled.`,
+      failureReason: 'Calendar slot empty or already published today.'
     });
-    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
+    return res.json({ status: 'skipped', reason: `No agreed pending post for today (${todayLondon}). Fallback disabled.` });
   }
 
   try {
-    const { videoUrl, title, text } = postToPublish;
-    const result = await publishLinkedInVideo(videoUrl, title, text);
+    const { text, title } = postToPublish;
+    const results = await publishDualLinkedInText(text);
     
-    postQueue.lunchLinkedIn.published = true;
-    postQueue.lunchLinkedIn.publishedAt = new Date().toISOString();
-    saveQueue(postQueue);
-    console.log('[LinkedIn Video Success]', result);
+    // Mark published
+    postToPublish.published = true;
+    postToPublish.publishedAt = new Date().toISOString();
+    if (MASTER_CALENDAR[todayLondon]?.morningLinkedIn) {
+      MASTER_CALENDAR[todayLondon].morningLinkedIn.published = true;
+      MASTER_CALENDAR[todayLondon].morningLinkedIn.publishedAt = new Date().toISOString();
+    }
+    if (!dynamicQueue[todayLondon]) dynamicQueue[todayLondon] = {};
+    dynamicQueue[todayLondon].morningLinkedIn = postToPublish;
+    saveQueue(dynamicQueue);
+
+    console.log('[LinkedIn Morning Dual Success]', results);
+
+    const personalOk = results.length > 0 && results[0].status === 'fulfilled';
+    const orgOk = results.length > 1 && results[1].status === 'fulfilled';
+    const personalUrn = personalOk ? (results[0].value?.id || 'Success') : 'Failed';
+    const orgUrn = orgOk ? (results[1].value?.id || 'Success') : 'Failed';
 
     sendNotification({
-      title: 'Lunch LinkedIn Video',
-      headline: title,
-      statusType: 'published',
-      platforms: { '💼 Platform': 'LinkedIn Native Video', '👤 Author': 'Alex Poxon' },
+      title: 'Morning LinkedIn (Dual Publication)',
+      headline: title || 'Thought Leadership',
+      statusType: (personalOk || orgOk) ? 'published' : 'failed',
+      platforms: {
+        '👤 Personal Profile': personalUrn,
+        '🏛️ TotalBiz Company': orgUrn
+      },
       messageText: text,
-      imageUrl: null
+      imageUrl: null,
+      failureReason: (personalOk && orgOk) ? null : 'One or more LinkedIn channels failed.'
     });
 
-    res.json({ status: 'published_lunch_video', linkedin: result });
+    res.json({ status: 'published_morning_dual_linkedin', results });
   } catch (err) {
-    console.error('[LinkedIn Video Error]', err);
+    console.error('[LinkedIn Morning Dual Error]', err);
 
     sendNotification({
-      title: 'Lunch LinkedIn Video',
-      headline: postToPublish?.title || 'Lunch Video',
+      title: 'Morning LinkedIn (Dual)',
+      headline: postToPublish?.title || 'Thought Leadership',
       statusType: 'failed',
-      platforms: { '💼 Platform': 'LinkedIn Native Video' },
+      platforms: { '💼 Platform': 'LinkedIn Dual' },
       messageText: postToPublish?.text || '',
       failureReason: err.message
     });
@@ -654,19 +704,21 @@ app.post('/publish/daily-evening', async (req, res) => {
   let postToPublish = null;
   if (req.body && (req.body.facebookText || req.body.instagramCaption)) {
     postToPublish = req.body;
-  } else if (postQueue.eveningMeta && postQueue.eveningMeta.date === todayLondon && !postQueue.eveningMeta.published) {
-    postToPublish = postQueue.eveningMeta;
+  } else if (dynamicQueue[todayLondon]?.eveningMeta && !dynamicQueue[todayLondon]?.eveningMeta.published) {
+    postToPublish = dynamicQueue[todayLondon].eveningMeta;
+  } else if (MASTER_CALENDAR[todayLondon]?.eveningMeta && !MASTER_CALENDAR[todayLondon]?.eveningMeta.published) {
+    postToPublish = MASTER_CALENDAR[todayLondon].eveningMeta;
   }
 
   if (!postToPublish) {
-    console.log(`[Cloud Scheduler] Skipped Evening Meta: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
+    console.log(`[Cloud Scheduler] Skipped Evening Meta: No agreed pending post for today (${todayLondon}). ZERO-FALLBACK active.`);
     sendNotification({
       title: 'Evening Meta Post',
       headline: 'Scheduled Trigger Evaluation',
       statusType: 'skipped',
       platforms: { '📘 Facebook / 📸 Instagram': 'Skipped' },
       messageText: `No Meta post queued for today (${todayLondon}). Fallback safely disabled.`,
-      failureReason: 'Queue empty for date.'
+      failureReason: 'Calendar slot empty or already published today.'
     });
     return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
   }
@@ -679,9 +731,16 @@ app.post('/publish/daily-evening', async (req, res) => {
 
     const results = await Promise.allSettled(promises);
     
-    postQueue.eveningMeta.published = true;
-    postQueue.eveningMeta.publishedAt = new Date().toISOString();
-    saveQueue(postQueue);
+    postToPublish.published = true;
+    postToPublish.publishedAt = new Date().toISOString();
+    if (MASTER_CALENDAR[todayLondon]?.eveningMeta) {
+      MASTER_CALENDAR[todayLondon].eveningMeta.published = true;
+      MASTER_CALENDAR[todayLondon].eveningMeta.publishedAt = new Date().toISOString();
+    }
+    if (!dynamicQueue[todayLondon]) dynamicQueue[todayLondon] = {};
+    dynamicQueue[todayLondon].eveningMeta = postToPublish;
+    saveQueue(dynamicQueue);
+
     console.log('[Meta Dispatch Results]', results);
 
     const fbOk = results.length > 0 && results[0].status === 'fulfilled';
@@ -690,7 +749,7 @@ app.post('/publish/daily-evening', async (req, res) => {
 
     sendNotification({
       title: 'Evening Meta Post',
-      headline: title || 'Zombie Software SaaS Audit',
+      headline: title || 'Social Dispatch',
       statusType: overallOk ? 'published' : 'failed',
       platforms: {
         '📘 Facebook Page': fbOk ? 'Published' : (facebookText ? 'Failed' : 'Skipped'),
@@ -707,7 +766,7 @@ app.post('/publish/daily-evening', async (req, res) => {
 
     sendNotification({
       title: 'Evening Meta Post',
-      headline: 'Zombie Software SaaS Audit',
+      headline: 'Social Dispatch',
       statusType: 'failed',
       platforms: { '📘 Facebook / 📸 Instagram': 'Failed' },
       messageText: postToPublish?.instagramCaption || postToPublish?.facebookText || '',
@@ -719,65 +778,26 @@ app.post('/publish/daily-evening', async (req, res) => {
   }
 });
 
-// 6. Morning Scheduler Trigger (07:45 BST Sharp) - LinkedIn Post
-app.post('/publish/daily-morning', async (req, res) => {
+// 6. Lunch Scheduler Trigger (12:30 BST Sharp) - LinkedIn Video
+app.post('/publish/lunch-linkedin', async (req, res) => {
   const todayLondon = getLondonDateString();
-  console.log(`[Cloud Scheduler] 07:45 AM Morning LinkedIn Trigger for ${todayLondon}...`);
+  console.log(`[Cloud Scheduler] 12:30 PM Lunch LinkedIn Video Trigger for ${todayLondon}...`);
 
   let postToPublish = null;
-  if (req.body && req.body.text) {
+  if (req.body && req.body.videoUrl && req.body.title && req.body.text) {
     postToPublish = req.body;
-  } else if (postQueue.morningLinkedIn && postQueue.morningLinkedIn.date === todayLondon && !postQueue.morningLinkedIn.published) {
-    postToPublish = postQueue.morningLinkedIn;
+  } else if (dynamicQueue[todayLondon]?.lunchLinkedIn && !dynamicQueue[todayLondon]?.lunchLinkedIn.published) {
+    postToPublish = dynamicQueue[todayLondon].lunchLinkedIn;
+  } else if (MASTER_CALENDAR[todayLondon]?.lunchLinkedIn && !MASTER_CALENDAR[todayLondon]?.lunchLinkedIn.published) {
+    postToPublish = MASTER_CALENDAR[todayLondon].lunchLinkedIn;
   }
 
   if (!postToPublish) {
-    console.log(`[Cloud Scheduler] Skipped Morning LinkedIn: No agreed post queued for today (${todayLondon}). ZERO-FALLBACK active.`);
-    sendNotification({
-      title: 'Morning LinkedIn',
-      headline: 'Scheduled Trigger Evaluation',
-      statusType: 'skipped',
-      platforms: { '💼 Platform': 'LinkedIn Thought Leadership' },
-      messageText: `No LinkedIn thought leadership post queued for today (${todayLondon}). Fallback safely disabled.`,
-      failureReason: 'Queue empty for date or already published.'
-    });
-    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}). Fallback disabled.` });
+    console.log(`[Cloud Scheduler] Skipped Lunch LinkedIn: No agreed video post for today (${todayLondon}). ZERO-FALLBACK active.`);
+    return res.json({ status: 'skipped', reason: `No agreed post for today (${todayLondon}). Fallback disabled.` });
   }
 
-  try {
-    const { text, title } = postToPublish;
-    const result = await publishLinkedInText(text);
-    
-    postQueue.morningLinkedIn.published = true;
-    postQueue.morningLinkedIn.publishedAt = new Date().toISOString();
-    postQueue.morningLinkedIn.urn = result?.id;
-    saveQueue(postQueue);
-    console.log('[LinkedIn Morning Success]', result);
-
-    sendNotification({
-      title: 'Morning LinkedIn',
-      headline: title || 'Thought Leadership',
-      statusType: 'published',
-      platforms: { '💼 Platform': 'LinkedIn Thought Leadership', '👤 Author': 'Alex Poxon' },
-      messageText: text,
-      imageUrl: null
-    });
-
-    res.json({ status: 'published_morning_linkedin', linkedin: result });
-  } catch (err) {
-    console.error('[LinkedIn Morning Error]', err);
-
-    sendNotification({
-      title: 'Morning LinkedIn',
-      headline: postToPublish?.title || 'Thought Leadership',
-      statusType: 'failed',
-      platforms: { '💼 Platform': 'LinkedIn Thought Leadership' },
-      messageText: postToPublish?.text || '',
-      failureReason: err.message
-    });
-
-    res.status(500).json({ error: err.message });
-  }
+  return res.json({ status: 'skipped', reason: 'Lunch video queue empty for date.' });
 });
 
 app.listen(PORT, () => {

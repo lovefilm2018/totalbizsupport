@@ -16,8 +16,11 @@
 ---
 
 ## 📊 Status Tracker
-- [x] **Tuesday Morning LinkedIn Post (07:45 BST):** QUEUED
+- [x] **Tuesday Morning LinkedIn Post (Personal Profile):** 🟢 **PUBLISHED LIVE** (`urn:li:share:7500483172829265921`)
+- [x] **Tuesday Morning LinkedIn Post (Company Page):** 🟢 **PUBLISHED LIVE** (`urn:li:share:7500483174699802625`)
+- [x] **LinkedIn Community Management API Activation:** 🟢 **ENABLED & VERIFIED** (`urn:li:organization:130184035`)
 - [x] **Tuesday Evening Meta Post (19:30 BST):** QUEUED
 - [x] **Bespoke 1080x1350 Hardware & Wi-Fi Visual:** RENDERED & DEPLOYED
 - [x] **Telegram Operations Hub Queue Sync:** VERIFIED
+
 
