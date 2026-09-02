@@ -201,7 +201,7 @@ At TotalBiz Support, we don't build bloated, slow WordPress templates that break
 📍 Hands-on support across East Sussex, West Sussex & Kent | UK-wide remote.
 
 #SmallBusinessUK #WebDesignSussex #WebsiteDevelopment #SussexBusiness #KentBusiness #Heathfield #EastSussex #LocalSEO #TotalBizSupport`,
-      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/websites-apps.jpg',
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/src/assets/websites-apps.jpg',
       instagramCaption: `Your website has less than 5 seconds to convince a visitor to stay. ⏱️ 📱
 
 If your site is slow, clunky on mobile, or makes it hard to get in touch, you're losing paying customers to competitors every single day.
