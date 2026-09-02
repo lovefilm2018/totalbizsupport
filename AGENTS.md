@@ -57,6 +57,15 @@ This project operates on a structured **Human-AI Partnership**:
 - **Rule:** Every session and significant task completion must be logged to the central usage audit ledger.
 - **Requirement:** Append operational metrics instantly in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Task Summary>"`
 
+### 11. Central Google Drive & Google Docs Workspace Integration Protocol
+- **Rule:** When accessing, parsing, generating, or formatting project documentation, client proposals, spreadsheets, or marketing assets in Google Drive/Docs:
+- **Requirement:**
+  - **Service Account Identity:** `agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com` (GCP Project: `totalbiz-marketing-automation`, Project ID: `682815206557`).
+  - **Credential Path:** `C:\Users\TotalBiz\Downloads\totalbiz-marketing-automation-2b864bf28d36.json` (mirrored in `Documents/totalbizsupport/gsc-key.json` and seedbox `/storage/services/telegram_gateway/service_account.json`).
+  - **Permissions & Access:** Master `TotalBiz` Google Drive folder (owned by `totalbizsupport@gmail.com`) is shared directly with full **Editor** permissions, inherited by `TotalBizSupport` and all project subfolders.
+  - **Client Library:** Utilize `googleapiclient.discovery.build('drive', 'v3', ...)` and `build('docs', 'v1', ...)` with `google.oauth2.service_account.Credentials`.
+
+
 ---
 
 ## III. Lead Digital Marketing & Google Search Console Protocol

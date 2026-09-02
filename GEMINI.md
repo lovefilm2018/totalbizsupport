@@ -200,3 +200,26 @@ Verify running PID with: `ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"`
   * **19:30 BST:** Evening Meta Facebook Page (`1207871262402389`) + Instagram Business (`@totalbiz_support`, `17841437512971881`) (`/publish/daily-evening`)
 * **Real-Time Discord Webhook Alerts:** Every publication dispatch triggers an instant rich embed notification to Discord (with visual artwork, execution status, and error logs).
 * **CLI Inspection Tool:** `python tools/totalbiz.py queue` (Inspect in-memory schedule) & `python tools/totalbiz.py analytics` (Live Meta, Instagram, and LinkedIn metrics).
+
+---
+
+## 10. Central Google Drive & Google Docs API Ecosystem Integration
+
+### 1. Service Account & IAM Identity
+* **Service Account Email:** `agy-search-console-agent@totalbiz-marketing-automation.iam.gserviceaccount.com`
+* **Primary GCP Project:** `totalbiz-marketing-automation` (Project ID: `682815206557`)
+* **Credential Paths:**
+  * Windows Local: `C:\Users\TotalBiz\Downloads\totalbiz-marketing-automation-2b864bf28d36.json`
+  * Workspace Mirror: `C:\Users\TotalBiz\Documents\totalbizsupport\gsc-key.json`
+  * Seedbox Linux: `/storage/services/telegram_gateway/service_account.json`
+
+### 2. Enabled Google Cloud APIs
+* Google Drive API (`drive.googleapis.com`)
+* Google Docs API (`docs.googleapis.com`)
+* Google Search Console API & Google Analytics Data API (GA4)
+
+### 3. Google Drive Scope & Permissions
+* **Root Shared Folder:** The entire parent `TotalBiz` folder in Google Drive (owned by `totalbizsupport@gmail.com`) is shared directly with the Service Account with full **Editor** permissions.
+* **Inherited Access:** All subproject folders (`TotalBizSupport`, `DogField`, `MealMind`, `GBPublishing`, `LoveFilm`, `Bijou`, `QuietSpace`) inherit this full Editor access.
+* **Operational Capabilities:** Any project agent can programmatically inspect Drive folder hierarchies, read uploaded client spreadsheets/documents, and create/populate/format clean Google Docs and Google Sheets directly in Google Drive using `googleapiclient.discovery.build` in Python.
+
