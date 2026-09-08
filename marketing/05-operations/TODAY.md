@@ -1,26 +1,34 @@
-# Daily Marketing Execution Blueprint — Day 11 (2026-09-01)
+# Daily Marketing Execution Blueprint — Day 12 (2026-09-08)
 
-**Date:** Tuesday, 1 September 2026  
+**Date:** Tuesday, 8 September 2026  
 **Lead:** Antigravity CLI (Marketing Operations Lead & Senior Developer)  
 **Assistant / Executor:** Alex Poxon (Project Director)  
 
 ---
 
-## 🎯 DAY 11 OBJECTIVES & EXECUTIONS: Multi-Channel Dispatches Loaded
+## 🎯 DAY 12 OBJECTIVES & WEEKLY STRATEGY: Full Weekly Schedule Loaded
 
-1. **Tuesday Dispatches Queued on Cloud Run:**
-   - **Morning LinkedIn (07:45 BST):** Thought Leadership Post ("The Hiring Trap: Why adding headcount to broken processes scales chaos").
-   - **Evening Meta (19:30 BST):** Facebook & Instagram ("Eliminate Tech Gremlins: Hardware & Wi-Fi") with bespoke 1080×1350 visual (`hardware_wifi_visual.jpg`).
-2. **Persistent Cloud Queue Verified:** Confirmed `2026-09-01` dispatches persisted on disk and accessible via Telegram Operations Hub (`/queue`).
+1. **Weekly Strategy & Editorial Calendar (8th–11th September):**
+   - **Tuesday (08/09):** Evening Meta (19:30 BST) — *Local IT & Point-of-Sale / Office Tech Rescue* (Facebook Page + Instagram Business with `hardware_wifi_visual.jpg`).
+   - **Wednesday (09/09):** Morning LinkedIn (07:45 BST) — *The "Shadow IT" Trap: Consumer Tools in Business* | Evening Meta (19:30 BST) — *Free Advice Wednesday* (`free_contact_wednesday_official.jpg`).
+   - **Thursday (10/09):** Morning LinkedIn (07:45 BST) — *Airbnb & Hospitality Tech: Why Static Pricing & Lockboxes Bleed Margin* | Evening Meta (19:30 BST) — *Smart Locks & Guest Wi-Fi for Holiday Stays* (`day7_airbnb_smartlock.jpg`).
+   - **Friday (11/09):** Morning LinkedIn (07:45 BST) — *The 15-Minute Friday SaaS Audit: Eliminating Software Waste* | Evening Meta (19:30 BST) — *Weekend Peace of Mind: Systems That Run While You Rest* (`zombie_saas_audit_visual.jpg`).
+
+2. **Cloud Run Auto-Pilot Deployment:**
+   - Deployed updated `MASTER_CALENDAR` in `server.js` to Google Cloud Run (`totalbiz-social-poster`) in `europe-west2` (London).
+   - Confirmed exact-second triggers: Morning LinkedIn (07:45 BST Sharp) and Evening Meta (19:30 BST Sharp).
+   - Synced public graphic assets to `client/public/` for reliable Instagram container rendering.
 
 ---
 
 ## 📊 Status Tracker
-- [x] **Tuesday Morning LinkedIn Post (Personal Profile):** 🟢 **PUBLISHED LIVE** (`urn:li:share:7500483172829265921`)
-- [x] **Tuesday Morning LinkedIn Post (Company Page):** 🟢 **PUBLISHED LIVE** (`urn:li:share:7500483174699802625`)
-- [x] **LinkedIn Community Management API Activation:** 🟢 **ENABLED & VERIFIED** (`urn:li:organization:130184035`)
-- [x] **Tuesday Evening Meta Post (19:30 BST):** QUEUED
-- [x] **Bespoke 1080x1350 Hardware & Wi-Fi Visual:** RENDERED & DEPLOYED
-- [x] **Telegram Operations Hub Queue Sync:** VERIFIED
+- [x] **Weekly Strategy Blueprint Formulated & Approved:** 🟢 **DONE**
+- [x] **Master Calendar Updated (server.js):** 🟢 **DEPLOYED** (2026-09-08 to 2026-09-11)
+- [x] **Tuesday Evening Meta Post (19:30 BST):** 🟢 **QUEUED & ACTIVE**
+- [x] **Wednesday Free Advice Asset Staged:** 🟢 **SYNCED** (`client/public/free_contact_wednesday_official.jpg`)
+- [x] **Thursday Airbnb Smart Lock Asset Staged:** 🟢 **SYNCED** (`client/public/day7_airbnb_smartlock.jpg`)
+- [x] **Friday SaaS Audit Asset Staged:** 🟢 **SYNCED** (`client/public/zombie_saas_audit_visual.jpg`)
+- [x] **Cloud Run Deployment Complete:** 🟢 **DEPLOYED & SERVING 100%** (Revision `00020-vsx`)
+
 
 
