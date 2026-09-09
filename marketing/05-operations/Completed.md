@@ -144,6 +144,16 @@
 - [x] **Cloud Run Auto-Pilot Engine Deployment:** Updated microservice (`totalbiz-social-poster`) in `europe-west2` (London) with persistent weekly calendar and Discord alerting.
 - [x] **Live Tuesday Evening Meta Post Published:** Successfully published *"Local IT & Point-of-Sale / Office Tech Rescue"* live at 19:30 BST to Facebook Page (`1207871262402389_122136231081360282`) and Instagram Business (`@totalbiz_support`).
 
+---
+
+## Day 13 — Free Contact Wednesday Morning Publication & Schedule Optimization (Completed: 2026-09-09)
+- [x] **Strategic Schedule Realignment:** Identified that publishing "Free Contact Wednesday" in the evening (19:30 BST) wastes the day's inbound lead potential. Rescheduled and triggered publication mid-morning (10:35 BST) so local business owners, sole traders, and property hosts have the entire working day to reach out via WhatsApp, phone, and email.
+- [x] **Dual Meta Dispatch Live (Facebook + Instagram):** Triggered live multi-channel publication via Cloud Run (`/publish/daily-evening`) with official high-contrast visual (`free_contact_wednesday_official.jpg`):
+  - **Facebook Page Post:** Live at 10:35 BST (`1207871262402389_122136356115360282`)
+  - **Instagram Business Post:** Live at 10:35 BST (`18099736022630436` on `@totalbiz_support`)
+- [x] **Zero-Duplicate Evening Protection:** Marked Wednesday evening Meta slot as `published: true` in `MASTER_CALENDAR` and disk cache so the 19:30 BST Cloud Scheduler safely skips dispatch, preventing duplicate posts.
+
+
 
 
 

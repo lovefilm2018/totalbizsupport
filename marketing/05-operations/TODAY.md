@@ -25,7 +25,8 @@
 - [x] **Weekly Strategy Blueprint Formulated & Approved:** 🟢 **DONE**
 - [x] **Master Calendar Updated (server.js):** 🟢 **DEPLOYED** (2026-09-08 to 2026-09-11)
 - [x] **Tuesday Evening Meta Post (19:30 BST):** 🟢 **PUBLISHED LIVE** (`1207871262402389_122136231081360282`)
-- [x] **Wednesday Free Advice Asset Staged:** 🟢 **SYNCED** (`client/public/free_contact_wednesday_official.jpg`)
+- [x] **Wednesday Morning LinkedIn (07:45 BST):** 🟢 **PUBLISHED LIVE** (Dual Personal + Company Page — *The "Shadow IT" Trap*)
+- [x] **Wednesday Free Advice Meta Post (10:35 BST):** 🟢 **PUBLISHED LIVE** (Facebook `1207871262402389_122136356115360282` + Instagram `18099736022630436`, rescheduled to morning to maximize business-day inquiries; 19:30 slot marked published to avoid duplicates)
 - [x] **Thursday Airbnb Smart Lock Asset Staged:** 🟢 **SYNCED** (`client/public/day7_airbnb_smartlock.jpg`)
 - [x] **Friday SaaS Audit Asset Staged:** 🟢 **SYNCED** (`client/public/zombie_saas_audit_visual.jpg`)
 - [x] **Cloud Run Deployment Complete:** 🟢 **DEPLOYED & SERVING 100%** (Revision `00020-vsx`)

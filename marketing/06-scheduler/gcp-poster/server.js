@@ -364,11 +364,15 @@ How secure and professional is your operational perimeter today?
 🔗 Explore our approach at totalbiz.co.uk or drop me a direct message here on LinkedIn.
 
 #SmallBusinessUK #DataSecurity #TechStrategy #OperationalExcellence #FractionalIT #CloudSecurity #TotalBizSupport #SussexBusiness #UKBusiness`
+      published: true,
+      publishedAt: '2026-09-09T06:45:00Z'
     },
     lunchLinkedIn: null,
     eveningMeta: {
       date: '2026-09-09',
       title: 'Free Advice Wednesday: Got an IT, Website or Systems Headache?',
+      published: true,
+      publishedAt: '2026-09-09T09:35:43Z',
       facebookText: `It's Free Advice Wednesday at TotalBiz Support! 💡 🛠️
 
 Are you dealing with an irritating tech issue or feeling overwhelmed by your business admin?
