@@ -1132,10 +1132,21 @@ function formatBrevoEvent(item) {
     case 'soft_bounce':
     case 'hard_bounce':
     case 'blocked':
+    case 'invalid_email':
     case 'error':
       title = `🔴 Email Delivery Failed (${event})`;
       color = 15158332; // #e74c3c Red
-      description = `Delivery to **${email}** failed.\n\n📄 **Subject:** *${subject}*`;
+      description = `Delivery to **${email}** failed (${event}).\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'deferred':
+      title = '⏳ Email Delivery Deferred';
+      color = 16753920; // #e67e22 Amber
+      description = `Delivery to **${email}** is temporarily deferred/queued by the recipient mail server.\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'proxy_open':
+      title = '🛡️ Apple Privacy Proxy Open';
+      color = 3066993; // #2ecc71 Green
+      description = `Apple Mail Privacy Protection pre-fetched the email for **${email}**.\n\n📄 **Subject:** *${subject}*`;
       break;
     case 'spam':
     case 'complaint':
@@ -1149,9 +1160,10 @@ function formatBrevoEvent(item) {
       description = `**${email}** unsubscribed from emails.\n\n📄 **Subject:** *${subject}*`;
       break;
     case 'request':
-      title = '📤 Email Sending Initiated';
-      color = 3447003;
-      description = `Email sent to **${email}**.\n\n📄 **Subject:** *${subject}*`;
+    case 'sent':
+      title = '📤 Email Sent';
+      color = 3447003; // #3498db Blue
+      description = `Email successfully dispatched to **${email}**.\n\n📄 **Subject:** *${subject}*`;
       break;
   }
 
