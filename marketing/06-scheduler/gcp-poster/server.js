@@ -21,6 +21,7 @@ const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSfgKrcqCpcZBJkQ
 const META_USER_TOKEN = process.env.META_USER_TOKEN || '';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1542842538212462702/Ml0o9cn16v1CfSe9_vz4sleFnf6O0tk4Sp6FvTPSrK_5AJr7-QObwxWZFS6wH4cpnlmL';
+const DISCORD_BREVO_WEBHOOK_URL = process.env.DISCORD_BREVO_WEBHOOK_URL || 'https://discord.com/api/webhooks/1548072352200269931/8L_FpauERATR6ru1YBk1MHXeo2H9kU307Ym-oJfkEgd8EsrDIv6RuIpT-NWDV-Py9ELt';
 
 // Master Weekly Editorial Calendar (Immune to cold-starts)
 const MASTER_CALENDAR = {
@@ -363,7 +364,7 @@ How secure and professional is your operational perimeter today?
 
 🔗 Explore our approach at totalbiz.co.uk or drop me a direct message here on LinkedIn.
 
-#SmallBusinessUK #DataSecurity #TechStrategy #OperationalExcellence #FractionalIT #CloudSecurity #TotalBizSupport #SussexBusiness #UKBusiness`
+#SmallBusinessUK #DataSecurity #TechStrategy #OperationalExcellence #FractionalIT #CloudSecurity #TotalBizSupport #SussexBusiness #UKBusiness`,
       published: true,
       publishedAt: '2026-09-09T06:45:00Z'
     },
@@ -1057,6 +1058,181 @@ app.post('/publish/lunch-linkedin', async (req, res) => {
   }
 
   return res.json({ status: 'skipped', reason: 'Lunch video queue empty for date.' });
+});
+
+// Universal Discord Webhook POST helper
+function postToDiscord(webhookUrl, payloadObj) {
+  return new Promise((resolve) => {
+    try {
+      const parsedUrl = new URL(webhookUrl);
+      const data = JSON.stringify(payloadObj);
+      const req = https.request({
+        hostname: parsedUrl.hostname,
+        port: 443,
+        path: parsedUrl.pathname + parsedUrl.search,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(data)
+        }
+      }, res => {
+        let d = '';
+        res.on('data', c => d += c);
+        res.on('end', () => {
+          if (res.statusCode >= 300) {
+            console.warn(`[Discord Webhook Warning HTTP ${res.statusCode}] Response: ${d}`);
+          }
+          resolve({ status: res.statusCode });
+        });
+      });
+      req.on('error', err => {
+        console.error('[Discord Webhook Network Error]', err);
+        resolve({ error: err.message });
+      });
+      req.write(data);
+      req.end();
+    } catch (err) {
+      console.error('[Discord Webhook Exception]', err);
+      resolve({ error: err.message });
+    }
+  });
+}
+
+function formatBrevoEvent(item) {
+  const event = (item.event || 'unknown').toLowerCase();
+  const email = item.email || 'unknown recipient';
+  const subject = item.subject || 'No Subject';
+  const link = item.link || null;
+  const reason = item.reason || null;
+  const tag = Array.isArray(item.tags) ? item.tags.join(', ') : (item.tag || null);
+  
+  let title = `📧 Email Event: ${event}`;
+  let color = 3426654; // #34495e Slate
+  let description = `Recipient \`${email}\` triggered event **${event}**.`;
+
+  switch (event) {
+    case 'opened':
+    case 'first_opening':
+    case 'unique_opened':
+      title = '📬 Email Opened';
+      color = 3066993; // #2ecc71 Green
+      description = `**${email}** just opened your email!\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'clicks':
+    case 'click':
+      title = '🔗 Link Clicked in Email';
+      color = 3447003; // #3498db Blue
+      description = `**${email}** clicked a link inside your email!\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'delivered':
+      title = '📨 Email Delivered';
+      color = 1752220; // #1abc9c Teal
+      description = `Email successfully delivered to **${email}**.\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'soft_bounce':
+    case 'hard_bounce':
+    case 'blocked':
+    case 'error':
+      title = `🔴 Email Delivery Failed (${event})`;
+      color = 15158332; // #e74c3c Red
+      description = `Delivery to **${email}** failed.\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'spam':
+    case 'complaint':
+      title = '⚠️ Spam Complaint Reported';
+      color = 15105570; // #e67e22 Orange
+      description = `**${email}** reported this email as spam.\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'unsubscribed':
+      title = '🚫 Recipient Unsubscribed';
+      color = 9807270; // #95a5a6 Grey
+      description = `**${email}** unsubscribed from emails.\n\n📄 **Subject:** *${subject}*`;
+      break;
+    case 'request':
+      title = '📤 Email Sending Initiated';
+      color = 3447003;
+      description = `Email sent to **${email}**.\n\n📄 **Subject:** *${subject}*`;
+      break;
+  }
+
+  const fields = [
+    { name: '👤 Recipient', value: `\`${email}\``, inline: true },
+    { name: '📋 Subject', value: subject ? `\`${subject.slice(0, 100)}\`` : '*(none)*', inline: true }
+  ];
+
+  if (link) {
+    fields.push({ name: '🔗 Clicked URL', value: link.length > 250 ? link.slice(0, 247) + '...' : link, inline: false });
+  }
+
+  if (reason) {
+    fields.push({ name: '⚠️ Reason', value: `\`${String(reason).slice(0, 250)}\``, inline: false });
+  }
+
+  if (tag) {
+    fields.push({ name: '🏷️ Tag / Campaign', value: `\`${tag}\``, inline: true });
+  }
+
+  let londonTime = '';
+  try {
+    const rawDate = item.date ? new Date(item.date) : (item.ts ? new Date(item.ts * 1000) : new Date());
+    londonTime = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/London',
+      dateStyle: 'medium',
+      timeStyle: 'medium'
+    }).format(rawDate);
+  } catch (e) {
+    londonTime = new Date().toISOString();
+  }
+
+  fields.push({ name: '🕒 Time (London)', value: londonTime, inline: true });
+
+  return {
+    title: `TotalBiz Email Intelligence • ${title}`,
+    description,
+    color,
+    fields,
+    footer: { text: 'TotalBiz Brevo Tracker • alex@totalbiz.co.uk' },
+    timestamp: new Date().toISOString()
+  };
+}
+
+// 7. Brevo Webhook Relay Endpoint (HTTP GET verification check + POST webhook event handler)
+app.get('/webhook/brevo', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'TotalBiz Brevo-Discord Relay',
+    configuredDiscord: Boolean(DISCORD_BREVO_WEBHOOK_URL)
+  });
+});
+
+app.post('/webhook/brevo', async (req, res) => {
+  const targetDiscordUrl = req.query.discord || req.query.url || DISCORD_BREVO_WEBHOOK_URL;
+
+  console.log('[Brevo Webhook] Incoming event payload:', JSON.stringify(req.body));
+
+  if (!req.body) {
+    return res.status(200).json({ status: 'ok', warning: 'empty_body' });
+  }
+
+  const rawEvents = Array.isArray(req.body) ? req.body : [req.body];
+
+  if (targetDiscordUrl) {
+    for (const ev of rawEvents) {
+      try {
+        const embed = formatBrevoEvent(ev);
+        await postToDiscord(targetDiscordUrl, {
+          username: 'TotalBiz Email Tracker',
+          avatar_url: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/profile_picture.png',
+          embeds: [embed]
+        });
+      } catch (err) {
+        console.error('[Brevo Webhook Dispatch Error]', err);
+      }
+    }
+  }
+
+  // Always return 200 to Brevo to acknowledge receipt and maintain green webhook health
+  res.status(200).json({ status: 'received', count: rawEvents.length });
 });
 
 app.listen(PORT, () => {
