@@ -116,11 +116,7 @@ TotalBizSupport/
   29. **LinkedIn Community Management API Activation & Resilient Master Calendar:** Authenticated App `78aki8m65b95p0` with approved Community Management API permissions (`w_organization_social`, `r_organization_social`); mapped TotalBiz Support LinkedIn Organization (`urn:li:organization:130184035`); published Tuesday Thought Leadership live simultaneously to Alex Poxon Personal Profile (`urn:li:share:7500483172829265921`) and TotalBiz Company Page (`urn:li:share:7500483174699802625`); upgraded Cloud Run (`totalbiz-social-poster-00019-76n`) with an immutable date-indexed `MASTER_CALENDAR` and dual-channel LinkedIn UGC publishing.
   30. **Comprehensive Weekly Campaign Blueprint & Auto-Pilot Schedulers (Day 12):** Formulated and deployed full weekly campaign covering Tuesday (08/09) through Friday (11/09) across Sussex & Kent hands-on support (hardware, POS, Wi-Fi, Free Advice Wednesday, and Airbnb smart lock automation) and UK-wide remote tech (Shadow IT security, SaaS subscription audits); loaded all 4 days into persistent Cloud Run `MASTER_CALENDAR` and staged corresponding 1080×1350 branded artwork assets.
   31. **Free Contact Wednesday Morning Publication & Schedule Realignment (Day 13):** Shifted "Free Advice Wednesday" dispatch from 19:30 evening to mid-morning (10:35 BST) to maximize same-day business inquiries; published live across Facebook Page (`1207871262402389_122136356115360282`) and Instagram Business (`18099736022630436`); marked slot as published to prevent evening duplication.
-
-
-
-
-
+  32. **Brevo Email Tracking & Discord Intelligence Webhook Relay (Day 13):** Architected and deployed dedicated `/webhook/brevo` bridge endpoint on the live London Cloud Run service (`totalbiz-social-poster-00022-cpd`). Ingests transactional and campaign email triggers (Sent, Delivered, Opened, Link Clicks, Bounces, Deferred, Apple Privacy Proxy Opens, Spam, and Unsubscribes) from Brevo, formats rich color-coded Discord embeds with London timestamps and link details, and relays them in real-time to the dedicated Discord operations webhook with zero additional quota cost.
 
 ---
 
@@ -200,7 +196,8 @@ Verify running PID with: `ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"`
   * **07:45 BST:** Morning LinkedIn Thought Leadership (`/publish/daily-morning`)
   * **12:30 BST:** Lunch LinkedIn Native Video (`/publish/lunch-linkedin`)
   * **19:30 BST:** Evening Meta Facebook Page (`1207871262402389`) + Instagram Business (`@totalbiz_support`, `17841437512971881`) (`/publish/daily-evening`)
-* **Real-Time Discord Webhook Alerts:** Every publication dispatch triggers an instant rich embed notification to Discord (with visual artwork, execution status, and error logs).
+* **Brevo Email Tracking Webhook Relay:** `POST /webhook/brevo` & `GET /webhook/brevo` (relays transactional & campaign email open, click, bounce, deferred, and delivery events to Discord in real-time).
+* **Real-Time Discord Webhook Alerts:** Every publication dispatch and Brevo email event triggers an instant rich embed notification to Discord (with visual artwork, execution status, and error logs).
 * **CLI Inspection Tool:** `python tools/totalbiz.py queue` (Inspect in-memory schedule) & `python tools/totalbiz.py analytics` (Live Meta, Instagram, and LinkedIn metrics).
 
 ---
