@@ -153,6 +153,21 @@
   - **Instagram Business Post:** Live at 10:35 BST (`18099736022630436` on `@totalbiz_support`)
 - [x] **Zero-Duplicate Evening Protection:** Marked Wednesday evening Meta slot as `published: true` in `MASTER_CALENDAR` and disk cache so the 19:30 BST Cloud Scheduler safely skips dispatch, preventing duplicate posts.
 
+---
+
+## Day 14 — Rest-of-Week Strategy, Bespoke Visual Rendering & Auto-Pilot Deployment (Completed: 2026-09-14)
+- [x] **Rest-of-Week Campaign Strategy Blueprint:** Formulated comprehensive dual-channel campaign covering Tuesday (15/09) through Friday (18/09) targeting both local Sussex & Kent hands-on support (invoicing auto-pilot, Free Advice Wednesday, local Google SEO map pack dominance, and 3-2-1 disaster recovery) and UK-wide remote tech leadership (frictionless quoting, web CRO, busting £5k agency website quotes, and enterprise cyber hygiene).
+- [x] **Bespoke 1080×1350 Visual Asset Generation:** Programmatically rendered 3 high-contrast, topic-specific graphics using headless Edge pipeline (`scripts/render-week-visuals.js`) with official TotalBiz Electric Cyan & Corporate Navy palette, Poppins typography, and value highlight cards:
+  - `admin_invoicing_visual.jpg` (Tuesday Meta)
+  - `local_seo_website_visual.jpg` (Thursday Meta)
+  - `disaster_recovery_backup_visual.jpg` (Friday Meta)
+  - Verified `free_contact_wednesday_official.jpg` staged in `client/public/` for Wednesday Meta.
+- [x] **Upstream Asset Synchronization:** Committed and pushed all 3 visual assets to GitHub `origin/main` (`c843d9e`), making them immediately available at public raw URLs for Instagram container generation.
+- [x] **Master Editorial Calendar Update:** Loaded complete posts, hashtags, and image mappings for all 4 days into `MASTER_CALENDAR` in `server.js`.
+- [x] **Google Cloud Scheduler Automation:** Configured dedicated Wednesday Mid-Morning Meta job (`totalbiz-wednesday-morning-meta` at 10:35 BST) alongside daily Morning LinkedIn (07:45 BST Sharp) and Evening Meta (19:30 BST Sharp).
+- [x] **Live Cloud Run Microservice Deployment:** Deployed revision `totalbiz-social-poster-00023-nlz` to `europe-west2` (London) serving 100% of live traffic; verified live queue readiness via `python tools/totalbiz.py queue`.
+
+
 
 
 
