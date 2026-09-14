@@ -1,35 +1,42 @@
-# Daily Marketing Execution Blueprint — Day 12 (2026-09-08)
+# Daily Marketing Execution Blueprint — Day 14 (2026-09-14)
 
-**Date:** Tuesday, 8 September 2026  
+**Date:** Monday, 14 September 2026  
 **Lead:** Antigravity CLI (Marketing Operations Lead & Senior Developer)  
 **Assistant / Executor:** Alex Poxon (Project Director)  
 
 ---
 
-## 🎯 DAY 12 OBJECTIVES & WEEKLY STRATEGY: Full Weekly Schedule Loaded
+## 🎯 DAY 14 OBJECTIVES & REST-OF-WEEK CAMPAIGN: Full Weekly Schedule Loaded
 
-1. **Weekly Strategy & Editorial Calendar (8th–11th September):**
-   - **Tuesday (08/09):** Evening Meta (19:30 BST) — *Local IT & Point-of-Sale / Office Tech Rescue* (Facebook Page + Instagram Business with `hardware_wifi_visual.jpg`).
-   - **Wednesday (09/09):** Morning LinkedIn (07:45 BST) — *The "Shadow IT" Trap: Consumer Tools in Business* | Evening Meta (19:30 BST) — *Free Advice Wednesday* (`free_contact_wednesday_official.jpg`).
-   - **Thursday (10/09):** Morning LinkedIn (07:45 BST) — *Airbnb & Hospitality Tech: Why Static Pricing & Lockboxes Bleed Margin* | Evening Meta (19:30 BST) — *Smart Locks & Guest Wi-Fi for Holiday Stays* (`day7_airbnb_smartlock.jpg`).
-   - **Friday (11/09):** Morning LinkedIn (07:45 BST) — *The 15-Minute Friday SaaS Audit: Eliminating Software Waste* | Evening Meta (19:30 BST) — *Weekend Peace of Mind: Systems That Run While You Rest* (`zombie_saas_audit_visual.jpg`).
+1. **Rest-of-Week Strategy & Multi-Channel Editorial Calendar (15th–18th September 2026):**
+   - **Tuesday (15/09):**
+     - **Morning LinkedIn (07:45 BST Sharp):** *The "Invisible 20%": How Small Business Owners Lose 1 Working Day a Week to Low-Value Admin* (Dual Personal + Company Page).
+     - **Evening Meta (19:30 BST Sharp):** *Stop Losing Sunday Evenings to Invoicing & Paperwork* (Facebook Page + Instagram Business with bespoke 1080×1350 artwork `admin_invoicing_visual.jpg`).
+   - **Wednesday (16/09):**
+     - **Morning LinkedIn (07:45 BST Sharp):** *The "Contact Form Graveyard": Why 70% of High-Intent Website Inquiries Never Convert* (Dual Personal + Company Page).
+     - **Mid-Morning Meta (10:35 BST Sharp):** *Free Advice Wednesday: Got a Tech, Website or Admin Headache?* (Facebook Page + Instagram Business with official canonical badge `free_contact_wednesday_official.jpg`).
+     - **Evening Meta (19:30 BST):** Safely skipped automatically via zero-duplicate protection once morning is published.
+   - **Thursday (17/09):**
+     - **Morning LinkedIn (07:45 BST Sharp):** *The £5,000 Agency Quote Myth: Why Most Small Businesses Overpay for Underperforming Websites* (Dual Personal + Company Page).
+     - **Evening Meta (19:30 BST Sharp):** *Does Your Business Show Up When Local Customers Search for Your Services?* (Facebook Page + Instagram Business with bespoke 1080×1350 artwork `local_seo_website_visual.jpg`).
+   - **Friday (18/09):**
+     - **Morning LinkedIn (07:45 BST Sharp):** *The "Spilled Coffee" Litmus Test: Could Your Business Survive a Hardware Disaster on Monday Morning?* (Dual Personal + Company Page).
+     - **Evening Meta (19:30 BST Sharp):** *The Spilled Coffee Test: Is Your Business Data Safe If Hardware Fails Today?* (Facebook Page + Instagram Business with bespoke 1080×1350 artwork `disaster_recovery_backup_visual.jpg`).
 
-2. **Cloud Run Auto-Pilot Deployment:**
-   - Deployed updated `MASTER_CALENDAR` in `server.js` to Google Cloud Run (`totalbiz-social-poster`) in `europe-west2` (London).
-   - Confirmed exact-second triggers: Morning LinkedIn (07:45 BST Sharp) and Evening Meta (19:30 BST Sharp).
-   - Synced public graphic assets to `client/public/` for reliable Instagram container rendering.
+2. **Bespoke Visual Asset Production (1080×1350):**
+   - Generated using headless Edge pipeline (`scripts/render-week-visuals.js`) with official TotalBiz Electric Cyan & Navy branding, Poppins typography, and topic-specific highlight cards.
+   - Staged in both `client/public/` and `marketing/03-content/` for GitHub Pages raw URL serving.
+
+3. **Cloud Run Auto-Pilot Microservice & Schedulers:**
+   - Loaded complete 4-day editorial schedule into `MASTER_CALENDAR` in `server.js`.
+   - Updated `deploy.ps1` to include dedicated Wednesday Mid-Morning Meta job (`totalbiz-wednesday-morning-meta` at 10:35 BST) alongside morning LinkedIn (07:45 BST) and evening Meta (19:30 BST).
 
 ---
 
 ## 📊 Status Tracker
 - [x] **Weekly Strategy Blueprint Formulated & Approved:** 🟢 **DONE**
-- [x] **Master Calendar Updated (server.js):** 🟢 **DEPLOYED** (2026-09-08 to 2026-09-11)
-- [x] **Tuesday Evening Meta Post (19:30 BST):** 🟢 **PUBLISHED LIVE** (`1207871262402389_122136231081360282`)
-- [x] **Wednesday Morning LinkedIn (07:45 BST):** 🟢 **PUBLISHED LIVE** (Dual Personal + Company Page — *The "Shadow IT" Trap*)
-- [x] **Wednesday Free Advice Meta Post (10:35 BST):** 🟢 **PUBLISHED LIVE** (Facebook `1207871262402389_122136356115360282` + Instagram `18099736022630436`, rescheduled to morning to maximize business-day inquiries; 19:30 slot marked published to avoid duplicates)
-- [x] **Thursday Airbnb Smart Lock Asset Staged:** 🟢 **SYNCED** (`client/public/day7_airbnb_smartlock.jpg`)
-- [x] **Friday SaaS Audit Asset Staged:** 🟢 **SYNCED** (`client/public/zombie_saas_audit_visual.jpg`)
-- [x] **Cloud Run Deployment Complete:** 🟢 **DEPLOYED & SERVING 100%** (Revision `00020-vsx`)
-
-
-
+- [x] **3 Bespoke 1080×1350 Visuals Rendered:** 🟢 **GENERATED & STAGED** (`admin_invoicing_visual.jpg`, `local_seo_website_visual.jpg`, `disaster_recovery_backup_visual.jpg`)
+- [x] **Master Calendar Updated (server.js):** 🟢 **LOADED** (2026-09-15 through 2026-09-18)
+- [x] **Cloud Scheduler Configuration Updated (deploy.ps1):** 🟢 **CONFIGURED**
+- [ ] **Cloud Run Deployment to London (`europe-west2`):** 🟡 **PENDING EXECUTION**
+- [ ] **Upstream GitHub Synchronization:** 🟡 **PENDING COMMIT & PUSH**

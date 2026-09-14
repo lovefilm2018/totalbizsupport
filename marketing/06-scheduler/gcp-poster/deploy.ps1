@@ -105,10 +105,37 @@ if ($existingEvening) {
       --http-method POST
 }
 
+# 6. Create or Update Cloud Scheduler Job: Wednesday Mid-Morning Meta (10:35 BST Sharp)
+Write-Host "Configuring Cloud Scheduler: Wednesday Mid-Morning Meta (10:35 BST Sharp)..." -ForegroundColor Cyan
+
+$WedMorningJob = "totalbiz-wednesday-morning-meta"
+$WedMorningUri = "$ServiceUrl/publish/daily-evening"
+
+$existingWed = gcloud scheduler jobs list --project $Project --location $Region --filter="ID:$WedMorningJob" --format="value(ID)"
+if ($existingWed) {
+    gcloud scheduler jobs update http $WedMorningJob `
+      --project $Project `
+      --location $Region `
+      --schedule "35 10 * * 3" `
+      --time-zone "Europe/London" `
+      --uri $WedMorningUri `
+      --http-method POST
+} else {
+    gcloud scheduler jobs create http $WedMorningJob `
+      --project $Project `
+      --location $Region `
+      --schedule "35 10 * * 3" `
+      --time-zone "Europe/London" `
+      --uri $WedMorningUri `
+      --http-method POST
+}
+
 Write-Host "=====================================================" -ForegroundColor Green
 Write-Host "DEPLOYMENT COMPLETE!" -ForegroundColor Green
-Write-Host "Cloud Run Service:    $ServiceUrl" -ForegroundColor Green
-Write-Host "Morning LinkedIn Job: 07:45:00 BST Sharp ($MorningJob)" -ForegroundColor Green
-Write-Host "Lunch LinkedIn Job:   12:30:00 BST Sharp ($LunchJob)" -ForegroundColor Green
-Write-Host "Evening Meta Job:     19:30:00 BST Sharp ($EveningJob)" -ForegroundColor Green
+Write-Host "Cloud Run Service:         $ServiceUrl" -ForegroundColor Green
+Write-Host "Morning LinkedIn Job:      07:45:00 BST Sharp ($MorningJob)" -ForegroundColor Green
+Write-Host "Lunch LinkedIn Job:        12:30:00 BST Sharp ($LunchJob)" -ForegroundColor Green
+Write-Host "Wednesday Mid-Morning Meta: 10:35:00 BST Sharp ($WedMorningJob)" -ForegroundColor Green
+Write-Host "Evening Meta Job:          19:30:00 BST Sharp ($EveningJob)" -ForegroundColor Green
 Write-Host "=====================================================" -ForegroundColor Green
+
