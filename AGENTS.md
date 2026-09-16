@@ -143,12 +143,13 @@ At the start of every new session, AGY must inspect:
 - `marketing/04-analytics/` (Latest GSC, GA4, Meta, and LinkedIn API tokens and rankings)
 
 ### 2. Session Wrap-Up Protocol (Trigger: "That's a wrap")
-Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 5 closing steps automatically:
-1. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
-2. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
-3. **Seedbox Synchronization:** If any context/tool files were touched, deploy to seedbox and verify running daemon PID.
-4. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
-5. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
+Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 6 closing steps automatically:
+1. **Telegram Fleet Context & Tools Audit:** If any new features, endpoints, cron jobs, or core behaviors were built in this session, verify whether the project's Telegram Bot context (`context/<project>.md`) and tool script (`tools/<project>.py`) need to know about them. If yes, update them immediately before committing.
+2. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
+3. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
+4. **Seedbox & Live Daemon Synchronization:** If any context/tool files were touched, deploy to seedbox `/storage/services/telegram_gateway/` and verify running daemon PID (or reload via detached command).
+5. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
+6. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
 ---
 
 ## V. Telegram Operations Gateway & Seedbox Sync Protocols
@@ -179,12 +180,13 @@ At the start of every session, inspect:
 - Recent job logs and configuration states in `jobs/` or `config/`
 
 ### 2. Session Wrap-Up Protocol (Trigger: "That's a wrap")
-Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 5 closing steps automatically:
-1. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
-2. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
-3. **Seedbox Synchronization:** If any context/tool files were touched, deploy to seedbox and verify running daemon PID.
-4. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
-5. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
+Whenever the Project Director says **"That's a wrap"** (or wraps up a session/milestone), execute these 6 closing steps automatically:
+1. **Telegram Fleet Context & Tools Audit:** If any new features, endpoints, cron jobs, or core behaviors were built in this session, verify whether the project's Telegram Bot context (`context/<project>.md`) and tool script (`tools/<project>.py`) need to know about them. If yes, update them immediately before committing.
+2. **Sync Documentation:** Update `GEMINI.md` with any new endpoints, schemas, tools, or architectural changes.
+3. **Git Commit & Push:** Verify all modified workspace files are cleanly staged, committed, and pushed to GitHub.
+4. **Seedbox & Live Daemon Synchronization:** If any context/tool files were touched, deploy to seedbox `/storage/services/telegram_gateway/` and verify running daemon PID (or reload via detached command).
+5. **Log Session Close:** Append `SESSION_CLOSE` entry in <0.1s using: `python "C:\Users\TotalBiz\Documents\AI_Usage_Audit\log_task.py" <ProjectName> "<Full Session Summary>" "<ModelTier>" "0" "~1.5k" "SESSION_CLOSE"`
+6. **Executive Recap:** Present a concise closing summary of all achievements and verified system status.
 
 ---
 
