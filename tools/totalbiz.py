@@ -226,14 +226,31 @@ def get_social_queue() -> str:
                 "*Today's Execution Schedule:*"
             ]
             
-            slots = [
-                ("Morning LinkedIn (07:45 BST)", active_today.get("morningLinkedIn")),
-                ("Lunch Video (12:30 BST)", active_today.get("lunchLinkedIn")),
-                ("Evening Meta (19:30 BST)", active_today.get("eveningMeta"))
-            ]
+            is_wednesday = False
+            try:
+                dt = datetime.strptime(today, "%Y-%m-%d")
+                is_wednesday = (dt.weekday() == 2)
+            except Exception:
+                pass
+
+            if is_wednesday:
+                slots = [
+                    ("Morning LinkedIn (07:45 BST)", active_today.get("morningLinkedIn")),
+                    ("Wednesday Mid-Morning Meta (10:35 BST)", active_today.get("wednesdayMorningMeta") or active_today.get("eveningMeta")),
+                    ("Lunch Video (12:30 BST)", active_today.get("lunchLinkedIn")),
+                    ("Evening Meta (19:30 BST)", None)
+                ]
+            else:
+                slots = [
+                    ("Morning LinkedIn (07:45 BST)", active_today.get("morningLinkedIn")),
+                    ("Lunch Video (12:30 BST)", active_today.get("lunchLinkedIn")),
+                    ("Evening Meta (19:30 BST)", active_today.get("eveningMeta"))
+                ]
             
             for name, post in slots:
-                if post:
+                if name.startswith("Evening Meta") and is_wednesday:
+                    lines.append(f"• *{name}:* 🚫 _Disabled on Wednesdays (Office Hours Strategy — Posted 10:35 BST)_")
+                elif post:
                     is_pub = post.get("published", False)
                     status_icon = "🟢 (Published)" if is_pub else "⏳ (Ready to Publish)"
                     title = post.get("title", "Post")
@@ -245,13 +262,22 @@ def get_social_queue() -> str:
             for day_key, day_data in calendar.items():
                 if day_key == today:
                     continue
+                day_is_wed = False
+                try:
+                    d_obj = datetime.strptime(day_key, "%Y-%m-%d")
+                    day_is_wed = (d_obj.weekday() == 2)
+                except Exception:
+                    pass
                 li_post = day_data.get("morningLinkedIn", {})
-                meta_post = day_data.get("eveningMeta", {})
+                meta_post = day_data.get("eveningMeta", {}) or day_data.get("wednesdayMorningMeta", {})
                 li_title = li_post.get("title", "N/A") if li_post else "N/A"
                 meta_title = meta_post.get("title", "N/A") if meta_post else "N/A"
                 lines.append(f"📅 *{day_key}:*")
                 lines.append(f"   💼 LinkedIn (07:45 BST): _{li_title}_ (Dual Personal + Company)")
-                lines.append(f"   📘 Meta (19:30 BST): _{meta_title}_ (FB + Instagram)")
+                if day_is_wed:
+                    lines.append(f"   📘 Meta Mid-Morning (10:35 BST): _{meta_title}_ (FB + Instagram — Office Hours)")
+                else:
+                    lines.append(f"   📘 Meta (19:30 BST): _{meta_title}_ (FB + Instagram)")
             
             return "\n".join(lines)
         return f"⚠️ *Error fetching queue:* HTTP {resp.status_code}"

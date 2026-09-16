@@ -80,8 +80,8 @@ if ($existingLunch) {
       --http-method POST
 }
 
-# 5. Create or Update Cloud Scheduler Job: Evening Meta (19:30 BST Sharp)
-Write-Host "Configuring Cloud Scheduler: Evening Meta (19:30 BST Sharp)..." -ForegroundColor Cyan
+# 5. Create or Update Cloud Scheduler Job: Evening Meta (19:30 BST Sharp - Mon, Tue, Thu, Fri ONLY)
+Write-Host "Configuring Cloud Scheduler: Evening Meta (19:30 BST Sharp - Mon, Tue, Thu, Fri)..." -ForegroundColor Cyan
 
 $EveningJob = "totalbiz-evening-meta"
 $EveningUri = "$ServiceUrl/publish/daily-evening"
@@ -91,7 +91,7 @@ if ($existingEvening) {
     gcloud scheduler jobs update http $EveningJob `
       --project $Project `
       --location $Region `
-      --schedule "30 19 * * 1-5" `
+      --schedule "30 19 * * 1,2,4,5" `
       --time-zone "Europe/London" `
       --uri $EveningUri `
       --http-method POST
@@ -99,7 +99,7 @@ if ($existingEvening) {
     gcloud scheduler jobs create http $EveningJob `
       --project $Project `
       --location $Region `
-      --schedule "30 19 * * 1-5" `
+      --schedule "30 19 * * 1,2,4,5" `
       --time-zone "Europe/London" `
       --uri $EveningUri `
       --http-method POST
@@ -109,7 +109,7 @@ if ($existingEvening) {
 Write-Host "Configuring Cloud Scheduler: Wednesday Mid-Morning Meta (10:35 BST Sharp)..." -ForegroundColor Cyan
 
 $WedMorningJob = "totalbiz-wednesday-morning-meta"
-$WedMorningUri = "$ServiceUrl/publish/daily-evening"
+$WedMorningUri = "$ServiceUrl/publish/wednesday-morning"
 
 $existingWed = gcloud scheduler jobs list --project $Project --location $Region --filter="ID:$WedMorningJob" --format="value(ID)"
 if ($existingWed) {

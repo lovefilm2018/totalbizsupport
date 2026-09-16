@@ -114,8 +114,9 @@ AGY operates in a dual capacity:
 - **GCP Project:** `totalbiz-marketing-automation` (Region: `europe-west2` London)
 - **Live Service URL:** `https://totalbiz-social-poster-682815206557.europe-west2.run.app`
 - **Morning LinkedIn Scheduler (07:45 BST Sharp Mon–Fri):** `totalbiz-morning-linkedin` (`45 7 * * 1-5` in `Europe/London`) -> `POST /publish/daily-morning`
+- **Wednesday Mid-Morning Meta (10:35 BST Sharp Wednesdays):** `totalbiz-wednesday-morning-meta` (`35 10 * * 3` in `Europe/London`) -> `POST /publish/wednesday-morning` (Office Hours Inquiry Strategy)
 - **Lunch LinkedIn Video Scheduler (12:30 BST Sharp Mon–Fri):** `totalbiz-lunch-linkedin` (`30 12 * * 1-5` in `Europe/London`) -> `POST /publish/lunch-linkedin`
-- **Evening Meta Scheduler (19:30 BST Sharp Mon–Fri):** `totalbiz-evening-meta` (`30 19 * * 1-5` in `Europe/London`) -> `POST /publish/daily-evening`
+- **Evening Meta Scheduler (19:30 BST Sharp Mon, Tue, Thu, Fri ONLY):** `totalbiz-evening-meta` (`30 19 * * 1,2,4,5` in `Europe/London`) -> `POST /publish/daily-evening` (Wednesdays permanently excluded)
 - **Deployment Script:** `marketing/06-scheduler/gcp-poster/deploy.ps1`
 
 ### 7. Contextual Branded Social Visuals Protocol

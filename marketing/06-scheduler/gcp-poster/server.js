@@ -616,6 +616,8 @@ No tech jargon, no confusing software — just practical systems that get you pa
     morningLinkedIn: {
       date: '2026-09-16',
       title: 'The "Contact Form Graveyard": Why 70% of High-Intent Website Inquiries Never Convert',
+      published: true,
+      publishedAt: '2026-09-16T06:45:06.671Z',
       text: `Most small business websites are built like digital brochures rather than conversion engines.
 
 You invest £2,000 to £5,000 in an agency rebuild. The site looks clean, the photography is crisp, and your visitor traffic looks steady.
@@ -648,6 +650,9 @@ When did you last test contacting your own business from a smartphone?
     eveningMeta: {
       date: '2026-09-16',
       title: 'Free Advice Wednesday: Got a Tech, Website or Admin Headache?',
+      published: true,
+      publishedAt: '2026-09-16T09:35:13.970Z',
+      facebookPostId: '1207871262402389_122137870887360282',
       facebookText: `It's Free Advice Wednesday at TotalBiz Support! 💡 🛠️
 
 Are you stuck with an annoying tech problem or feeling frustrated with your current business setup?
@@ -1280,9 +1285,132 @@ app.post('/publish/daily-morning', async (req, res) => {
   }
 });
 
-// 5. Evening Scheduler Trigger (19:30 BST Sharp) - Meta Facebook & Instagram
+// Helper for publishing Meta (Facebook Page + Instagram)
+async function dispatchMetaPost(postToPublish, todayLondon, isMorning = false) {
+  const { facebookText, instagramImageUrl, instagramCaption, title } = postToPublish;
+  const dispatchName = isMorning ? 'Wednesday Mid-Morning Meta (Free Advice Wednesday)' : 'Evening Meta Post';
+  const promises = [];
+  if (facebookText) promises.push(publishFacebook(facebookText));
+  if (instagramImageUrl && instagramCaption) promises.push(publishInstagramMedia(instagramImageUrl, instagramCaption, false));
+
+  const results = await Promise.allSettled(promises);
+  
+  postToPublish.published = true;
+  postToPublish.publishedAt = new Date().toISOString();
+  if (MASTER_CALENDAR[todayLondon]?.eveningMeta) {
+    MASTER_CALENDAR[todayLondon].eveningMeta.published = true;
+    MASTER_CALENDAR[todayLondon].eveningMeta.publishedAt = new Date().toISOString();
+  }
+  if (MASTER_CALENDAR[todayLondon]?.wednesdayMorningMeta) {
+    MASTER_CALENDAR[todayLondon].wednesdayMorningMeta.published = true;
+    MASTER_CALENDAR[todayLondon].wednesdayMorningMeta.publishedAt = new Date().toISOString();
+  }
+  if (!dynamicQueue[todayLondon]) dynamicQueue[todayLondon] = {};
+  dynamicQueue[todayLondon].eveningMeta = postToPublish;
+  saveQueue(dynamicQueue);
+
+  console.log(`[Meta Dispatch Results (${dispatchName})]`, results);
+
+  const fbOk = results.length > 0 && results[0].status === 'fulfilled';
+  const igOk = results.length > 1 && results[1].status === 'fulfilled';
+  const overallOk = results.some(r => r.status === 'fulfilled');
+
+  sendNotification({
+    title: dispatchName,
+    headline: title || 'Social Dispatch',
+    statusType: overallOk ? 'published' : 'failed',
+    platforms: {
+      '📘 Facebook Page': fbOk ? 'Published' : (facebookText ? 'Failed' : 'Skipped'),
+      '📸 Instagram': igOk ? 'Published' : (instagramCaption ? 'Failed' : 'Skipped')
+    },
+    messageText: instagramCaption || facebookText || '',
+    imageUrl: instagramImageUrl,
+    failureReason: overallOk ? null : 'Failed to publish to Facebook and/or Instagram.'
+  });
+
+  return { status: isMorning ? 'published_wednesday_morning' : 'published_evening', results };
+}
+
+// 5a. Wednesday Mid-Morning Meta Trigger (10:35 BST Sharp) - Free Advice / Free Contact Wednesday
+app.post('/publish/wednesday-morning', async (req, res) => {
+  const todayLondon = getLondonDateString();
+  console.log(`[Cloud Scheduler] 10:35 AM Wednesday Mid-Morning Meta Trigger for ${todayLondon}...`);
+
+  let postToPublish = null;
+  if (req.body && (req.body.facebookText || req.body.instagramCaption)) {
+    postToPublish = req.body;
+  } else if (dynamicQueue[todayLondon]?.wednesdayMorningMeta && !dynamicQueue[todayLondon]?.wednesdayMorningMeta.published) {
+    postToPublish = dynamicQueue[todayLondon].wednesdayMorningMeta;
+  } else if (dynamicQueue[todayLondon]?.eveningMeta && !dynamicQueue[todayLondon]?.eveningMeta.published) {
+    postToPublish = dynamicQueue[todayLondon].eveningMeta;
+  } else if (MASTER_CALENDAR[todayLondon]?.wednesdayMorningMeta && !MASTER_CALENDAR[todayLondon]?.wednesdayMorningMeta.published) {
+    postToPublish = MASTER_CALENDAR[todayLondon].wednesdayMorningMeta;
+  } else if (MASTER_CALENDAR[todayLondon]?.eveningMeta && !MASTER_CALENDAR[todayLondon]?.eveningMeta.published) {
+    postToPublish = MASTER_CALENDAR[todayLondon].eveningMeta;
+  }
+
+  if (!postToPublish) {
+    console.log(`[Cloud Scheduler] Skipped Wednesday Morning Meta: No agreed pending post for today (${todayLondon}) or already published.`);
+    sendNotification({
+      title: 'Wednesday Mid-Morning Meta (Free Advice Wednesday)',
+      headline: 'Scheduled Trigger Evaluation',
+      statusType: 'skipped',
+      platforms: { '📘 Facebook / 📸 Instagram': 'Skipped' },
+      messageText: `No Free Advice Wednesday post queued for today (${todayLondon}) or already published.`,
+      failureReason: 'Calendar slot empty or already published today.'
+    });
+    return res.json({ status: 'skipped', reason: `No agreed post queued for today (${todayLondon}) or already published. Fallback disabled.` });
+  }
+
+  try {
+    const outcome = await dispatchMetaPost(postToPublish, todayLondon, true);
+    res.json(outcome);
+  } catch (err) {
+    console.error('[Wednesday Meta Error]', err);
+    sendNotification({
+      title: 'Wednesday Mid-Morning Meta',
+      headline: 'Social Dispatch',
+      statusType: 'failed',
+      platforms: { '📘 Facebook / 📸 Instagram': 'Failed' },
+      messageText: postToPublish?.instagramCaption || postToPublish?.facebookText || '',
+      imageUrl: postToPublish?.instagramImageUrl,
+      failureReason: err.message
+    });
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 5b. Evening Scheduler Trigger (19:30 BST Sharp) - Meta Facebook & Instagram (Mon, Tue, Thu, Fri ONLY)
 app.post('/publish/daily-evening', async (req, res) => {
   const todayLondon = getLondonDateString();
+  const todayObj = new Date();
+  const dayOfWeek = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', weekday: 'short' }).format(todayObj);
+  const hourLondon = parseInt(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', hour: 'numeric', hour12: false }).format(todayObj), 10);
+
+  // Programmatic Hard Guard: Block Wednesday Evenings (>= 12:00 London)
+  if (dayOfWeek === 'Wed' && hourLondon >= 12) {
+    console.log(`[Cloud Scheduler] Blocked Evening Meta trigger for Wednesday (${todayLondon}): Free Contact Wednesday is strictly morning-only (10:35 BST).`);
+    return res.json({
+      status: 'skipped',
+      reason: 'Wednesday evening Meta dispatches are permanently disabled. Free Contact Wednesday is strictly published mid-morning during active office hours.'
+    });
+  }
+
+  // If called on Wednesday morning (< 12:00 London), route seamlessly to Wednesday morning handler
+  if (dayOfWeek === 'Wed' && hourLondon < 12) {
+    console.log(`[Cloud Scheduler] Routing morning call on Wednesday (${todayLondon}) to Wednesday Morning handler...`);
+    let postToPublish = req.body?.facebookText ? req.body : (dynamicQueue[todayLondon]?.eveningMeta || MASTER_CALENDAR[todayLondon]?.eveningMeta);
+    if (!postToPublish || postToPublish.published) {
+      return res.json({ status: 'skipped', reason: 'Already published or empty.' });
+    }
+    try {
+      const outcome = await dispatchMetaPost(postToPublish, todayLondon, true);
+      return res.json(outcome);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
   console.log(`[Cloud Scheduler] 19:30 PM Evening Meta Trigger for ${todayLondon}...`);
 
   let postToPublish = null;
@@ -1308,43 +1436,8 @@ app.post('/publish/daily-evening', async (req, res) => {
   }
 
   try {
-    const { facebookText, instagramImageUrl, instagramCaption, title } = postToPublish;
-    const promises = [];
-    if (facebookText) promises.push(publishFacebook(facebookText));
-    if (instagramImageUrl && instagramCaption) promises.push(publishInstagramMedia(instagramImageUrl, instagramCaption, false));
-
-    const results = await Promise.allSettled(promises);
-    
-    postToPublish.published = true;
-    postToPublish.publishedAt = new Date().toISOString();
-    if (MASTER_CALENDAR[todayLondon]?.eveningMeta) {
-      MASTER_CALENDAR[todayLondon].eveningMeta.published = true;
-      MASTER_CALENDAR[todayLondon].eveningMeta.publishedAt = new Date().toISOString();
-    }
-    if (!dynamicQueue[todayLondon]) dynamicQueue[todayLondon] = {};
-    dynamicQueue[todayLondon].eveningMeta = postToPublish;
-    saveQueue(dynamicQueue);
-
-    console.log('[Meta Dispatch Results]', results);
-
-    const fbOk = results.length > 0 && results[0].status === 'fulfilled';
-    const igOk = results.length > 1 && results[1].status === 'fulfilled';
-    const overallOk = results.some(r => r.status === 'fulfilled');
-
-    sendNotification({
-      title: 'Evening Meta Post',
-      headline: title || 'Social Dispatch',
-      statusType: overallOk ? 'published' : 'failed',
-      platforms: {
-        '📘 Facebook Page': fbOk ? 'Published' : (facebookText ? 'Failed' : 'Skipped'),
-        '📸 Instagram': igOk ? 'Published' : (instagramCaption ? 'Failed' : 'Skipped')
-      },
-      messageText: instagramCaption || facebookText || '',
-      imageUrl: instagramImageUrl,
-      failureReason: overallOk ? null : 'Failed to publish to Facebook and/or Instagram.'
-    });
-
-    res.json({ status: 'published_evening', results });
+    const outcome = await dispatchMetaPost(postToPublish, todayLondon, false);
+    res.json(outcome);
   } catch (err) {
     console.error('[Meta Error]', err);
 

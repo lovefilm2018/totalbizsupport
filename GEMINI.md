@@ -118,6 +118,7 @@ TotalBizSupport/
   31. **Free Contact Wednesday Morning Publication & Schedule Realignment (Day 13):** Shifted "Free Advice Wednesday" dispatch from 19:30 evening to mid-morning (10:35 BST) to maximize same-day business inquiries; published live across Facebook Page (`1207871262402389_122136356115360282`) and Instagram Business (`18099736022630436`); marked slot as published to prevent evening duplication.
   32. **Brevo Email Tracking & Discord Intelligence Webhook Relay (Day 13):** Architected and deployed dedicated `/webhook/brevo` bridge endpoint on the live London Cloud Run service (`totalbiz-social-poster-00022-cpd`). Ingests transactional and campaign email triggers (Sent, Delivered, Opened, Link Clicks, Bounces, Deferred, Apple Privacy Proxy Opens, Spam, and Unsubscribes) from Brevo, formats rich color-coded Discord embeds with London timestamps and link details, and relays them in real-time to the dedicated Discord operations webhook with zero additional quota cost.
   33. **Rest-of-Week Campaign Strategy, Bespoke Visuals & Cloud Scheduler Upgrade (Day 14):** Formulated comprehensive campaign covering Tuesday (15/09) through Friday (18/09) across Invoicing Auto-Pilot, Free Advice Wednesday CRO clinic, Local SEO map pack rankings, and 3-2-1 disaster recovery backups. Rendered 3 bespoke 1080×1350 graphics (`admin_invoicing_visual.jpg`, `local_seo_website_visual.jpg`, `disaster_recovery_backup_visual.jpg`), deployed Cloud Run revision `totalbiz-social-poster-00023-nlz`, and provisioned dedicated Wednesday Mid-Morning Meta Cloud Scheduler (`totalbiz-wednesday-morning-meta` at 10:35 BST Sharp).
+  34. **Wednesday Mid-Morning Meta Realignment & Evening Lockout:** Decoupled "Free Contact Wednesday" from the 19:30 evening schedule to ensure business inquiries occur during active office hours. Configured Cloud Scheduler `totalbiz-evening-meta` to `30 19 * * 1,2,4,5` (permanently excluding Wednesdays), routed `totalbiz-wednesday-morning-meta` (`35 10 * * 3`) to a dedicated `/publish/wednesday-morning` endpoint on Cloud Run, and installed a hard programmatic guard blocking Wednesday evening Meta executions.
 
 ---
 
@@ -194,9 +195,10 @@ Verify running PID with: `ssh lovefilm-seedbox "pgrep -a -f 'bot.py'"`
 * **Region:** `europe-west2` (London)
 * **Service URL:** `https://totalbiz-social-poster-682815206557.europe-west2.run.app`
 * **Automated Publishing Schedules:**
-  * **07:45 BST:** Morning LinkedIn Thought Leadership (`/publish/daily-morning`)
-  * **12:30 BST:** Lunch LinkedIn Native Video (`/publish/lunch-linkedin`)
-  * **19:30 BST:** Evening Meta Facebook Page (`1207871262402389`) + Instagram Business (`@totalbiz_support`, `17841437512971881`) (`/publish/daily-evening`)
+  * **07:45 BST:** Morning LinkedIn Thought Leadership (`/publish/daily-morning`, Mon–Fri)
+  * **10:35 BST:** Wednesday Mid-Morning Meta (`/publish/wednesday-morning`, Wednesdays ONLY — Free Contact Wednesday Office Hours)
+  * **12:30 BST:** Lunch LinkedIn Native Video (`/publish/lunch-linkedin`, Mon–Fri)
+  * **19:30 BST:** Evening Meta Facebook Page (`1207871262402389`) + Instagram Business (`@totalbiz_support`, `17841437512971881`) (`/publish/daily-evening`, Mon, Tue, Thu, Fri ONLY — Wednesdays permanently excluded)
 * **Brevo Email Tracking Webhook Relay:** `POST /webhook/brevo` & `GET /webhook/brevo` (relays transactional & campaign email open, click, bounce, deferred, and delivery events to Discord in real-time).
 * **Real-Time Discord Webhook Alerts:** Every publication dispatch and Brevo email event triggers an instant rich embed notification to Discord (with visual artwork, execution status, and error logs).
 * **CLI Inspection Tool:** `python tools/totalbiz.py queue` (Inspect in-memory schedule) & `python tools/totalbiz.py analytics` (Live Meta, Instagram, and LinkedIn metrics).
