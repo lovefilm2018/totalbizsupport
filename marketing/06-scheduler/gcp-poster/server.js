@@ -1202,7 +1202,7 @@ Have a fantastic, restful weekend!
 📍 Based in Heathfield, East Sussex — supporting Sussex, Kent & UK-wide.
 
 #SmallBusinessUK #WorkLifeBalance #DataBackup #BusinessSecurity #SussexBusiness #KentBusiness #Heathfield #EastSussex #ITSupport #TotalBizSupport`,
-      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/disaster_recovery_backup_visual.jpg',
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/spilled_coffee_disaster.jpg',
       instagramCaption: `Friday afternoon peace of mind: knowing your business data is safe, secure, and backed up. ☕ 🔒
 
 Automated cloud backups mean you never have to worry about a spilled cup of coffee or a crashing hard drive destroying your client records.
@@ -1339,7 +1339,7 @@ Ready to build systems that work as hard as you do?
 📍 Based in Heathfield, East Sussex — supporting Sussex, Kent, and UK-wide remotely.
 
 #SmallBusinessUK #WorkLifeBalance #BusinessSystems #Automation #SussexBusiness #KentBusiness #Heathfield #EastSussex #TotalBizSupport`,
-      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/business_freedom_visual.jpg',
+      instagramImageUrl: 'https://raw.githubusercontent.com/lovefilm2018/totalbizsupport/main/client/public/business_freedom_beach.jpg',
       instagramCaption: `Build a business that gives you your life back. ✨ 📱
 
 When your technology, automated booking, and client invoicing run seamlessly in the background, stepping away doesn't cause chaos.

@@ -289,7 +289,7 @@ We provide hands-on, friendly on-site support across Sussex and Kent. No confusi
     dateStr: '2026-09-25',
     dayLabel: 'Friday 25 Sept',
     theme: 'The Friday "Disaster Drill" & Spilled Coffee Test (3-2-1 Cloud Backups)',
-    imageFile: 'disaster_recovery_backup_visual.jpg',
+    imageFile: 'spilled_coffee_disaster.jpg',
     linkedinTitle: 'The Friday Afternoon "Disaster Drill": 3 Questions to Safeguard Your Business',
     linkedinText: `Before you close your laptop for the weekend, ask yourself these 3 questions:
 
@@ -419,7 +419,7 @@ Build systems that train your team for you so you can focus on growing your busi
     dateStr: '2026-09-29',
     dayLabel: 'Tuesday 29 Sept',
     theme: 'The "7-Day Absence" Litmus Test (Business Freedom on Return Day)',
-    imageFile: 'business_freedom_visual.jpg',
+    imageFile: 'business_freedom_beach.jpg',
     linkedinTitle: 'The "7-Day Absence" Litmus Test: Can Your Business Function Without You In The Engine Room?',
     linkedinText: `Here is the ultimate litmus test for small business operational health:
 
