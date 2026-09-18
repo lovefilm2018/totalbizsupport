@@ -285,6 +285,69 @@ def get_social_queue() -> str:
         return f"🔴 *Error connecting to queue endpoint:* `{str(e)}`"
 
 
+def get_post_preview(target_date: Optional[str] = None) -> str:
+    """Fetches the full post text, caption, and image URL for a given date from Cloud Run."""
+    try:
+        resp = requests.get(f"{SOCIAL_POSTER_URL}/queue", timeout=12)
+        if resp.status_code == 200:
+            data = resp.json()
+            today = data.get("todayLondon", "N/A")
+            calendar = data.get("masterCalendar", {}) or {}
+            
+            req_date = target_date.strip() if target_date else today
+            if req_date.lower() == "tomorrow":
+                try:
+                    d_today = datetime.strptime(today, "%Y-%m-%d")
+                    req_date = (d_today + timedelta(days=1)).strftime("%Y-%m-%d")
+                except Exception:
+                    pass
+
+            day_data = calendar.get(req_date)
+            if not day_data and req_date == today:
+                day_data = data.get("activeScheduleToday", {})
+
+            if not day_data:
+                valid_dates = [f"`{d}`" for d in sorted(calendar.keys()) if d >= today]
+                return (
+                    f"⚠️ *No scheduled post found for date `{req_date}`.*\n\n"
+                    f"Available dates in calendar: {', '.join(valid_dates)}"
+                )
+
+            lines = [
+                f"👁️ *TotalBiz Scheduled Post Preview — `{req_date}`*\n"
+            ]
+
+            li_post = day_data.get("morningLinkedIn")
+            if li_post:
+                lines.append("💼 *MORNING LINKEDIN (07:45 BST Sharp)*")
+                lines.append(f"• *Title:* _{li_post.get('title', 'N/A')}_")
+                lines.append(f"• *Status:* {'🟢 Published' if li_post.get('published') else '⏳ Ready to Publish'}")
+                lines.append(f"• *Format:* Text-Only Thought Leadership (Dual Personal + Company)")
+                lines.append(f"\n```text\n{li_post.get('text', '').strip()}\n```\n")
+            else:
+                lines.append("💼 *MORNING LINKEDIN:* ⚪ _Empty / Skipped_\n")
+
+            meta_post = day_data.get("wednesdayMorningMeta") or day_data.get("eveningMeta")
+            slot_name = "WEDNESDAY MID-MORNING META (10:35 BST)" if "wednesdayMorningMeta" in day_data else "EVENING META (19:30 BST)"
+            if meta_post:
+                lines.append(f"📘 *{slot_name}*")
+                lines.append(f"• *Title:* _{meta_post.get('title', 'N/A')}_")
+                lines.append(f"• *Status:* {'🟢 Published' if meta_post.get('published') else '⏳ Ready to Publish'}")
+                if meta_post.get("instagramImageUrl"):
+                    lines.append(f"• *Visual Asset:* [View 1080×1350 Graphic]({meta_post.get('instagramImageUrl')})")
+                lines.append("\n*Facebook Post Copy:*")
+                lines.append(f"```text\n{meta_post.get('facebookText', '').strip()}\n```\n")
+                lines.append("*Instagram Caption:*")
+                lines.append(f"```text\n{meta_post.get('instagramCaption', '').strip()}\n```")
+            else:
+                lines.append(f"📘 *{slot_name}:* ⚪ _Empty / Skipped_")
+
+            return "\n".join(lines)
+        return f"⚠️ *Error fetching preview:* HTTP {resp.status_code}"
+    except Exception as e:
+        return f"🔴 *Error connecting to queue:* `{str(e)}`"
+
+
 
 def get_social_performance(limit: int = 3) -> str:
     """
@@ -550,6 +613,15 @@ def execute_query(query: str, **kwargs) -> str:
         return check_website_health()
     elif any(k in q for k in ["search console", "gsc", "seo", "ranking", "rank", "keyword", "clicks", "impressions", "indexing"]):
         return get_search_console_summary()
+    elif any(k in q for k in ["preview", "read post", "show post", "inspect post"]):
+        # Extract potential date like 2026-09-21 or tomorrow
+        tokens = query.split()
+        target_date = None
+        for t in tokens:
+            if t.lower() == "tomorrow" or ("2026-" in t) or ("-" in t and len(t) >= 8):
+                target_date = t
+                break
+        return get_post_preview(target_date)
     elif any(k in q for k in ["queue", "scheduled", "pending post", "next post"]):
         if any(k in q for k in ["metric", "like", "likes", "view", "views", "performance", "engagement"]):
             return get_social_overview()
@@ -576,10 +648,11 @@ def execute_query(query: str, **kwargs) -> str:
             "2. *GSC Rankings & SEO:* `/totalbiz seo`\n"
             "3. *Cloud Run Poster Status:* `/totalbiz poster`\n"
             "4. *Social Queue Inspection:* `/totalbiz queue`\n"
-            "5. *Social Performance & Likes:* `/totalbiz analytics`\n"
-            "6. *Publish Facebook:* `/totalbiz post to facebook <message>`\n"
-            "7. *Publish LinkedIn:* `/totalbiz post to linkedin <message>`\n"
-            "8. *System & Contact Spec:* `/totalbiz overview`\n\n"
+            "5. *Post Content Preview:* `/totalbiz preview [YYYY-MM-DD]`\n"
+            "6. *Social Performance & Likes:* `/totalbiz analytics`\n"
+            "7. *Publish Facebook:* `/totalbiz post to facebook <message>`\n"
+            "8. *Publish LinkedIn:* `/totalbiz post to linkedin <message>`\n"
+            "9. *System & Contact Spec:* `/totalbiz overview`\n\n"
             f"_Production Domain: `{DOMAIN_CANONICAL}`_"
         )
 
@@ -595,6 +668,9 @@ if __name__ == "__main__":
             print(check_social_poster_health())
         elif cmd in ["queue"]:
             print(get_social_queue())
+        elif cmd in ["preview"]:
+            target = sys.argv[2] if len(sys.argv) > 2 else None
+            print(get_post_preview(target))
         elif cmd in ["analytics", "metrics", "performance"]:
             print(get_social_performance())
         elif cmd in ["social", "social_overview"]:
