@@ -167,6 +167,26 @@
 - [x] **Google Cloud Scheduler Automation:** Configured dedicated Wednesday Mid-Morning Meta job (`totalbiz-wednesday-morning-meta` at 10:35 BST) alongside daily Morning LinkedIn (07:45 BST Sharp) and Evening Meta (19:30 BST Sharp).
 - [x] **Live Cloud Run Microservice Deployment:** Deployed revision `totalbiz-social-poster-00023-nlz` to `europe-west2` (London) serving 100% of live traffic; verified live queue readiness via `python tools/totalbiz.py queue`.
 
+---
+
+## Day 15 — Absence Travel Campaign Deployment, Sanitized Storytelling Visuals & Telegram Preview (Completed: 2026-09-18)
+- [x] **Absence Marketing Strategy Blueprint (21st–29th Sept):** Formulated an uninterrupted 8-day campaign covering Monday 21st through Tuesday 29th September 2026. Aligned copy with the corporate neutrality directive (zero corporate brand drops like HSBC, eBay, Schroders, Gumtree in LinkedIn thought leadership, keeping examples relatable and grounded in project/change management debates like Agile dogma and 60-page documentation bloat).
+- [x] **Storytelling Visual Generation & Sanitization:**
+  - Created *Beach Laptop Paradox* (`business_freedom_beach.jpg`) for Tuesday 29/09 (*Can your business run without you for 7 days?*).
+  - Created *Spilled Coffee Freeze-Frame* (`spilled_coffee_disaster.jpg`) for Friday 25/09 (*The Spilled Coffee Test & 3-2-1 Cloud Backups*).
+  - Verified 100% clean metadata stripping via `scripts/sanitize_assets.py` (0 EXIF, 0 XMP) to prevent Meta/Facebook AI generation flags.
+- [x] **Mockup Review Artifacts:**
+  - Built interactive tabbed HTML dashboard (`marketing/03-content/travel-posts-mockup.html`) with platform switching for LinkedIn, Facebook, and Instagram.
+  - Rendered high-fidelity 6.6MB PDF (`marketing/03-content/travel-posts-mockup.pdf`) via Edge headless.
+- [x] **Cloud Run Auto-Pilot Engine Deployment:**
+  - Updated `MASTER_CALENDAR` in `server.js` with all 8 dates, dual-channel LinkedIn publishing, and CDN image URLs.
+  - Deployed revision `totalbiz-social-poster-00026-dln` to `europe-west2` (London) serving 100% traffic.
+  - Verified live queue via `python tools/totalbiz.py queue`.
+- [x] **Telegram Operations Gateway & Seedbox Sync:**
+  - Added `preview` command to `tools/totalbiz.py` enabling `/totalbiz preview [YYYY-MM-DD]` from mobile Telegram.
+  - Synchronized mirrored workspace on GigaRapid seedbox (`/storage/workspaces/TotalBizSupport`) via `git pull origin main`.
+  - Confirmed 24/7 Telegram Operations Bot daemon running on PID `210668`.
+
 
 
 
