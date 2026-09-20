@@ -76,9 +76,12 @@ This project operates on a structured **Human-AI Partnership**:
     - Create threaded draft reply: `python tools/gmail_inbox.py reply <message_id> "<reply_body>"`
   - **Safety Standard:** The tool strictly creates drafts in `totalbizsupport@gmail.com` **Drafts** folder; it NEVER sends emails without Alex's review.
 
-
+### 13. Web Authentication & Auth Flow Protocol
+- **Rule:** When running tools, CLI utilities, or SDKs that require web authentication (e.g. gcloud, gh, firebase, OAuth flows), never attempt to execute shell commands to open the browser.
+- **Requirement:** Always pass the tool's `--no-launch-browser` flag (or equivalent headless/console flag) and print the raw authentication URL directly to the terminal for the user to click.
 
 ---
+
 
 ## III. Lead Digital Marketing & Google Search Console Protocol
 
