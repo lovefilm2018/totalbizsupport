@@ -10,18 +10,18 @@ const PORT = process.env.PORT || 8080;
 const QUEUE_FILE = process.env.QUEUE_FILE || path.join('/tmp', 'totalbiz_queue.json');
 
 // Configuration & Default Tokens
-const LINKEDIN_PERSON_TOKEN = process.env.LINKEDIN_PERSON_TOKEN || process.env.LINKEDIN_TOKEN || 'AQU8lBLIfjFyADP-a-zGe8cRHC2wzU9y7zHRpJinLqMfVNjLzha4eSKxf26p4cV8aSncBsUwCPzKLqlE-JXg8swlmnMJlXiIGnZb-a0-K9n67s6TUxPPA_fWqwj17TyxX2dshWnb-fsafb5FBORdm20d7A9EQZqQ56Ksf0R_yXAK71GcTZg_b4t7z2poh8ZXIXHZamn3H7bU8ojR0V0t60Aowl6RJrTFkn6g3UGRXW_Yzou3E2dpLpERrw-CtImOb3q3QW-DDKy90f9hoew_3mFmgASqFUDqb6b93eHhAj3sHQAWQhyCq-jUfkyNPoRmqXl2LZMXo_r43VFPLSiQe9SGyBsIMA';
+const LINKEDIN_PERSON_TOKEN = process.env.LINKEDIN_PERSON_TOKEN || process.env.LINKEDIN_TOKEN || '';
 const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:pACLfBlITP';
 
-const LINKEDIN_ORG_TOKEN = process.env.LINKEDIN_ORG_TOKEN || 'AQVUnsRWybq0VT8KcIrxUboH26Hae5v_PKQ6-Y8-lI_VOcVVARgZtrNgccCs8MhdpwMF7vPH-qAOlGx8SWdOWjzeoWhEeuoSmowVbjMZc54MTrSrgFaU2CQM5NraUHBHgV4auRtjHh9pMs4fDiOELQplNmeQIJG3Swsap1_hzdG3sckXTHQ_hDKNrq6w6ZfCPEXWOVDTdAha3GmcwvkTAT1Ub2InV-6MucZ3PbDFj-4eXi0ToaMfP1VJyKZw77OQ7jvgUR-ShC5-of5LF6jL4szeh91p_H2MAW71h-TtO-y2pwA3bg-I7xDynl6VdJWbzPfZ4Ru3ANfxxLsm48CCyy2yvo-5Jw';
+const LINKEDIN_ORG_TOKEN = process.env.LINKEDIN_ORG_TOKEN || '';
 const LINKEDIN_ORG_URN = process.env.LINKEDIN_ORG_URN || 'urn:li:organization:130184035';
 
 const FB_PAGE_ID = process.env.FB_PAGE_ID || '1207871262402389';
-const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAT9dJ4m67cBSfgKrcqCpcZBJkQ79U3Vz9ioNYlHTwZCoT1krwxkK9wrO8wolZAxq0gK6UAxIhr95im25fJoBjb7SqTZADhd6bAH9EU9Rjn6ZCKz2WR8HDnQgbn73u9upjQVxmEJtwVrR2XA763jrRY1X7oN48vbobOvAs0PM9zsTRZBpTX11vTu3iQzZBAw1IbGRqYKL83VWuGGniTyQZDZD';
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || '';
 const META_USER_TOKEN = process.env.META_USER_TOKEN || '';
 const IG_ACCOUNT_ID = process.env.IG_ACCOUNT_ID || '17841437512971881';
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1542842538212462702/Ml0o9cn16v1CfSe9_vz4sleFnf6O0tk4Sp6FvTPSrK_5AJr7-QObwxWZFS6wH4cpnlmL';
-const DISCORD_BREVO_WEBHOOK_URL = process.env.DISCORD_BREVO_WEBHOOK_URL || 'https://discord.com/api/webhooks/1548072352200269931/8L_FpauERATR6ru1YBk1MHXeo2H9kU307Ym-oJfkEgd8EsrDIv6RuIpT-NWDV-Py9ELt';
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
+const DISCORD_BREVO_WEBHOOK_URL = process.env.DISCORD_BREVO_WEBHOOK_URL || '';
 
 // Master Weekly Editorial Calendar (Immune to cold-starts)
 const MASTER_CALENDAR = {
